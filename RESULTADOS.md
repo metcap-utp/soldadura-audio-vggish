@@ -53,11 +53,11 @@ Los datos de holdout representan condiciones de uso real, nunca vistos durante e
 **Fecha de ejecución:** 2026-01-14 12:27:57  
 **Tamaño del conjunto:** 430 muestras
 
-| Parámetro     | Accuracy | F1-Score (macro avg) | Precision (macro avg) | Recall (macro avg) |
-| ------------- | -------- | -------------------- | --------------------- | ------------------ |
-| **Placa**     | 71.86%   | 72.00%               | 73.00%                | 72.00%             |
-| **Electrodo** | 81.40%   | 80.00%               | 79.00%                | 81.00%             |
-| **Corriente** | 95.58%   | 95.00%               | 95.00%                | 96.00%             |
+| Parámetro     | Accuracy | F1-Score | Precision | Recall |
+| ------------- | -------- | -------- | --------- | ------ |
+| **Placa**     | 71.86%   | 72.00%   | 73.00%    | 72.00% |
+| **Electrodo** | 81.40%   | 80.00%   | 79.00%    | 81.00% |
+| **Corriente** | 95.58%   | 95.00%   | 95.00%    | 96.00% |
 
 ---
 
@@ -66,11 +66,11 @@ Los datos de holdout representan condiciones de uso real, nunca vistos durante e
 **Fecha de ejecución:** 2026-01-14 12:47:57 (aproximada)  
 **Tamaño del conjunto:** 224 muestras
 
-| Parámetro     | Accuracy | F1-Score (macro avg) | Precision (macro avg) | Recall (macro avg) |
-| ------------- | -------- | -------------------- | --------------------- | ------------------ |
-| **Placa**     | 73.21%   | 74.00%               | 75.00%                | 73.00%             |
-| **Electrodo** | 87.50%   | 86.00%               | 86.00%                | 87.00%             |
-| **Corriente** | 97.77%   | 98.00%               | 98.00%                | 97.00%             |
+| Parámetro     | Accuracy | F1-Score | Precision | Recall |
+| ------------- | -------- | -------- | --------- | ------ |
+| **Placa**     | 73.21%   | 74.00%   | 75.00%    | 73.00% |
+| **Electrodo** | 87.50%   | 86.00%   | 86.00%    | 87.00% |
+| **Corriente** | 97.77%   | 98.00%   | 98.00%    | 97.00% |
 
 ---
 
@@ -79,19 +79,19 @@ Los datos de holdout representan condiciones de uso real, nunca vistos durante e
 **Fecha de ejecución:** 2026-01-14 12:52:33 (aproximada)  
 **Tamaño del conjunto:** 87 muestras
 
-| Parámetro     | Accuracy | F1-Score (macro avg) | Precision (macro avg) | Recall (macro avg) |
-| ------------- | -------- | -------------------- | --------------------- | ------------------ |
-| **Placa**     | 100.00%  | 100.00%              | 100.00%               | 100.00%            |
-| **Electrodo** | 97.70%   | 97.00%               | 97.00%                | 98.00%             |
-| **Corriente** | 100.00%  | 100.00%              | 100.00%               | 100.00%            |
+| Parámetro     | Accuracy | F1-Score | Precision | Recall |
+| ------------- | -------- | -------- | --------- | ------ |
+| **Placa**     | 100.00%  | 100.00%  | 100.00%   | 100.00% |
+| **Electrodo** | 97.70%   | 97.00%   | 97.00%    | 98.00%  |
+| **Corriente** | 100.00%  | 100.00%  | 100.00%   | 100.00% |
 
 ---
 
 ## III. Comparación General
 
-| Longitud               | Validación Cruzada | Holdout Test | Diferencia |
-| ---------------------- | ------------------ | ------------ | ---------- |
-| **5 seg - Placa**      | 92.09%             | 71.86%       | -20.23%    |
+| Longitud               | Métricas del Modelo | Holdout Test | Diferencia |
+| ---------------------- | ------------------- | ------------ | ---------- |
+| **5 seg - Placa**      | 92.09%              | 71.86%       | -20.23%    |
 | **5 seg - Electrodo**  | 92.87%             | 81.40%       | -11.47%    |
 | **5 seg - Corriente**  | 98.38%             | 95.58%       | -2.80%     |
 | **10 seg - Placa**     | 98.99%             | 73.21%       | -25.78%    |
