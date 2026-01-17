@@ -52,13 +52,13 @@ SWA_START = 5
 
 # Directorios
 SCRIPT_DIR = Path("5seg")
-VGGISH_MODEL_DIR = Path("vggish")
+VGGISH_MODEL_URL = "https://tfhub.dev/google/vggish/1"
 MODELS_DIR = SCRIPT_DIR / "models"
 MODELS_DIR.mkdir(exist_ok=True)
 
 # Cargar modelo VGGish
-print(f"Cargando modelo VGGish desde {VGGISH_MODEL_DIR}...")
-vggish_model = hub.load(str(VGGISH_MODEL_DIR))
+print(f"Cargando modelo VGGish desde TensorFlow Hub...")
+vggish_model = hub.load(VGGISH_MODEL_URL)
 print("Modelo VGGish cargado correctamente.")
 
 

@@ -4,43 +4,43 @@
 
 ### Audio de 5 segundos
 
-**Fecha de ejecución:** 2026-01-12 22:21:53
+**Fecha de ejecución:** 2026-01-16 17:07:23
 
 | Parámetro     | Accuracy | F1-Score | Precision | Recall |
 | ------------- | -------- | -------- | --------- | ------ |
-| **Placa**     | 92.09%   | 92.11%   | 92.14%    | 92.09% |
-| **Electrodo** | 92.87%   | 92.87%   | 92.93%    | 92.87% |
-| **Corriente** | 98.38%   | 98.39%   | 98.41%    | 98.38% |
+| **Placa**     | 88.40%   | 88.41%   | 88.45%    | 88.40% |
+| **Electrodo** | 90.85%   | 90.87%   | 91.08%    | 90.85% |
+| **Corriente** | 98.31%   | 98.31%   | 98.33%    | 98.31% |
 
-**Mejora vs modelo individual:** +16.86% (Placa), +13.13% (Electrodo), +3.44% (Corriente)
+**Mejora vs modelo individual:** +14.12% (Placa), +13.09% (Electrodo), +3.46% (Corriente)
 
 ---
 
 ### Audio de 10 segundos
 
-**Fecha de ejecución:** 2026-01-12 19:30:36
+**Fecha de ejecución:** 2026-01-16 17:22:45
 
 | Parámetro     | Accuracy | F1-Score | Precision | Recall |
 | ------------- | -------- | -------- | --------- | ------ |
-| **Placa**     | 98.99%   | 98.99%   | 98.99%    | 98.99% |
-| **Electrodo** | 98.12%   | 98.12%   | 98.12%    | 98.12% |
-| **Corriente** | 99.78%   | 99.78%   | 99.78%    | 99.78% |
+| **Placa**     | 94.41%   | 94.40%   | 94.39%    | 94.41% |
+| **Electrodo** | 94.66%   | 94.68%   | 94.80%    | 94.66% |
+| **Corriente** | 99.08%   | 99.08%   | 99.10%    | 99.08% |
 
-**Mejora vs modelo individual:** +19.49% (Placa), +13.58% (Electrodo), +3.55% (Corriente)
+**Mejora vs modelo individual:** +16.12% (Placa), +10.83% (Electrodo), +3.35% (Corriente)
 
 ---
 
 ### Audio de 30 segundos
 
-**Fecha de ejecución:** 2025-12-25 03:48:33
+**Fecha de ejecución:** 2026-01-16 17:38:32
 
 | Parámetro     | Accuracy | F1-Score | Precision | Recall |
 | ------------- | -------- | -------- | --------- | ------ |
-| **Placa**     | 99.88%   | 99.88%   | 99.89%    | 99.88% |
-| **Electrodo** | 98.85%   | 98.85%   | 98.87%    | 98.85% |
-| **Corriente** | 99.77%   | 99.77%   | 99.77%    | 99.77% |
+| **Placa**     | 99.74%   | 99.74%   | 99.75%    | 99.74% |
+| **Electrodo** | 98.59%   | 98.59%   | 98.65%    | 98.59% |
+| **Corriente** | 99.74%   | 99.74%   | 99.75%    | 99.74% |
 
-**Mejora vs modelo individual:** +15.68% (Placa), +8.65% (Electrodo), +2.42% (Corriente)
+**Mejora vs modelo individual:** +16.54% (Placa), +10.13% (Electrodo), +1.79% (Corriente)
 
 ---
 
@@ -50,40 +50,40 @@ Los datos de holdout representan condiciones de uso real, nunca vistos durante e
 
 ### Audio de 5 segundos
 
-**Fecha de ejecución:** 2026-01-14 12:27:57  
+**Fecha de ejecución:** 2026-01-16 18:10:29  
 **Tamaño del conjunto:** 430 muestras
 
 | Parámetro     | Accuracy | F1-Score | Precision | Recall |
 | ------------- | -------- | -------- | --------- | ------ |
-| **Placa**     | 71.86%   | 72.00%   | 73.00%    | 72.00% |
-| **Electrodo** | 81.40%   | 80.00%   | 79.00%    | 81.00% |
-| **Corriente** | 95.58%   | 95.00%   | 95.00%    | 96.00% |
+| **Placa**     | 72.79%   | 73.00%   | 73.00%    | 73.00% |
+| **Electrodo** | 82.33%   | 82.00%   | 83.00%    | 82.00% |
+| **Corriente** | 96.74%   | 97.00%   | 97.00%    | 97.00% |
 
 ---
 
 ### Audio de 10 segundos
 
-**Fecha de ejecución:** 2026-01-14 12:47:57 (aproximada)  
+**Fecha de ejecución:** 2026-01-16 18:11:08  
 **Tamaño del conjunto:** 224 muestras
 
 | Parámetro     | Accuracy | F1-Score | Precision | Recall |
 | ------------- | -------- | -------- | --------- | ------ |
-| **Placa**     | 73.21%   | 74.00%   | 75.00%    | 73.00% |
-| **Electrodo** | 87.50%   | 86.00%   | 86.00%    | 87.00% |
-| **Corriente** | 97.77%   | 98.00%   | 98.00%    | 97.00% |
+| **Placa**     | 74.55%   | 75.00%   | 75.00%    | 75.00% |
+| **Electrodo** | 87.05%   | 87.00%   | 88.00%    | 87.00% |
+| **Corriente** | 98.21%   | 98.00%   | 98.00%    | 98.00% |
 
 ---
 
 ### Audio de 30 segundos
 
-**Fecha de ejecución:** 2026-01-14 12:52:33 (aproximada)  
+**Fecha de ejecución:** 2026-01-16 18:11:45  
 **Tamaño del conjunto:** 87 muestras
 
-| Parámetro     | Accuracy | F1-Score | Precision | Recall  |
-| ------------- | -------- | -------- | --------- | ------- |
-| **Placa**     | 100.00%  | 100.00%  | 100.00%   | 100.00% |
-| **Electrodo** | 97.70%   | 97.00%   | 97.00%    | 98.00%  |
-| **Corriente** | 100.00%  | 100.00%  | 100.00%   | 100.00% |
+| Parámetro     | Accuracy | F1-Score | Precision | Recall |
+| ------------- | -------- | -------- | --------- | ------ |
+| **Placa**     | 80.46%   | 81.00%   | 81.00%    | 80.00% |
+| **Electrodo** | 89.66%   | 90.00%   | 92.00%    | 90.00% |
+| **Corriente** | 97.70%   | 98.00%   | 98.00%    | 98.00% |
 
 ---
 
@@ -91,15 +91,15 @@ Los datos de holdout representan condiciones de uso real, nunca vistos durante e
 
 | Longitud               | Métricas del Modelo | Holdout Test | Diferencia |
 | ---------------------- | ------------------- | ------------ | ---------- |
-| **5 seg - Placa**      | 92.09%              | 71.86%       | -20.23%    |
-| **5 seg - Electrodo**  | 92.87%              | 81.40%       | -11.47%    |
-| **5 seg - Corriente**  | 98.38%              | 95.58%       | -2.80%     |
-| **10 seg - Placa**     | 98.99%              | 73.21%       | -25.78%    |
-| **10 seg - Electrodo** | 98.12%              | 87.50%       | -10.62%    |
-| **10 seg - Corriente** | 99.78%              | 97.77%       | -2.01%     |
-| **30 seg - Placa**     | 99.88%              | 100.00%      | +0.12%     |
-| **30 seg - Electrodo** | 98.85%              | 97.70%       | -1.15%     |
-| **30 seg - Corriente** | 99.77%              | 100.00%      | +0.23%     |
+| **5 seg - Placa**      | 88.40%              | 72.79%       | -15.61%    |
+| **5 seg - Electrodo**  | 90.85%              | 82.33%       | -8.52%     |
+| **5 seg - Corriente**  | 98.31%              | 96.74%       | -1.57%     |
+| **10 seg - Placa**     | 94.41%              | 74.55%       | -19.86%    |
+| **10 seg - Electrodo** | 94.66%              | 87.05%       | -7.61%     |
+| **10 seg - Corriente** | 99.08%              | 98.21%       | -0.87%     |
+| **30 seg - Placa**     | 99.74%              | 80.46%       | -19.28%    |
+| **30 seg - Electrodo** | 98.59%              | 89.66%       | -8.93%     |
+| **30 seg - Corriente** | 99.74%              | 97.70%       | -2.04%     |
 
 ---
 
