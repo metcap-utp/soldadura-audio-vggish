@@ -1,11 +1,11 @@
 # Métricas de Clasificación SMAW - 1seg
 
-**Fecha de evaluación:** 2026-02-01 14:18:17
+**Fecha de evaluación:** 2026-02-05 20:19:05
 
 **Configuración:**
 - Duración de segmento: 1.0s
 - Número de muestras (blind): 4988
-- Número de modelos (ensemble): 10
+- Número de modelos (ensemble): 5
 - Método de votación: soft
 
 ---
@@ -14,16 +14,16 @@
 
 | Tarea | Accuracy | Macro F1 |
 |-------|----------|----------|
-| Plate Thickness | 29.05% | 0.1501 |
-| Electrode Type | 12.49% | 0.0555 |
-| Current Type | 34.64% | 0.2573 |
+| Plate Thickness | 0.2905 | 0.1501 |
+| Electrode Type | 0.1249 | 0.0555 |
+| Current Type | 0.3464 | 0.2573 |
 
 ---
 
 ## Plate Thickness (Espesor de Placa)
 
 ### Métricas
-- **Accuracy:** 29.05%
+- **Accuracy:** 0.2905
 - **Macro F1-Score:** 0.1501
 
 ### Confusion Matrix
@@ -47,7 +47,7 @@
 ## Electrode Type (Tipo de Electrodo)
 
 ### Métricas
-- **Accuracy:** 12.49%
+- **Accuracy:** 0.1249
 - **Macro F1-Score:** 0.0555
 
 ### Confusion Matrix
@@ -73,7 +73,7 @@
 ## Current Type (Tipo de Corriente)
 
 ### Métricas
-- **Accuracy:** 34.64%
+- **Accuracy:** 0.3464
 - **Macro F1-Score:** 0.2573
 
 ### Confusion Matrix

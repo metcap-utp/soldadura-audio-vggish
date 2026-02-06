@@ -182,7 +182,7 @@ El conjunto blind contiene sesiones de soldadura que nunca fueron vistas durante
 
 **Matriz de confusion (1 segundo):**
 
-![Matriz de confusion combinada - 1 segundo](1seg/confusion_matrices/combined_k10_2026-02-01_14-18-17.png)
+![Matriz de confusion combinada - 1 segundo](1seg/confusion_matrices/combined_k5_2026-02-05_20-19-05.png)
 
 ### Audio de 2 segundos
 
@@ -204,13 +204,13 @@ El conjunto blind contiene sesiones de soldadura que nunca fueron vistas durante
 
 | Parametro     | Accuracy | F1 (Macro) | Precision (Macro) | Recall (Macro) |
 | ------------- | -------- | ---------- | ----------------- | -------------- |
-| **Placa**     | 0.7413   | 0.7469     | 0.7406            | 0.7707         |
-| **Electrodo** | 0.8570   | 0.8446     | 0.8424            | 0.8667         |
-| **Corriente** | 0.9369   | 0.9327     | 0.9232            | 0.9489         |
+| **Placa**     | 0.7497   | 0.7557     | 0.7492            | 0.7792         |
+| **Electrodo** | 0.8486   | 0.8379     | 0.8369            | 0.8595         |
+| **Corriente** | 0.9317   | 0.9273     | 0.9176            | 0.9455         |
 
 **Matriz de confusion (5 segundos):**
 
-![Matriz de confusion combinada - 5 segundos](5seg/confusion_matrices/combined_k20_2026-02-01_01-25-44.png)
+![Matriz de confusion combinada - 5 segundos](5seg/confusion_matrices/combined_k5_2026-02-01_01-20-41.png)
 
 ### Audio de 10 segundos
 
@@ -224,7 +224,7 @@ El conjunto blind contiene sesiones de soldadura que nunca fueron vistas durante
 
 **Matriz de confusion (10 segundos):**
 
-![Matriz de confusion combinada - 10 segundos](10seg/confusion_matrices/combined_k20_2026-02-01_01-31-06.png)
+![Matriz de confusion combinada - 10 segundos](10seg/confusion_matrices/combined_k5_2026-02-01_01-27-23.png)
 
 ### Audio de 20 segundos
 

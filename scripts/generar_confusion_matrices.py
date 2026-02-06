@@ -131,7 +131,7 @@ def generar_grafica_combinada(
         clases_cortas = [c.replace("Placa_", "").replace("mm", " mm") for c in clases]
 
         acc = resultado["accuracy"].get(task, None)
-        f1 = resultado["macro_f1"].get(task, None)
+        f1 = resultado.get("macro_f1", {}).get(task, None)
 
         sns.heatmap(
             cm,
@@ -148,7 +148,12 @@ def generar_grafica_combinada(
         ax.set_ylabel("Real", fontsize=10)
 
         # Título con métricas
-        titulo = f"{TASK_NAMES[task]}\nAcc: {acc:.3f} | F1: {f1:.3f}"
+        if acc is not None and f1 is not None:
+            titulo = f"{TASK_NAMES[task]}\nAcc: {acc:.3f} | F1: {f1:.3f}"
+        elif acc is not None:
+            titulo = f"{TASK_NAMES[task]}\nAcc: {acc:.3f}"
+        else:
+            titulo = TASK_NAMES[task]
         ax.set_title(titulo, fontsize=11, fontweight="bold")
 
     # Título general
@@ -176,16 +181,11 @@ def generar_grafica_combinada(
     hamming = global_metrics.get("hamming_accuracy", None)
 
     title_parts = [
-        (
-            f"Matrices de Confusión - Train: {train_seconds}s | Test: {test_seconds}s"
-            f"{overlap_text}"
-        ),
+        f"Matrices de Confusión - Audio de {test_seconds} segundos",
         f"K={k_folds} ({n_samples} muestras)",
     ]
     if exact_match is not None and hamming is not None:
-        title_parts.append(
-            f"Exact Match: {exact_match:.3f} | Hamming: {hamming:.3f}"
-        )
+        title_parts.append(f"Exact Match: {exact_match:.3f} | Hamming: {hamming:.3f}")
 
     fig.suptitle("\n".join(title_parts), fontsize=13, fontweight="bold", y=1.02)
 
@@ -245,7 +245,7 @@ def procesar_duracion(duracion: str, solo_ultimo: bool = False):
             ]
 
             acc = resultado["accuracy"].get(task, None)
-            f1 = resultado["macro_f1"].get(task, None)
+            f1 = resultado.get("macro_f1", {}).get(task, None)
 
             config = resultado.get("config", {})
             segment_dur = resultado.get("segment_duration", duracion)
@@ -262,10 +262,7 @@ def procesar_duracion(duracion: str, solo_ultimo: bool = False):
                 except (ValueError, ZeroDivisionError):
                     overlap_text = f", Solapamiento: {overlap_seconds}s"
 
-            titulo = (
-                f"{TASK_NAMES[task]} (Train: {train_seconds}s, Test: {test_seconds}s"
-                f"{overlap_text}, K={k_folds})"
-            )
+            titulo = f"{TASK_NAMES[task]} (Audio: {test_seconds}s, K={k_folds})"
 
             output_path = output_dir / f"{task}_{filename_base}.png"
             generar_grafica_confusion(

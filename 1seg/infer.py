@@ -114,7 +114,10 @@ SEGMENT_DURATION = float(TEST_SECONDS)
 OVERLAP_SECONDS = 0.0
 
 # Directorio de modelos (nuevo naming: kXX)
+# Buscar primero sin overlap, luego con overlap 0.5
 MODELS_DIR = TRAIN_DIR / "models" / f"k{N_MODELS:02d}"
+if not MODELS_DIR.exists():
+    MODELS_DIR = TRAIN_DIR / "models" / f"k{N_MODELS:02d}_overlap_0.5"
 
 if not MODELS_DIR.exists():
     print(f"[ERROR] No se encontró el directorio de modelos: {MODELS_DIR}")
