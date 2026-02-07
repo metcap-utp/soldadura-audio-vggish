@@ -38,7 +38,10 @@ def load_results(duration_dir: str) -> list:
 
 
 def load_global_metrics(duration_dir: str) -> dict:
-    """Carga métricas globales (Exact Match y Hamming) desde infer.json."""
+    """Carga métricas globales (Exact Match y Hamming) desde infer.json.
+    
+    Prioriza las entradas más recientes y sin overlap (overlap_ratio = 0.0 o None).
+    """
     infer_path = ROOT_DIR / duration_dir / "infer.json"
     if not infer_path.exists():
         return {}
@@ -49,18 +52,49 @@ def load_global_metrics(duration_dir: str) -> dict:
     if not isinstance(data, list):
         data = [data]
 
-    global_by_k = {}
+    # Agrupar por k-folds y filtrar por overlap
+    entries_by_k = {}
+    
     for entry in data:
+        # Solo blind_evaluation
+        if entry.get("mode") != "blind_evaluation":
+            continue
+        
         gm = entry.get("global_metrics") or {}
         if not gm:
             continue
+        
         k = (
             entry.get("k_folds")
             or entry.get("n_models")
-            or entry.get("config", {}).get("n_folds")
+            or entry.get("config", {}).get("k_folds")
         )
         if not k:
             continue
+        
+        # Solo usar entradas sin overlap o con overlap = 0.0
+        config = entry.get("config", {})
+        overlap = config.get("overlap_ratio")
+        if overlap is not None and overlap != 0.0:
+            continue
+        
+        if k not in entries_by_k:
+            entries_by_k[k] = []
+        entries_by_k[k].append(entry)
+    
+    # Para cada k, tomar la entrada más reciente
+    global_by_k = {}
+    
+    for k, entries in entries_by_k.items():
+        # Ordenar por timestamp y tomar el más reciente
+        entries_sorted = sorted(
+            entries, 
+            key=lambda e: e.get("timestamp", ""), 
+            reverse=True
+        )
+        entry = entries_sorted[0]
+        gm = entry.get("global_metrics", {})
+        
         global_by_k[k] = {
             "exact_match": gm.get("exact_match_accuracy"),
             "hamming": gm.get("hamming_accuracy"),
@@ -70,13 +104,39 @@ def load_global_metrics(duration_dir: str) -> dict:
 
 
 def extract_metrics_by_folds(results: list) -> dict:
-    """Extrae métricas de validación cruzada (promedio de fold_results) por K."""
+    """Extrae métricas de validación cruzada (promedio de fold_results) por K.
+    
+    Prioriza las entradas más recientes y sin overlap (overlap_ratio = 0.0 o None).
+    """
     import numpy as np
     
-    metrics_by_k = {}
-
+    # Agrupar por k-folds y filtrar por overlap
+    entries_by_k = {}
+    
     for entry in results:
-        k = entry.get("config", {}).get("n_folds", 5)
+        config = entry.get("config", {})
+        k = config.get("n_folds", 5)
+        overlap = config.get("overlap_ratio")
+        
+        # Solo usar entradas sin overlap o con overlap = 0.0
+        if overlap is not None and overlap != 0.0:
+            continue
+        
+        if k not in entries_by_k:
+            entries_by_k[k] = []
+        entries_by_k[k].append(entry)
+    
+    # Para cada k, tomar la entrada más reciente
+    metrics_by_k = {}
+    
+    for k, entries in entries_by_k.items():
+        # Ordenar por timestamp y tomar el más reciente
+        entries_sorted = sorted(
+            entries, 
+            key=lambda e: e.get("timestamp", ""), 
+            reverse=True
+        )
+        entry = entries_sorted[0]
         
         metrics_by_k[k] = {
             "plate": {},
@@ -100,14 +160,6 @@ def extract_metrics_by_folds(results: list) -> dict:
                     metrics_by_k[k][task]["accuracy"] = np.mean(accs)
                 if f1s:
                     metrics_by_k[k][task]["f1"] = np.mean(f1s)
-                    
-                # precision y recall no están en fold_results, usar del ensemble si están
-                res = entry.get("ensemble_results", entry.get("results", {}))
-                if task in res:
-                    for metric in ["precision", "recall"]:
-                        if metric in res[task]:
-                            # Nota: estos vienen del ensemble, no de CV
-                            pass  # No incluir para no confundir
         else:
             # Fallback: usar ensemble_results (compatibilidad con formato antiguo)
             res = entry.get("ensemble_results", entry.get("results", {}))
@@ -128,7 +180,11 @@ def plot_metrics_vs_folds(
     output_dir: Path = None,
     global_by_k: dict | None = None,
 ):
-    """Grafica métricas vs número de folds."""
+    """Grafica métricas vs número de folds.
+    
+    Cuando metric='all', crea una figura única con todas las métricas
+    para las 3 etiquetas en una sola gráfica con una leyenda compartida.
+    """
 
     # Ordenar por k
     k_values = sorted(metrics_by_k.keys())
@@ -147,80 +203,59 @@ def plot_metrics_vs_folds(
         "plate": "#2ecc71",
         "electrode": "#3498db",
         "current": "#e74c3c",
-        "global": "#2c3e50",
+    }
+    
+    # Marcadores diferentes para cada métrica
+    markers = {
+        "accuracy": "o",
+        "f1": "s",
+        "precision": "^",
+        "recall": "D",
     }
 
-    metrics_to_plot = (
-        ["accuracy", "f1", "precision", "recall"] if metric == "all" else [metric]
-    )
-
-    fig, axes = plt.subplots(
-        1, len(metrics_to_plot), figsize=(5 * len(metrics_to_plot), 5)
-    )
-
-    if len(metrics_to_plot) == 1:
-        axes = [axes]
-
-    for idx, metric_name in enumerate(metrics_to_plot):
-        ax = axes[idx]
-
+    # Si metric es 'all', crear una sola figura con todas las métricas
+    if metric == "all":
+        fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+        
         all_values = []
-
+        
+        # Graficar cada combinación de tarea y métrica
         for task in tasks:
-            # Obtener valores promedio por k
-            y_values = []
-
-            for k in k_values:
-                value = metrics_by_k[k][task].get(metric_name)
-                if value is not None:
-                    y_values.append(value)
-                else:
-                    y_values.append(np.nan)
-
-            all_values.extend([v for v in y_values if not np.isnan(v)])
-
-            # Graficar línea simple (sin velas)
-            ax.plot(
-                k_values,
-                y_values,
-                marker="o",
-                label=task_names[task],
-                color=colors[task],
-                linewidth=2,
-                markersize=6,
-            )
-
-        # Métrica global (promedio de las 3 tareas)
-        global_values = []
-        for k in k_values:
-            vals = []
-            for task in tasks:
-                value = metrics_by_k[k][task].get(metric_name)
-                if value is not None:
-                    vals.append(value)
-            global_values.append(np.mean(vals) if vals else np.nan)
-
-        ax.plot(
-            k_values,
-            global_values,
-            marker="o",
-            label="Global (avg)",
-            color=colors["global"],
-            linewidth=2,
-            markersize=6,
-            linestyle="--",
-        )
-
-        all_values.extend([v for v in global_values if not np.isnan(v)])
-
+            for metric_name in ["accuracy", "f1"]:  # Solo accuracy y f1 para claridad
+                y_values = []
+                
+                for k in k_values:
+                    value = metrics_by_k[k][task].get(metric_name)
+                    if value is not None:
+                        y_values.append(value)
+                    else:
+                        y_values.append(np.nan)
+                
+                all_values.extend([v for v in y_values if not np.isnan(v)])
+                
+                # Etiqueta combinada
+                label = f"{task_names[task]} - {metric_name.capitalize()}"
+                linestyle = "-" if metric_name == "accuracy" else "--"
+                
+                ax.plot(
+                    k_values,
+                    y_values,
+                    marker=markers[metric_name],
+                    label=label,
+                    color=colors[task],
+                    linewidth=2,
+                    markersize=6,
+                    linestyle=linestyle,
+                )
+        
         ax.set_xlabel("Número de Folds (K)", fontsize=12)
-        ax.set_ylabel(metric_name.capitalize(), fontsize=12)
-        ax.set_title(f"{metric_name.capitalize()} vs K-Folds", fontsize=14)
-        ax.legend(loc="best")
+        ax.set_ylabel("Valor de Métrica", fontsize=12)
+        ax.set_title(f"Métricas vs K-Folds - {duration}", fontsize=14)
+        ax.legend(loc="best", fontsize=9, ncol=2)
         ax.grid(True, alpha=0.3)
         ax.set_xticks(k_values)
-
-        # Ajustar límites del eje Y (zoom dinámico para resaltar diferencias)
+        
+        # Ajustar límites del eje Y
         if all_values:
             y_min = min(all_values)
             y_max = max(all_values)
@@ -231,23 +266,84 @@ def plot_metrics_vs_folds(
             ax.set_ylim([y_lower, y_upper])
         else:
             ax.set_ylim([0.0, 1.05])
-
-        # Línea de referencia en 1.0 si está en el rango
+        
         if ax.get_ylim()[1] >= 1.0:
             ax.axhline(1.0, color="#666666", linestyle="--", linewidth=1, alpha=0.6)
-
-    plt.suptitle(f"Métricas vs Número de Folds - {duration}", fontsize=16, y=1.02)
-    plt.tight_layout()
-
-    if save:
-        if output_dir is None:
-            output_dir = ROOT_DIR / duration / "metricas"
-        output_dir.mkdir(exist_ok=True)
-        output_path = output_dir / f"metricas_vs_folds_{metric}.png"
-        plt.savefig(output_path, dpi=150, bbox_inches="tight")
-        print(f"Gráfica guardada en: {output_path}")
+        
+        plt.tight_layout()
+        
+        if save:
+            if output_dir is None:
+                output_dir = ROOT_DIR / duration / "metricas"
+            output_dir.mkdir(exist_ok=True)
+            output_path = output_dir / f"metricas_vs_folds_all.png"
+            plt.savefig(output_path, dpi=150, bbox_inches="tight")
+            print(f"Gráfica guardada en: {output_path}")
+        
+        plt.close(fig)
     
-    plt.close(fig)
+    else:
+        # Para una métrica específica, mantener el formato original
+        metrics_to_plot = [metric]
+        
+        fig, ax = plt.subplots(1, 1, figsize=(8, 6))
+        
+        all_values = []
+        
+        for task in tasks:
+            y_values = []
+            
+            for k in k_values:
+                value = metrics_by_k[k][task].get(metric)
+                if value is not None:
+                    y_values.append(value)
+                else:
+                    y_values.append(np.nan)
+            
+            all_values.extend([v for v in y_values if not np.isnan(v)])
+            
+            ax.plot(
+                k_values,
+                y_values,
+                marker="o",
+                label=task_names[task],
+                color=colors[task],
+                linewidth=2,
+                markersize=6,
+            )
+        
+        ax.set_xlabel("Número de Folds (K)", fontsize=12)
+        ax.set_ylabel(metric.capitalize(), fontsize=12)
+        ax.set_title(f"{metric.capitalize()} vs K-Folds - {duration}", fontsize=14)
+        ax.legend(loc="best")
+        ax.grid(True, alpha=0.3)
+        ax.set_xticks(k_values)
+        
+        if all_values:
+            y_min = min(all_values)
+            y_max = max(all_values)
+            span = y_max - y_min
+            pad = max(0.02, span * 0.1)
+            y_lower = max(0.0, y_min - pad)
+            y_upper = min(1.05, y_max + pad)
+            ax.set_ylim([y_lower, y_upper])
+        else:
+            ax.set_ylim([0.0, 1.05])
+        
+        if ax.get_ylim()[1] >= 1.0:
+            ax.axhline(1.0, color="#666666", linestyle="--", linewidth=1, alpha=0.6)
+        
+        plt.tight_layout()
+        
+        if save:
+            if output_dir is None:
+                output_dir = ROOT_DIR / duration / "metricas"
+            output_dir.mkdir(exist_ok=True)
+            output_path = output_dir / f"metricas_vs_folds_{metric}.png"
+            plt.savefig(output_path, dpi=150, bbox_inches="tight")
+            print(f"Gráfica guardada en: {output_path}")
+        
+        plt.close(fig)
 
     # Gráfica adicional: métricas globales (Exact Match y Hamming)
     if global_by_k:
