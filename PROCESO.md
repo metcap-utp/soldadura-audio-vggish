@@ -97,8 +97,10 @@ segmentos = floor((duracion_audio - duracion_segmento) / hop) + 1
 ### 5.1 Ejecutar Generación de Splits
 
 ```bash
-cd 5seg/
-python generar_splits.py
+# Desde la raíz del proyecto
+python generar_splits.py --duration 5 --overlap 0.5
+python generar_splits.py --duration 10 --overlap 0.0
+python generar_splits.py --duration 30 --overlap 0.75
 ```
 
 ### 5.2 Conjuntos Generados
@@ -251,8 +253,9 @@ Donde:
 ### 8.1 Ejecutar Entrenamiento
 
 ```bash
-cd 5seg/
-python entrenar.py
+# Desde la raíz del proyecto
+python entrenar.py --duration 5 --overlap 0.5 --k-folds 5
+python entrenar.py --duration 10 --overlap 0.0 --k-folds 10
 ```
 
 ### 8.2 Hiperparámetros
@@ -297,8 +300,10 @@ Fold 5: Train=193 sesiones, Val=48 sesiones --> model_fold_4.pth
 ### 9.1 Ejecutar Inferencia
 
 ```bash
-cd 5seg/
-python infer.py --evaluar
+# Desde la raíz del proyecto
+python infer.py --duration 5 --overlap 0.5 --evaluar
+python infer.py --duration 5 --overlap 0.5 --audio ruta.wav
+python infer.py --duration 10 --overlap 0.0 --k-folds 10 --evaluar
 ```
 
 ### 9.2 Ensemble con Soft Voting
@@ -339,19 +344,25 @@ Audio de entrada
 ## 10. Archivos Generados
 
 ```
-5seg/
+# Scripts consolidados en la raíz:
+entrenar.py               # --duration, --overlap, --k-folds
+generar_splits.py          # --duration, --overlap
+infer.py                   # --duration, --overlap, --k-folds, --evaluar
+
+# Datos por duración:
+{N}seg/
 |-- completo.csv          # Todos los datos con split asignado
 |-- train.csv             # Datos de entrenamiento
 |-- test.csv              # Datos de validación
-|-- blind.csv           # Datos de evaluación final
+|-- blind.csv             # Datos de evaluación final
+|-- data_stats.json       # Estadísticas del dataset
 |-- results.json          # Métricas del entrenamiento
-|-- infer.json            # Métricas de blind
+|-- infer.json            # Métricas de inferencia blind
 +-- models/
-    |-- model_fold_0.pth
-    |-- model_fold_1.pth
-    |-- model_fold_2.pth
-    |-- model_fold_3.pth
-    +-- model_fold_4.pth
+    +-- k05_overlap_0.5/  # Modelos organizados por K y overlap
+        |-- model_fold_0.pth
+        |-- ...
+        +-- model_fold_4.pth
 ```
 
 ---
