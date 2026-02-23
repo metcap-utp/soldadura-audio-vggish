@@ -25,19 +25,18 @@ class VGGishAggregator(nn.Module):
         Returns:
             Aggregated features: (batch, features) o (batch, features*2)
         """
-        # Handle different input shapes
         if x.dim() == 3:
-            if x.size(2) == 128:  # (batch, time, 128)
-                mean = x.mean(dim=1)  # (batch, 128)
+            if x.size(2) == 128:
+                mean = x.mean(dim=1)
                 if self.use_std:
-                    std = x.std(dim=1)
-                    return torch.cat([mean, std], dim=1)  # (batch, 256)
+                    std = x.std(dim=1, correction=0)
+                    return torch.cat([mean, std], dim=1)
                 return mean
-            else:  # (batch, 128, time)
-                mean = x.mean(dim=2)  # (batch, 128)
+            else:
+                mean = x.mean(dim=2)
                 if self.use_std:
-                    std = x.std(dim=2)
-                    return torch.cat([mean, std], dim=1)  # (batch, 256)
+                    std = x.std(dim=2, correction=0)
+                    return torch.cat([mean, std], dim=1)
                 return mean
         else:
             raise ValueError(f"Expected 3D input, got {x.dim()}D")

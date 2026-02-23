@@ -40,7 +40,7 @@ class StatsPooling(nn.Module):
 
     def forward(self, x):
         mean = x.mean(dim=2)
-        std = x.std(dim=2)
+        std = x.std(dim=2, correction=0)
         return torch.cat([mean, std], dim=1)
 
 

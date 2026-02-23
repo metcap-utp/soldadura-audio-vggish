@@ -135,7 +135,7 @@ class AttentiveStatisticsPooling(nn.Module):
         global_x = torch.cat(
             [
                 x.mean(dim=2, keepdim=True).expand_as(x),
-                x.std(dim=2, keepdim=True).expand_as(x),
+                x.std(dim=2, keepdim=True, correction=0).expand_as(x),
             ],
             dim=1,
         )
