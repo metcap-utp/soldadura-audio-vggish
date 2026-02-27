@@ -6,7 +6,10 @@
       "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
-      "epochs": 100
+      "epochs": 100,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0,
+      "segment_duration": 10.0
     },
     "fold_results": [
       {
@@ -99,7 +102,10 @@
       "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
-      "epochs": 100
+      "epochs": 100,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0,
+      "segment_duration": 10.0
     },
     "fold_results": [
       {
@@ -192,7 +198,10 @@
       "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
-      "epochs": 100
+      "epochs": 100,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0,
+      "segment_duration": 10.0
     },
     "fold_results": [
       {
@@ -285,7 +294,10 @@
       "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
-      "epochs": 100
+      "epochs": 100,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0,
+      "segment_duration": 10.0
     },
     "fold_results": [
       {
@@ -390,7 +402,9 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0
     },
     "data": {
       "total_segments": 3372,
@@ -499,7 +513,9 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0
     },
     "data": {
       "total_segments": 3372,
@@ -652,7 +668,9 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0
     },
     "data": {
       "total_segments": 3372,
@@ -838,7 +856,9 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0
     },
     "data": {
       "total_segments": 3372,
@@ -1079,7 +1099,9 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0
     },
     "data": {
       "total_segments": 3372,
@@ -1385,7 +1407,8 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5
     },
     "data": {
       "total_segments": 3372,
@@ -1581,7 +1604,8 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5
     },
     "data": {
       "total_segments": 3372,
@@ -2877,7 +2901,9 @@
       "learning_rate": 0.001,
       "weight_decay": 0.0001,
       "label_smoothing": 0.1,
-      "early_stop_patience": 15
+      "early_stop_patience": 15,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0
     },
     "data": {
       "total_segments": 3372,
@@ -13050,6 +13076,5394 @@
           "val_f1_current": 0.9908744966810576
         }
       ]
-    ]
+    ],
+    "vggish_extraction": {
+      "from_cache": true,
+      "extraction_time_seconds": 216.32,
+      "extraction_time_minutes": 3.61
+    }
+  },
+  {
+    "id": "10seg_10fold_overlap_0.5_feedforward_20260221_201439",
+    "timestamp": "2026-02-21T20:14:39.296651",
+    "model_type": "feedforward",
+    "execution_time": {
+      "seconds": 711.0,
+      "minutes": 11.85,
+      "hours": 0.1975
+    },
+    "training_time": {
+      "seconds": 445.62,
+      "minutes": 7.43
+    },
+    "config": {
+      "segment_duration": 10.0,
+      "overlap_ratio": 0.5,
+      "overlap_seconds": 5.0,
+      "n_folds": 10,
+      "models_dir": "k10_overlap_0.5",
+      "random_seed": 42,
+      "voting_method": "soft",
+      "batch_size": 32,
+      "epochs": 100,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "label_smoothing": 0.1,
+      "early_stop_patience": 15,
+      "swa_start": 5,
+      "swa_lr": 0.0001
+    },
+    "system_info": {
+      "python_version": "3.10.12",
+      "torch_version": "2.9.1+cu128",
+      "numpy_version": "2.2.6",
+      "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+      "device": "cuda",
+      "tensorflow_version": "2.20.0",
+      "gpu_name": "NVIDIA GeForce RTX 3070",
+      "gpu_memory_gb": 8.59
+    },
+    "model_parameters": {
+      "total": 298761,
+      "trainable": 298761
+    },
+    "data": {
+      "total_segments": 3372,
+      "unique_sessions": 335,
+      "segments_per_class": {
+        "plate": {
+          "Placa_3mm": 1170,
+          "Placa_12mm": 1134,
+          "Placa_6mm": 1068
+        },
+        "electrode": {
+          "E6011": 1352,
+          "E6013": 997,
+          "E6010": 523,
+          "E7018": 500
+        },
+        "current": {
+          "DC": 1981,
+          "AC": 1391
+        }
+      },
+      "classes": {
+        "plate": [
+          "Placa_12mm",
+          "Placa_3mm",
+          "Placa_6mm"
+        ],
+        "electrode": [
+          "E6010",
+          "E6011",
+          "E6013",
+          "E7018"
+        ],
+        "current": [
+          "AC",
+          "DC"
+        ]
+      }
+    },
+    "fold_results": [
+      {
+        "accuracy_plate": 0.8557993730407524,
+        "accuracy_electrode": 0.9467084639498433,
+        "accuracy_current": 0.9811912225705329,
+        "f1_plate": 0.8559012384232836,
+        "f1_electrode": 0.9477053766786058,
+        "f1_current": 0.9811655823452556,
+        "confusion_matrix_plate": [
+          [
+            78,
+            3,
+            13
+          ],
+          [
+            0,
+            75,
+            1
+          ],
+          [
+            26,
+            3,
+            120
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            53,
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            98,
+            1,
+            0
+          ],
+          [
+            4,
+            1,
+            127,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            24
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            145,
+            6
+          ],
+          [
+            0,
+            168
+          ]
+        ],
+        "time_seconds": 43.08,
+        "fold": 0
+      },
+      {
+        "accuracy_plate": 0.8983050847457628,
+        "accuracy_electrode": 0.940677966101695,
+        "accuracy_current": 1.0,
+        "f1_plate": 0.8973587341810099,
+        "f1_electrode": 0.941013095162443,
+        "f1_current": 1.0,
+        "confusion_matrix_plate": [
+          [
+            78,
+            1,
+            26
+          ],
+          [
+            2,
+            145,
+            0
+          ],
+          [
+            6,
+            1,
+            95
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            62,
+            4,
+            1,
+            1
+          ],
+          [
+            8,
+            146,
+            1,
+            1
+          ],
+          [
+            0,
+            2,
+            92,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            33
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            141,
+            0
+          ],
+          [
+            0,
+            213
+          ]
+        ],
+        "time_seconds": 40.28,
+        "fold": 1
+      },
+      {
+        "accuracy_plate": 0.9019073569482289,
+        "accuracy_electrode": 0.9346049046321526,
+        "accuracy_current": 0.9673024523160763,
+        "f1_plate": 0.902736206791184,
+        "f1_electrode": 0.9348738574790256,
+        "f1_current": 0.9672849628397209,
+        "confusion_matrix_plate": [
+          [
+            98,
+            0,
+            19
+          ],
+          [
+            1,
+            160,
+            2
+          ],
+          [
+            13,
+            1,
+            73
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            52,
+            3,
+            4,
+            3
+          ],
+          [
+            0,
+            167,
+            7,
+            0
+          ],
+          [
+            1,
+            0,
+            67,
+            4
+          ],
+          [
+            0,
+            1,
+            1,
+            57
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            182,
+            2
+          ],
+          [
+            10,
+            173
+          ]
+        ],
+        "time_seconds": 38.52,
+        "fold": 2
+      },
+      {
+        "accuracy_plate": 0.8803418803418803,
+        "accuracy_electrode": 0.9401709401709402,
+        "accuracy_current": 1.0,
+        "f1_plate": 0.8812899101511237,
+        "f1_electrode": 0.9405599534034594,
+        "f1_current": 1.0,
+        "confusion_matrix_plate": [
+          [
+            107,
+            1,
+            22
+          ],
+          [
+            0,
+            134,
+            2
+          ],
+          [
+            17,
+            0,
+            68
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            62,
+            2,
+            1,
+            0
+          ],
+          [
+            9,
+            132,
+            5,
+            0
+          ],
+          [
+            0,
+            2,
+            68,
+            0
+          ],
+          [
+            0,
+            0,
+            2,
+            68
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            146,
+            0
+          ],
+          [
+            0,
+            205
+          ]
+        ],
+        "time_seconds": 27.3,
+        "fold": 3
+      },
+      {
+        "accuracy_plate": 0.8955223880597015,
+        "accuracy_electrode": 0.9104477611940298,
+        "accuracy_current": 1.0,
+        "f1_plate": 0.8966211783375962,
+        "f1_electrode": 0.9113649779674242,
+        "f1_current": 1.0,
+        "confusion_matrix_plate": [
+          [
+            81,
+            0,
+            11
+          ],
+          [
+            3,
+            144,
+            4
+          ],
+          [
+            16,
+            1,
+            75
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            78,
+            8,
+            0,
+            1
+          ],
+          [
+            2,
+            137,
+            12,
+            0
+          ],
+          [
+            0,
+            0,
+            47,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            43
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            92,
+            0
+          ],
+          [
+            0,
+            243
+          ]
+        ],
+        "time_seconds": 38.08,
+        "fold": 4
+      },
+      {
+        "accuracy_plate": 0.9090909090909091,
+        "accuracy_electrode": 0.9577922077922078,
+        "accuracy_current": 0.9935064935064936,
+        "f1_plate": 0.9089311510407401,
+        "f1_electrode": 0.9579127012342223,
+        "f1_current": 0.9935064935064936,
+        "confusion_matrix_plate": [
+          [
+            99,
+            1,
+            10
+          ],
+          [
+            1,
+            69,
+            2
+          ],
+          [
+            10,
+            4,
+            112
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            37,
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            112,
+            2,
+            0
+          ],
+          [
+            0,
+            2,
+            99,
+            3
+          ],
+          [
+            0,
+            0,
+            2,
+            47
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            106,
+            1
+          ],
+          [
+            1,
+            200
+          ]
+        ],
+        "time_seconds": 44.4,
+        "fold": 5
+      },
+      {
+        "accuracy_plate": 0.8910614525139665,
+        "accuracy_electrode": 0.9189944134078212,
+        "accuracy_current": 0.9776536312849162,
+        "f1_plate": 0.8903622249577183,
+        "f1_electrode": 0.9201563042231281,
+        "f1_current": 0.9776368741266858,
+        "confusion_matrix_plate": [
+          [
+            124,
+            2,
+            15
+          ],
+          [
+            0,
+            108,
+            2
+          ],
+          [
+            16,
+            4,
+            87
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            29,
+            1,
+            1,
+            0
+          ],
+          [
+            10,
+            112,
+            1,
+            0
+          ],
+          [
+            0,
+            6,
+            138,
+            0
+          ],
+          [
+            1,
+            5,
+            4,
+            50
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            181,
+            0
+          ],
+          [
+            8,
+            169
+          ]
+        ],
+        "time_seconds": 57.76,
+        "fold": 6
+      },
+      {
+        "accuracy_plate": 0.8942307692307693,
+        "accuracy_electrode": 0.9294871794871795,
+        "accuracy_current": 1.0,
+        "f1_plate": 0.8935733689372223,
+        "f1_electrode": 0.930566581682674,
+        "f1_current": 1.0,
+        "confusion_matrix_plate": [
+          [
+            71,
+            1,
+            16
+          ],
+          [
+            0,
+            101,
+            2
+          ],
+          [
+            11,
+            3,
+            107
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            46,
+            2,
+            1,
+            0
+          ],
+          [
+            7,
+            111,
+            3,
+            0
+          ],
+          [
+            1,
+            3,
+            96,
+            0
+          ],
+          [
+            4,
+            0,
+            1,
+            37
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            131,
+            0
+          ],
+          [
+            0,
+            181
+          ]
+        ],
+        "time_seconds": 38.98,
+        "fold": 7
+      },
+      {
+        "accuracy_plate": 0.8643067846607669,
+        "accuracy_electrode": 0.9705014749262537,
+        "accuracy_current": 0.9941002949852508,
+        "f1_plate": 0.8650396131902802,
+        "f1_electrode": 0.9704111391738038,
+        "f1_current": 0.9941002949852508,
+        "confusion_matrix_plate": [
+          [
+            107,
+            0,
+            19
+          ],
+          [
+            3,
+            72,
+            4
+          ],
+          [
+            18,
+            2,
+            114
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            37,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            124,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            102,
+            3
+          ],
+          [
+            1,
+            0,
+            3,
+            66
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            131,
+            1
+          ],
+          [
+            1,
+            206
+          ]
+        ],
+        "time_seconds": 52.18,
+        "fold": 8
+      },
+      {
+        "accuracy_plate": 0.939209726443769,
+        "accuracy_electrode": 0.9513677811550152,
+        "accuracy_current": 0.9969604863221885,
+        "f1_plate": 0.9393090330418588,
+        "f1_electrode": 0.9517084637830027,
+        "f1_current": 0.9969581655603525,
+        "confusion_matrix_plate": [
+          [
+            126,
+            0,
+            5
+          ],
+          [
+            2,
+            128,
+            3
+          ],
+          [
+            10,
+            0,
+            55
+          ]
+        ],
+        "confusion_matrix_electrode": [
+          [
+            29,
+            2,
+            1,
+            0
+          ],
+          [
+            6,
+            127,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            109,
+            1
+          ],
+          [
+            0,
+            0,
+            2,
+            48
+          ]
+        ],
+        "confusion_matrix_current": [
+          [
+            125,
+            1
+          ],
+          [
+            0,
+            203
+          ]
+        ],
+        "time_seconds": 64.88,
+        "fold": 9
+      }
+    ],
+    "fold_best_epochs": [
+      23,
+      24,
+      21,
+      10,
+      21,
+      28,
+      40,
+      21,
+      34,
+      45
+    ],
+    "fold_training_times_seconds": [
+      43.08,
+      40.28,
+      38.52,
+      27.3,
+      38.08,
+      44.4,
+      57.76,
+      38.98,
+      52.18,
+      64.88
+    ],
+    "ensemble_results": {
+      "plate": {
+        "accuracy": 0.9926,
+        "f1": 0.9926,
+        "precision": 0.9926,
+        "recall": 0.9926
+      },
+      "electrode": {
+        "accuracy": 0.9976,
+        "f1": 0.9976,
+        "precision": 0.9977,
+        "recall": 0.9976
+      },
+      "current": {
+        "accuracy": 1.0,
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "individual_avg": {
+      "plate": 0.893,
+      "electrode": 0.9401,
+      "current": 0.9911
+    },
+    "improvement_vs_individual": {
+      "plate": 0.0996,
+      "electrode": 0.0576,
+      "current": 0.0089
+    },
+    "training_history": [
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6614234773736251,
+          "val_loss": 1.888030219078064,
+          "val_acc_plate": 0.5736677115987461,
+          "val_acc_electrode": 0.8025078369905956,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.5452482738005201,
+          "val_f1_electrode": 0.808924901195156,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5204256986316882,
+          "val_loss": 1.6435834407806396,
+          "val_acc_plate": 0.7398119122257053,
+          "val_acc_electrode": 0.890282131661442,
+          "val_acc_current": 0.9561128526645768,
+          "val_f1_plate": 0.7342761061800643,
+          "val_f1_electrode": 0.8946047674540041,
+          "val_f1_current": 0.9559238941135494
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.4781613528728485,
+          "val_loss": 1.707769501209259,
+          "val_acc_plate": 0.6959247648902821,
+          "val_acc_electrode": 0.8495297805642633,
+          "val_acc_current": 0.9623824451410659,
+          "val_f1_plate": 0.6906652781525215,
+          "val_f1_electrode": 0.8564085402324291,
+          "val_f1_current": 0.9622527294346557
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.45750664472579955,
+          "val_loss": 1.4861628770828248,
+          "val_acc_plate": 0.799373040752351,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9686520376175548,
+          "val_f1_plate": 0.7808146080233916,
+          "val_f1_electrode": 0.9416733970089645,
+          "val_f1_current": 0.9685682626765137
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4445875239999671,
+          "val_loss": 1.5435893535614014,
+          "val_acc_plate": 0.7836990595611285,
+          "val_acc_electrode": 0.8996865203761756,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.7819940424979572,
+          "val_f1_electrode": 0.9038104261955001,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.42243468008543317,
+          "val_loss": 1.4282308876514436,
+          "val_acc_plate": 0.8275862068965517,
+          "val_acc_electrode": 0.9310344827586207,
+          "val_acc_current": 0.9780564263322884,
+          "val_f1_plate": 0.8245066208945266,
+          "val_f1_electrode": 0.9327349357622687,
+          "val_f1_current": 0.9780199928651127
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4168955175500167,
+          "val_loss": 1.4451069176197051,
+          "val_acc_plate": 0.8432601880877743,
+          "val_acc_electrode": 0.9341692789968652,
+          "val_acc_current": 0.9717868338557993,
+          "val_f1_plate": 0.8419938599311028,
+          "val_f1_electrode": 0.9364168048960707,
+          "val_f1_current": 0.971721523662618
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4093144906194586,
+          "val_loss": 1.5084155321121215,
+          "val_acc_plate": 0.8338557993730408,
+          "val_acc_electrode": 0.8871473354231975,
+          "val_acc_current": 0.9717868338557993,
+          "val_f1_plate": 0.8347326085741564,
+          "val_f1_electrode": 0.892399588499022,
+          "val_f1_current": 0.9717399908265735
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.4031464190859544,
+          "val_loss": 1.5706713855266572,
+          "val_acc_plate": 0.7962382445141066,
+          "val_acc_electrode": 0.9090909090909091,
+          "val_acc_current": 0.9717868338557993,
+          "val_f1_plate": 0.7916003912650212,
+          "val_f1_electrode": 0.9122966031753573,
+          "val_f1_current": 0.971721523662618
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.3945954181646046,
+          "val_loss": 1.4513781189918518,
+          "val_acc_plate": 0.7774294670846394,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.7791783496521731,
+          "val_f1_electrode": 0.9417652267580092,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.3866509845382289,
+          "val_loss": 1.424898362159729,
+          "val_acc_plate": 0.8307210031347962,
+          "val_acc_electrode": 0.9310344827586207,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.8299122245692248,
+          "val_f1_electrode": 0.9321368533591693,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.3826290196494052,
+          "val_loss": 1.4048474192619325,
+          "val_acc_plate": 0.8275862068965517,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8275861733675264,
+          "val_f1_electrode": 0.9380417875891001,
+          "val_f1_current": 0.9811756290321983
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.37809086285139387,
+          "val_loss": 1.4373259902000428,
+          "val_acc_plate": 0.8589341692789969,
+          "val_acc_electrode": 0.9310344827586207,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.858136734944299,
+          "val_f1_electrode": 0.933308926205132,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.3734376703438006,
+          "val_loss": 1.398310387134552,
+          "val_acc_plate": 0.8432601880877743,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.8436560440775651,
+          "val_f1_electrode": 0.9421693519048314,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.3696539016146409,
+          "val_loss": 1.4282453536987305,
+          "val_acc_plate": 0.8275862068965517,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8278107826088665,
+          "val_f1_electrode": 0.9390445620805342,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.37442113725762616,
+          "val_loss": 1.4417388558387756,
+          "val_acc_plate": 0.8338557993730408,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.8336852044827159,
+          "val_f1_electrode": 0.9389994751863971,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.3685696077974219,
+          "val_loss": 1.3904110789299011,
+          "val_acc_plate": 0.8463949843260188,
+          "val_acc_electrode": 0.9247648902821317,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.8461418031809025,
+          "val_f1_electrode": 0.927198790577693,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.3677832123480345,
+          "val_loss": 1.412619948387146,
+          "val_acc_plate": 0.8495297805642633,
+          "val_acc_electrode": 0.9310344827586207,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8493465602865673,
+          "val_f1_electrode": 0.9332606366546394,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.3709391568836413,
+          "val_loss": 1.372580999135971,
+          "val_acc_plate": 0.8589341692789969,
+          "val_acc_electrode": 0.9467084639498433,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.8582542780725365,
+          "val_f1_electrode": 0.9477053766786058,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.36677607925314654,
+          "val_loss": 1.3937485575675965,
+          "val_acc_plate": 0.8557993730407524,
+          "val_acc_electrode": 0.9435736677115988,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.8559012384232836,
+          "val_f1_electrode": 0.9448570380740376,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3698884411862022,
+          "val_loss": 1.3840136706829071,
+          "val_acc_plate": 0.8589341692789969,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8585872619250446,
+          "val_f1_electrode": 0.941861944492936,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.3659592468487589,
+          "val_loss": 1.3670045733451843,
+          "val_acc_plate": 0.8557993730407524,
+          "val_acc_electrode": 0.9341692789968652,
+          "val_acc_current": 0.9780564263322884,
+          "val_f1_plate": 0.8551433795058532,
+          "val_f1_electrode": 0.9362122523137328,
+          "val_f1_current": 0.9780199928651127
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.362268202555807,
+          "val_loss": 1.3576853036880494,
+          "val_acc_plate": 0.8557993730407524,
+          "val_acc_electrode": 0.9467084639498433,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8559012384232836,
+          "val_f1_electrode": 0.9477053766786058,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.35996630474140767,
+          "val_loss": 1.3722555994987489,
+          "val_acc_plate": 0.8557993730407524,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8566332747125358,
+          "val_f1_electrode": 0.9416901448810022,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.3629579475051478,
+          "val_loss": 1.376038658618927,
+          "val_acc_plate": 0.8526645768025078,
+          "val_acc_electrode": 0.9467084639498433,
+          "val_acc_current": 0.9780564263322884,
+          "val_f1_plate": 0.8532027495432151,
+          "val_f1_electrode": 0.9474120389071261,
+          "val_f1_current": 0.9780199928651127
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.3621425255348808,
+          "val_loss": 1.4453538656234741,
+          "val_acc_plate": 0.8495297805642633,
+          "val_acc_electrode": 0.9341692789968652,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.849638847998843,
+          "val_f1_electrode": 0.9360442795708075,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.36200565758504366,
+          "val_loss": 1.4263062715530395,
+          "val_acc_plate": 0.8463949843260188,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.846903084073076,
+          "val_f1_electrode": 0.9389994751863971,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.3581291088932439,
+          "val_loss": 1.4110328733921051,
+          "val_acc_plate": 0.8338557993730408,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.8340748751082023,
+          "val_f1_electrode": 0.9419188277362998,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.35927346976179825,
+          "val_loss": 1.4346897661685944,
+          "val_acc_plate": 0.8495297805642633,
+          "val_acc_electrode": 0.9216300940438872,
+          "val_acc_current": 0.9811912225705329,
+          "val_f1_plate": 0.8495617176593814,
+          "val_f1_electrode": 0.9240545185857728,
+          "val_f1_current": 0.9811655823452556
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.36277895758026524,
+          "val_loss": 1.4222407579421996,
+          "val_acc_plate": 0.8244514106583072,
+          "val_acc_electrode": 0.9467084639498433,
+          "val_acc_current": 0.987460815047022,
+          "val_f1_plate": 0.8250214273934897,
+          "val_f1_electrode": 0.9470988364536145,
+          "val_f1_current": 0.9874504193547988
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.35862753861828855,
+          "val_loss": 1.4966699957847596,
+          "val_acc_plate": 0.8056426332288401,
+          "val_acc_electrode": 0.9467084639498433,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.8059900359483052,
+          "val_f1_electrode": 0.9478962252069,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.36148093280039334,
+          "val_loss": 1.3772930681705475,
+          "val_acc_plate": 0.8714733542319749,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9780564263322884,
+          "val_f1_plate": 0.8707022918041032,
+          "val_f1_electrode": 0.9388203163438614,
+          "val_f1_current": 0.9780199928651127
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.355026472242255,
+          "val_loss": 1.393022221326828,
+          "val_acc_plate": 0.8495297805642633,
+          "val_acc_electrode": 0.9404388714733543,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.8498556720341199,
+          "val_f1_electrode": 0.9419593272655764,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.356987927775634,
+          "val_loss": 1.4098667860031129,
+          "val_acc_plate": 0.8557993730407524,
+          "val_acc_electrode": 0.9435736677115988,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.8558338213510628,
+          "val_f1_electrode": 0.9449493838893797,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3571231374615117,
+          "val_loss": 1.4098299086093902,
+          "val_acc_plate": 0.8275862068965517,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9843260188087775,
+          "val_f1_plate": 0.827771136334862,
+          "val_f1_electrode": 0.9391667334813654,
+          "val_f1_current": 0.9843089948257305
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.3532303028985074,
+          "val_loss": 1.3839001655578613,
+          "val_acc_plate": 0.8557993730407524,
+          "val_acc_electrode": 0.9498432601880877,
+          "val_acc_current": 0.9749216300940439,
+          "val_f1_plate": 0.8559012384232836,
+          "val_f1_electrode": 0.9508401729168502,
+          "val_f1_current": 0.9748720367347931
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.3555270405192124,
+          "val_loss": 1.4616461753845216,
+          "val_acc_plate": 0.799373040752351,
+          "val_acc_electrode": 0.9529780564263323,
+          "val_acc_current": 0.9780564263322884,
+          "val_f1_plate": 0.7995834946229392,
+          "val_f1_electrode": 0.9539886379616256,
+          "val_f1_current": 0.9780199928651127
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.35406600331005295,
+          "val_loss": 1.4490601181983949,
+          "val_acc_plate": 0.8307210031347962,
+          "val_acc_electrode": 0.9373040752351097,
+          "val_acc_current": 0.9780564263322884,
+          "val_f1_plate": 0.8309264143245886,
+          "val_f1_electrode": 0.9388795105711175,
+          "val_f1_current": 0.9780199928651127
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6594095195227481,
+          "val_loss": 1.6601111193497975,
+          "val_acc_plate": 0.7711864406779662,
+          "val_acc_electrode": 0.8389830508474576,
+          "val_acc_current": 0.9943502824858758,
+          "val_f1_plate": 0.7745447321351858,
+          "val_f1_electrode": 0.840288129157429,
+          "val_f1_current": 0.9943568510519465
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5202628830645947,
+          "val_loss": 1.6655808786551158,
+          "val_acc_plate": 0.731638418079096,
+          "val_acc_electrode": 0.7966101694915254,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.7379550939758377,
+          "val_f1_electrode": 0.8038007089667516,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.48525351666389627,
+          "val_loss": 1.4983542164166768,
+          "val_acc_plate": 0.827683615819209,
+          "val_acc_electrode": 0.847457627118644,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8220995985657272,
+          "val_f1_electrode": 0.8530512326873791,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.45879640224132134,
+          "val_loss": 1.433282156785329,
+          "val_acc_plate": 0.8220338983050848,
+          "val_acc_electrode": 0.9180790960451978,
+          "val_acc_current": 0.9915254237288136,
+          "val_f1_plate": 0.8155665354588035,
+          "val_f1_electrode": 0.9182612187699228,
+          "val_f1_current": 0.9915399750729149
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.44221543758473497,
+          "val_loss": 1.4738787313302357,
+          "val_acc_plate": 0.8248587570621468,
+          "val_acc_electrode": 0.9180790960451978,
+          "val_acc_current": 0.9887005649717514,
+          "val_f1_plate": 0.8131128033522019,
+          "val_f1_electrode": 0.9172659445498795,
+          "val_f1_current": 0.9887260301751426
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.4262572060874168,
+          "val_loss": 1.3465923070907593,
+          "val_acc_plate": 0.8954802259887006,
+          "val_acc_electrode": 0.8954802259887006,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8936792308575146,
+          "val_f1_electrode": 0.8960949126203364,
+          "val_f1_current": 0.9971734226010078
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.413409541896049,
+          "val_loss": 1.3134968678156536,
+          "val_acc_plate": 0.884180790960452,
+          "val_acc_electrode": 0.9293785310734464,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8842825845078074,
+          "val_f1_electrode": 0.92912049846911,
+          "val_f1_current": 0.9971734226010078
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4057469830868092,
+          "val_loss": 1.3005480070908864,
+          "val_acc_plate": 0.8926553672316384,
+          "val_acc_electrode": 0.9265536723163842,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8915684658251325,
+          "val_f1_electrode": 0.9270710429010303,
+          "val_f1_current": 0.9971734226010078
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.40059252939325696,
+          "val_loss": 1.29155529042085,
+          "val_acc_plate": 0.8898305084745762,
+          "val_acc_electrode": 0.9265536723163842,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.888214466615096,
+          "val_f1_electrode": 0.926446955483664,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.3891938861380232,
+          "val_loss": 1.2837216357390087,
+          "val_acc_plate": 0.8954802259887006,
+          "val_acc_electrode": 0.9209039548022598,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8945059545337706,
+          "val_f1_electrode": 0.9213348979134864,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.38578036934771437,
+          "val_loss": 1.253271460533142,
+          "val_acc_plate": 0.9096045197740112,
+          "val_acc_electrode": 0.9463276836158192,
+          "val_acc_current": 0.9943502824858758,
+          "val_f1_plate": 0.9094575726821507,
+          "val_f1_electrode": 0.9464579249088825,
+          "val_f1_current": 0.9943568510519465
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.38082732228522603,
+          "val_loss": 1.3034381469090779,
+          "val_acc_plate": 0.8898305084745762,
+          "val_acc_electrode": 0.923728813559322,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8888011857092127,
+          "val_f1_electrode": 0.9243210549714894,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.37634641724698087,
+          "val_loss": 1.2443862358729045,
+          "val_acc_plate": 0.903954802259887,
+          "val_acc_electrode": 0.9491525423728814,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9028257841817164,
+          "val_f1_electrode": 0.9493166441478462,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.37714822209895926,
+          "val_loss": 1.268513600031535,
+          "val_acc_plate": 0.9067796610169492,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9066148141199444,
+          "val_f1_electrode": 0.9411975350461437,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.3723011780926522,
+          "val_loss": 1.253319243590037,
+          "val_acc_plate": 0.9067796610169492,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9059317008305133,
+          "val_f1_electrode": 0.9355627782350188,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.3705612113501163,
+          "val_loss": 1.2588529586791992,
+          "val_acc_plate": 0.8983050847457628,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8976176099057455,
+          "val_f1_electrode": 0.9410378545927566,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.3703444980560465,
+          "val_loss": 1.2717817922433217,
+          "val_acc_plate": 0.8926553672316384,
+          "val_acc_electrode": 0.9265536723163842,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.891597701751664,
+          "val_f1_electrode": 0.9268049399089549,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.3703891187906265,
+          "val_loss": 1.2422576944033306,
+          "val_acc_plate": 0.9124293785310734,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.912375826706295,
+          "val_f1_electrode": 0.9353020237282501,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.36835800428339777,
+          "val_loss": 1.2433808594942093,
+          "val_acc_plate": 0.9067796610169492,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9061304225582334,
+          "val_f1_electrode": 0.9411011697642013,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.36437530149804787,
+          "val_loss": 1.2496338089307149,
+          "val_acc_plate": 0.9067796610169492,
+          "val_acc_electrode": 0.9378531073446328,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9070206067088439,
+          "val_f1_electrode": 0.9383953615695877,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3625822599897993,
+          "val_loss": 1.2464138170083363,
+          "val_acc_plate": 0.903954802259887,
+          "val_acc_electrode": 0.9378531073446328,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9038145255244809,
+          "val_f1_electrode": 0.938560613867315,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.36185480051852287,
+          "val_loss": 1.264847735563914,
+          "val_acc_plate": 0.8926553672316384,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8918928363503387,
+          "val_f1_electrode": 0.9353718648418969,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.3653005602511954,
+          "val_loss": 1.2324657440185547,
+          "val_acc_plate": 0.8983050847457628,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8986661322141958,
+          "val_f1_electrode": 0.9354610054414529,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.3624948887748921,
+          "val_loss": 1.2319494386514027,
+          "val_acc_plate": 0.8983050847457628,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8973587341810099,
+          "val_f1_electrode": 0.941013095162443,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.3602913129836955,
+          "val_loss": 1.240458905696869,
+          "val_acc_plate": 0.9011299435028248,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9008041406579735,
+          "val_f1_electrode": 0.9409675371561201,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.35965419132658777,
+          "val_loss": 1.2476312915484111,
+          "val_acc_plate": 0.8983050847457628,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 0.9943502824858758,
+          "val_f1_plate": 0.8981524396843855,
+          "val_f1_electrode": 0.941189725166276,
+          "val_f1_current": 0.9943568510519465
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.3592377244792086,
+          "val_loss": 1.2477236092090607,
+          "val_acc_plate": 0.9011299435028248,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.9013889306390548,
+          "val_f1_electrode": 0.9355627782350188,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.36210694116480807,
+          "val_loss": 1.2436561584472656,
+          "val_acc_plate": 0.8870056497175142,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 0.9943502824858758,
+          "val_f1_plate": 0.8870056497175142,
+          "val_f1_electrode": 0.9354415053480205,
+          "val_f1_current": 0.9943568510519465
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.35919254193914696,
+          "val_loss": 1.2506795426209767,
+          "val_acc_plate": 0.8926553672316384,
+          "val_acc_electrode": 0.9350282485875706,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8920121166338012,
+          "val_f1_electrode": 0.9352896986669437,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.358287180357791,
+          "val_loss": 1.2413499454657237,
+          "val_acc_plate": 0.8954802259887006,
+          "val_acc_electrode": 0.943502824858757,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8953231427213685,
+          "val_f1_electrode": 0.9438534061476184,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.3582302801152493,
+          "val_loss": 1.2460175255934398,
+          "val_acc_plate": 0.9011299435028248,
+          "val_acc_electrode": 0.9491525423728814,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.900614227572726,
+          "val_f1_electrode": 0.9495081911513696,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.3590234641699081,
+          "val_loss": 1.2355566918849945,
+          "val_acc_plate": 0.8954802259887006,
+          "val_acc_electrode": 0.940677966101695,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8954983573029307,
+          "val_f1_electrode": 0.9411011697642013,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.35447553973248663,
+          "val_loss": 1.2457605600357056,
+          "val_acc_plate": 0.8870056497175142,
+          "val_acc_electrode": 0.9463276836158192,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8865604469793228,
+          "val_f1_electrode": 0.9467009423206116,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.35820188230656563,
+          "val_loss": 1.257931927839915,
+          "val_acc_plate": 0.8954802259887006,
+          "val_acc_electrode": 0.943502824858757,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.895134060466046,
+          "val_f1_electrode": 0.9437731984111087,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3574490689850868,
+          "val_loss": 1.2646863609552383,
+          "val_acc_plate": 0.8926553672316384,
+          "val_acc_electrode": 0.9378531073446328,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8914659160241639,
+          "val_f1_electrode": 0.9382053959304697,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.35481941826800084,
+          "val_loss": 1.2764560480912526,
+          "val_acc_plate": 0.8983050847457628,
+          "val_acc_electrode": 0.943502824858757,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8973463556913208,
+          "val_f1_electrode": 0.9438004928413827,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.3506711724590748,
+          "val_loss": 1.2322318454583485,
+          "val_acc_plate": 0.8983050847457628,
+          "val_acc_electrode": 0.9322033898305084,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.898108993272888,
+          "val_f1_electrode": 0.9325292812324234,
+          "val_f1_current": 0.9971768087962262
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.3534432275498167,
+          "val_loss": 1.2402910192807515,
+          "val_acc_plate": 0.8926553672316384,
+          "val_acc_electrode": 0.9378531073446328,
+          "val_acc_current": 0.9943502824858758,
+          "val_f1_plate": 0.8923113310481429,
+          "val_f1_electrode": 0.9381740499575165,
+          "val_f1_current": 0.9943568510519465
+        },
+        {
+          "epoch": 39,
+          "train_loss": 0.35068347447730125,
+          "val_loss": 1.2400667369365692,
+          "val_acc_plate": 0.8954802259887006,
+          "val_acc_electrode": 0.943502824858757,
+          "val_acc_current": 0.9971751412429378,
+          "val_f1_plate": 0.8950121519228631,
+          "val_f1_electrode": 0.9438308506705396,
+          "val_f1_current": 0.9971768087962262
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6594439680858325,
+          "val_loss": 1.787757049004237,
+          "val_acc_plate": 0.7493188010899182,
+          "val_acc_electrode": 0.8201634877384196,
+          "val_acc_current": 0.9237057220708447,
+          "val_f1_plate": 0.7510594292167443,
+          "val_f1_electrode": 0.827042972752648,
+          "val_f1_current": 0.9232428765021512
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5266646691547927,
+          "val_loss": 1.5892255902290344,
+          "val_acc_plate": 0.8256130790190735,
+          "val_acc_electrode": 0.8746594005449592,
+          "val_acc_current": 0.9564032697547684,
+          "val_f1_plate": 0.8268544146007758,
+          "val_f1_electrode": 0.8794660885781855,
+          "val_f1_current": 0.9563676324537238
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.48110181349580006,
+          "val_loss": 1.7518331209818523,
+          "val_acc_plate": 0.8010899182561307,
+          "val_acc_electrode": 0.8392370572207084,
+          "val_acc_current": 0.9455040871934605,
+          "val_f1_plate": 0.7989081600543197,
+          "val_f1_electrode": 0.8477847899100958,
+          "val_f1_current": 0.9453335946469886
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.4568711878151022,
+          "val_loss": 1.502354880174001,
+          "val_acc_plate": 0.8147138964577657,
+          "val_acc_electrode": 0.9182561307901907,
+          "val_acc_current": 0.9455040871934605,
+          "val_f1_plate": 0.8051546893823779,
+          "val_f1_electrode": 0.9178034677823206,
+          "val_f1_current": 0.9454408894355224
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4396386258704688,
+          "val_loss": 1.4943007131417592,
+          "val_acc_plate": 0.8692098092643051,
+          "val_acc_electrode": 0.8337874659400545,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.8681775246304748,
+          "val_f1_electrode": 0.8409529884876409,
+          "val_f1_current": 0.9645429043674599
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.42016654053042013,
+          "val_loss": 1.4688068230946858,
+          "val_acc_plate": 0.8256130790190735,
+          "val_acc_electrode": 0.9073569482288828,
+          "val_acc_current": 0.9673024523160763,
+          "val_f1_plate": 0.8286856331942368,
+          "val_f1_electrode": 0.9077873420724144,
+          "val_f1_current": 0.9672757243402929
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4200054894211472,
+          "val_loss": 1.3968356748421986,
+          "val_acc_plate": 0.8801089918256131,
+          "val_acc_electrode": 0.9073569482288828,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.8815833701595156,
+          "val_f1_electrode": 0.9095959036897052,
+          "val_f1_current": 0.9645297220881871
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.40466111513876146,
+          "val_loss": 1.3754056890805562,
+          "val_acc_plate": 0.8937329700272479,
+          "val_acc_electrode": 0.9155313351498637,
+          "val_acc_current": 0.9591280653950953,
+          "val_f1_plate": 0.8947080540540543,
+          "val_f1_electrode": 0.9160333000451176,
+          "val_f1_current": 0.9591007342304798
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.4007648473144859,
+          "val_loss": 1.3347052733103435,
+          "val_acc_plate": 0.8828337874659401,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.8825430017264113,
+          "val_f1_electrode": 0.9273920100246329,
+          "val_f1_current": 0.9645697647587498
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.3968831416099302,
+          "val_loss": 1.3575173914432526,
+          "val_acc_plate": 0.8637602179836512,
+          "val_acc_electrode": 0.9237057220708447,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.8658632795233715,
+          "val_f1_electrode": 0.924062131546304,
+          "val_f1_current": 0.9700072051023517
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.39467580344087333,
+          "val_loss": 1.3311135073502858,
+          "val_acc_plate": 0.885558583106267,
+          "val_acc_electrode": 0.9237057220708447,
+          "val_acc_current": 0.9673024523160763,
+          "val_f1_plate": 0.8874691346486139,
+          "val_f1_electrode": 0.9246559998728536,
+          "val_f1_current": 0.9672757243402929
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.38509559983848246,
+          "val_loss": 1.3552148441473644,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.896457765667575,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.9023756505569869,
+          "val_f1_electrode": 0.8995887012432761,
+          "val_f1_current": 0.9699978421570815
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.37747965192282074,
+          "val_loss": 1.314940979083379,
+          "val_acc_plate": 0.8801089918256131,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9727520435967303,
+          "val_f1_plate": 0.8819235042521144,
+          "val_f1_electrode": 0.9269279789295787,
+          "val_f1_current": 0.9727374690331008
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.3766758159924579,
+          "val_loss": 1.3147095143795013,
+          "val_acc_plate": 0.8991825613079019,
+          "val_acc_electrode": 0.9155313351498637,
+          "val_acc_current": 0.9673024523160763,
+          "val_f1_plate": 0.900245415537904,
+          "val_f1_electrode": 0.9157986141965511,
+          "val_f1_current": 0.9672757243402929
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.37477556864420575,
+          "val_loss": 1.3096336325009663,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9209809264305178,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.9027646838139493,
+          "val_f1_electrode": 0.9207588552599766,
+          "val_f1_current": 0.9645429043674599
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.369847991453704,
+          "val_loss": 1.3058327039082844,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9237057220708447,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.9032325875010573,
+          "val_f1_electrode": 0.9238668453652074,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.37168382797189936,
+          "val_loss": 1.3127305308977764,
+          "val_acc_plate": 0.896457765667575,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.897078162497279,
+          "val_f1_electrode": 0.9270387203863645,
+          "val_f1_current": 0.9700072051023517
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.3691224279583141,
+          "val_loss": 1.2979171772797902,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9727520435967303,
+          "val_f1_plate": 0.9029833204650357,
+          "val_f1_electrode": 0.9268560486881584,
+          "val_f1_current": 0.9727374690331008
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.36695980641149706,
+          "val_loss": 1.3029199341932933,
+          "val_acc_plate": 0.9155313351498637,
+          "val_acc_electrode": 0.9209809264305178,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.916121749045041,
+          "val_f1_electrode": 0.9217270130473442,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3656466846824974,
+          "val_loss": 1.3115228911240895,
+          "val_acc_plate": 0.9100817438692098,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.9116359328926291,
+          "val_f1_electrode": 0.9265516131830853,
+          "val_f1_current": 0.9645297220881871
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3662696942206352,
+          "val_loss": 1.2856308321158092,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9346049046321526,
+          "val_acc_current": 0.9673024523160763,
+          "val_f1_plate": 0.902736206791184,
+          "val_f1_electrode": 0.9348738574790256,
+          "val_f1_current": 0.9672849628397209
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.36205768104522457,
+          "val_loss": 1.335835615793864,
+          "val_acc_plate": 0.896457765667575,
+          "val_acc_electrode": 0.9182561307901907,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.8972762230146513,
+          "val_f1_electrode": 0.9199033082033856,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.36654206181085236,
+          "val_loss": 1.3099177777767181,
+          "val_acc_plate": 0.8910081743869209,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9727520435967303,
+          "val_f1_plate": 0.8925954899226747,
+          "val_f1_electrode": 0.9271908329113525,
+          "val_f1_current": 0.9727297702835773
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.3641747127297104,
+          "val_loss": 1.3041255970795949,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9237057220708447,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.9035096552541168,
+          "val_f1_electrode": 0.9245685527509714,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.36408249857605146,
+          "val_loss": 1.2981745501359303,
+          "val_acc_plate": 0.8937329700272479,
+          "val_acc_electrode": 0.9182561307901907,
+          "val_acc_current": 0.9673024523160763,
+          "val_f1_plate": 0.8953035608056967,
+          "val_f1_electrode": 0.9190804199884286,
+          "val_f1_current": 0.9672757243402929
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.3622811997449526,
+          "val_loss": 1.3362340877453487,
+          "val_acc_plate": 0.9100817438692098,
+          "val_acc_electrode": 0.9100817438692098,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.9109410303388373,
+          "val_f1_electrode": 0.9113262578201689,
+          "val_f1_current": 0.9645297220881871
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.3637315723844754,
+          "val_loss": 1.288953185081482,
+          "val_acc_plate": 0.8937329700272479,
+          "val_acc_electrode": 0.9291553133514986,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.894834738524835,
+          "val_f1_electrode": 0.929890089498491,
+          "val_f1_current": 0.9700072051023517
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.36419790790927026,
+          "val_loss": 1.3156174421310425,
+          "val_acc_plate": 0.9046321525885559,
+          "val_acc_electrode": 0.9264305177111717,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.9051088301838995,
+          "val_f1_electrode": 0.9273624024857146,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.36329583198793475,
+          "val_loss": 1.3012377321720123,
+          "val_acc_plate": 0.9073569482288828,
+          "val_acc_electrode": 0.9291553133514986,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.9084795044282444,
+          "val_f1_electrode": 0.9296515820446737,
+          "val_f1_current": 0.9700072051023517
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.35972624536483516,
+          "val_loss": 1.2959950417280197,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9291553133514986,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.9029868907674277,
+          "val_f1_electrode": 0.9295268873529224,
+          "val_f1_current": 0.964562922033401
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.36051313691241765,
+          "val_loss": 1.328913191954295,
+          "val_acc_plate": 0.8991825613079019,
+          "val_acc_electrode": 0.9237057220708447,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.9004065965367444,
+          "val_f1_electrode": 0.9240436511542721,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.35947572672238914,
+          "val_loss": 1.3145315547784169,
+          "val_acc_plate": 0.9019073569482289,
+          "val_acc_electrode": 0.9209809264305178,
+          "val_acc_current": 0.9645776566757494,
+          "val_f1_plate": 0.9029471279948756,
+          "val_f1_electrode": 0.9221408570721883,
+          "val_f1_current": 0.9645429043674599
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.3596534693753847,
+          "val_loss": 1.3360637823740642,
+          "val_acc_plate": 0.8910081743869209,
+          "val_acc_electrode": 0.9291553133514986,
+          "val_acc_current": 0.9673024523160763,
+          "val_f1_plate": 0.8910601655312126,
+          "val_f1_electrode": 0.9298564704557255,
+          "val_f1_current": 0.9672757243402929
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.3557703629616768,
+          "val_loss": 1.3121394316355388,
+          "val_acc_plate": 0.8991825613079019,
+          "val_acc_electrode": 0.9237057220708447,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.8998148383748613,
+          "val_f1_electrode": 0.9240276260679833,
+          "val_f1_current": 0.9700072051023517
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3584067491433954,
+          "val_loss": 1.319192886352539,
+          "val_acc_plate": 0.896457765667575,
+          "val_acc_electrode": 0.9291553133514986,
+          "val_acc_current": 0.9618528610354223,
+          "val_f1_plate": 0.8968397730078175,
+          "val_f1_electrode": 0.9297617322375262,
+          "val_f1_current": 0.9618086226048658
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.35735273136887497,
+          "val_loss": 1.2992507417996724,
+          "val_acc_plate": 0.9128065395095368,
+          "val_acc_electrode": 0.9209809264305178,
+          "val_acc_current": 0.9700272479564033,
+          "val_f1_plate": 0.9138646503551289,
+          "val_f1_electrode": 0.9213772311472083,
+          "val_f1_current": 0.9700072051023517
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6718928902707202,
+          "val_loss": 1.6218373667110095,
+          "val_acc_plate": 0.7293447293447294,
+          "val_acc_electrode": 0.8347578347578347,
+          "val_acc_current": 0.9886039886039886,
+          "val_f1_plate": 0.7199441705795437,
+          "val_f1_electrode": 0.8314924328680876,
+          "val_f1_current": 0.9886148191470321
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5250368270468204,
+          "val_loss": 1.5163275599479675,
+          "val_acc_plate": 0.7720797720797721,
+          "val_acc_electrode": 0.8319088319088319,
+          "val_acc_current": 0.9772079772079773,
+          "val_f1_plate": 0.7261822835359789,
+          "val_f1_electrode": 0.8369304182461437,
+          "val_f1_current": 0.9772850845487662
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.4879901003330312,
+          "val_loss": 1.4630428552627563,
+          "val_acc_plate": 0.8034188034188035,
+          "val_acc_electrode": 0.8717948717948718,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8113983913090247,
+          "val_f1_electrode": 0.8744000352440796,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.4614860795913859,
+          "val_loss": 1.3244213299317793,
+          "val_acc_plate": 0.8461538461538461,
+          "val_acc_electrode": 0.9116809116809117,
+          "val_acc_current": 0.9857549857549858,
+          "val_f1_plate": 0.8402959256835153,
+          "val_f1_electrode": 0.9114275052747052,
+          "val_f1_current": 0.9857869610956029
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4412256745581931,
+          "val_loss": 1.3591833548112349,
+          "val_acc_plate": 0.8461538461538461,
+          "val_acc_electrode": 0.9230769230769231,
+          "val_acc_current": 0.9886039886039886,
+          "val_f1_plate": 0.8407743784427717,
+          "val_f1_electrode": 0.9243077738903166,
+          "val_f1_current": 0.9886248506938161
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.42739318881897215,
+          "val_loss": 1.4608991091901606,
+          "val_acc_plate": 0.8062678062678063,
+          "val_acc_electrode": 0.8917378917378918,
+          "val_acc_current": 0.9914529914529915,
+          "val_f1_plate": 0.8148380115434378,
+          "val_f1_electrode": 0.8919061704157039,
+          "val_f1_current": 0.9914649507869846
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.42019300796884174,
+          "val_loss": 1.3659067858349194,
+          "val_acc_plate": 0.8376068376068376,
+          "val_acc_electrode": 0.9145299145299145,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8382353133756407,
+          "val_f1_electrode": 0.9158882851919692,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.41110058858039533,
+          "val_loss": 1.3305720361796292,
+          "val_acc_plate": 0.8433048433048433,
+          "val_acc_electrode": 0.9230769230769231,
+          "val_acc_current": 0.9886039886039886,
+          "val_f1_plate": 0.8476327534757508,
+          "val_f1_electrode": 0.9237249945077276,
+          "val_f1_current": 0.9886248506938161
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.4040345099378139,
+          "val_loss": 1.4428450411016291,
+          "val_acc_plate": 0.8034188034188035,
+          "val_acc_electrode": 0.9088319088319088,
+          "val_acc_current": 0.9943019943019943,
+          "val_f1_plate": 0.8069332327820918,
+          "val_f1_electrode": 0.9106983733779797,
+          "val_f1_current": 0.994307409573516
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.39516525160759053,
+          "val_loss": 1.2478978037834167,
+          "val_acc_plate": 0.8803418803418803,
+          "val_acc_electrode": 0.9401709401709402,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8812899101511237,
+          "val_f1_electrode": 0.9405599534034594,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.39243869198129533,
+          "val_loss": 1.3494933410124346,
+          "val_acc_plate": 0.8575498575498576,
+          "val_acc_electrode": 0.9202279202279202,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8598078521868312,
+          "val_f1_electrode": 0.9206356573212956,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.38583035037872637,
+          "val_loss": 1.3251581950621172,
+          "val_acc_plate": 0.8632478632478633,
+          "val_acc_electrode": 0.9116809116809117,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8649760372433014,
+          "val_f1_electrode": 0.9118259238986218,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.37634558373309196,
+          "val_loss": 1.34193847396157,
+          "val_acc_plate": 0.8490028490028491,
+          "val_acc_electrode": 0.9145299145299145,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8516216649990946,
+          "val_f1_electrode": 0.9153437027237058,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.3770324337355634,
+          "val_loss": 1.2927350889552722,
+          "val_acc_plate": 0.8632478632478633,
+          "val_acc_electrode": 0.9373219373219374,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8653675151029648,
+          "val_f1_electrode": 0.9377390905856171,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.37215190238141,
+          "val_loss": 1.3001840602267871,
+          "val_acc_plate": 0.8632478632478633,
+          "val_acc_electrode": 0.9116809116809117,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8654174298182666,
+          "val_f1_electrode": 0.9125155390200612,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.3706379548666325,
+          "val_loss": 1.278789764100855,
+          "val_acc_plate": 0.8803418803418803,
+          "val_acc_electrode": 0.9344729344729344,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8813198661303576,
+          "val_f1_electrode": 0.9347747750417648,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.3696466649466373,
+          "val_loss": 1.273572493683208,
+          "val_acc_plate": 0.8803418803418803,
+          "val_acc_electrode": 0.9344729344729344,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8813198661303576,
+          "val_f1_electrode": 0.9347560903439981,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.37130427709285246,
+          "val_loss": 1.3017573194070295,
+          "val_acc_plate": 0.8774928774928775,
+          "val_acc_electrode": 0.9173789173789174,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8785999836925763,
+          "val_f1_electrode": 0.9184265538694514,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.36807074698996034,
+          "val_loss": 1.2986690456216985,
+          "val_acc_plate": 0.8746438746438746,
+          "val_acc_electrode": 0.9259259259259259,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8754383674529255,
+          "val_f1_electrode": 0.9264800060887329,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.36405980238255037,
+          "val_loss": 1.2837236794558438,
+          "val_acc_plate": 0.8774928774928775,
+          "val_acc_electrode": 0.9401709401709402,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8791162409396028,
+          "val_f1_electrode": 0.9405353255673792,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.37448900272237495,
+          "val_loss": 1.2763431830839678,
+          "val_acc_plate": 0.886039886039886,
+          "val_acc_electrode": 0.9287749287749287,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8862701629224221,
+          "val_f1_electrode": 0.9293849459519616,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.36429775236768924,
+          "val_loss": 1.2836396910927512,
+          "val_acc_plate": 0.8803418803418803,
+          "val_acc_electrode": 0.9515669515669516,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8819943691027297,
+          "val_f1_electrode": 0.9518559997342988,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.3685432063772323,
+          "val_loss": 1.2804666649211536,
+          "val_acc_plate": 0.8803418803418803,
+          "val_acc_electrode": 0.9458689458689459,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8802987072377013,
+          "val_f1_electrode": 0.9461555121444466,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.36477805578962286,
+          "val_loss": 1.3172487995841287,
+          "val_acc_plate": 0.8660968660968661,
+          "val_acc_electrode": 0.9401709401709402,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.8677598827234725,
+          "val_f1_electrode": 0.9405625457909371,
+          "val_f1_current": 0.9971523760420344
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.3643490672111511,
+          "val_loss": 1.3089761842380871,
+          "val_acc_plate": 0.8603988603988604,
+          "val_acc_electrode": 0.9373219373219374,
+          "val_acc_current": 0.9971509971509972,
+          "val_f1_plate": 0.862380659988088,
+          "val_f1_electrode": 0.9377787530885043,
+          "val_f1_current": 0.9971523760420344
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6615212921132433,
+          "val_loss": 1.662910591472279,
+          "val_acc_plate": 0.7194029850746269,
+          "val_acc_electrode": 0.8417910447761194,
+          "val_acc_current": 0.991044776119403,
+          "val_f1_plate": 0.726290632173624,
+          "val_f1_electrode": 0.8422569480829563,
+          "val_f1_current": 0.9910887982117513
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5220535277052128,
+          "val_loss": 1.6174891753630205,
+          "val_acc_plate": 0.8119402985074626,
+          "val_acc_electrode": 0.7910447761194029,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8142909112307763,
+          "val_f1_electrode": 0.7892157555787743,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.48410427950798196,
+          "val_loss": 1.4888491955670444,
+          "val_acc_plate": 0.844776119402985,
+          "val_acc_electrode": 0.8686567164179104,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8476775974304351,
+          "val_f1_electrode": 0.8685053818696921,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.45835594610964997,
+          "val_loss": 1.7482283223759045,
+          "val_acc_plate": 0.746268656716418,
+          "val_acc_electrode": 0.8477611940298507,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.7506438349106024,
+          "val_f1_electrode": 0.8519095733041014,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4430937589483058,
+          "val_loss": 1.4611595327203923,
+          "val_acc_plate": 0.8417910447761194,
+          "val_acc_electrode": 0.8597014925373134,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8439613748849495,
+          "val_f1_electrode": 0.8633601844529676,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.42560513602926375,
+          "val_loss": 1.350137542594563,
+          "val_acc_plate": 0.8776119402985074,
+          "val_acc_electrode": 0.8895522388059701,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8765902380852839,
+          "val_f1_electrode": 0.8894003358877329,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4107653910809375,
+          "val_loss": 1.4448920488357544,
+          "val_acc_plate": 0.835820895522388,
+          "val_acc_electrode": 0.8835820895522388,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8402855747786269,
+          "val_f1_electrode": 0.8850742897976244,
+          "val_f1_current": 0.9940298507462687
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4111142155337841,
+          "val_loss": 1.5356986956162886,
+          "val_acc_plate": 0.8,
+          "val_acc_electrode": 0.8955223880597015,
+          "val_acc_current": 0.991044776119403,
+          "val_f1_plate": 0.8050778864655153,
+          "val_f1_electrode": 0.8964363565142791,
+          "val_f1_current": 0.9910887982117513
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.3959475796907506,
+          "val_loss": 1.4627559835260564,
+          "val_acc_plate": 0.8149253731343283,
+          "val_acc_electrode": 0.8865671641791045,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8163273831472714,
+          "val_f1_electrode": 0.8868213806263249,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.3950677897701872,
+          "val_loss": 1.3944374268705195,
+          "val_acc_plate": 0.8746268656716418,
+          "val_acc_electrode": 0.9014925373134328,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8769223370553332,
+          "val_f1_electrode": 0.9029353999487139,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.3887239862629708,
+          "val_loss": 1.4440913742238826,
+          "val_acc_plate": 0.8537313432835821,
+          "val_acc_electrode": 0.8835820895522388,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8537176278776193,
+          "val_f1_electrode": 0.8851647750372892,
+          "val_f1_current": 0.9940092816407962
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.3798106572729476,
+          "val_loss": 1.3558784289793535,
+          "val_acc_plate": 0.8626865671641791,
+          "val_acc_electrode": 0.8895522388059701,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8634709958482553,
+          "val_f1_electrode": 0.8899480495099831,
+          "val_f1_current": 0.9970098341898747
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.38000744549517934,
+          "val_loss": 1.339552489194003,
+          "val_acc_plate": 0.8716417910447761,
+          "val_acc_electrode": 0.9044776119402985,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8737897101442819,
+          "val_f1_electrode": 0.9051609136010437,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.3797631232028312,
+          "val_loss": 1.433325464075262,
+          "val_acc_plate": 0.8686567164179104,
+          "val_acc_electrode": 0.8865671641791045,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8702394853612451,
+          "val_f1_electrode": 0.888322138223878,
+          "val_f1_current": 0.9940496133037824
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.3736134425122687,
+          "val_loss": 1.3556821183724836,
+          "val_acc_plate": 0.8626865671641791,
+          "val_acc_electrode": 0.9074626865671642,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8651979971898014,
+          "val_f1_electrode": 0.9083270637465148,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.3703446150460142,
+          "val_loss": 1.3596468838778408,
+          "val_acc_plate": 0.8686567164179104,
+          "val_acc_electrode": 0.9014925373134328,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8707897762623031,
+          "val_f1_electrode": 0.9030948819605751,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.37015761974010064,
+          "val_loss": 1.3526597564870662,
+          "val_acc_plate": 0.8746268656716418,
+          "val_acc_electrode": 0.9044776119402985,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8769370208693856,
+          "val_f1_electrode": 0.9054189087185729,
+          "val_f1_current": 0.9970098341898747
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.3661992866942223,
+          "val_loss": 1.3411244370720603,
+          "val_acc_plate": 0.8805970149253731,
+          "val_acc_electrode": 0.8865671641791045,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8819756282442849,
+          "val_f1_electrode": 0.8872630893153282,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.369409738068885,
+          "val_loss": 1.3321357369422913,
+          "val_acc_plate": 0.8746268656716418,
+          "val_acc_electrode": 0.9104477611940298,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8772066370784857,
+          "val_f1_electrode": 0.9112702253807609,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3682633850802767,
+          "val_loss": 1.3394992622462185,
+          "val_acc_plate": 0.8746268656716418,
+          "val_acc_electrode": 0.9074626865671642,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8762291210855389,
+          "val_f1_electrode": 0.9087372559134046,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.36398599407774335,
+          "val_loss": 1.3092537305571816,
+          "val_acc_plate": 0.8955223880597015,
+          "val_acc_electrode": 0.9104477611940298,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8966211783375962,
+          "val_f1_electrode": 0.9113649779674242,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.365441529040641,
+          "val_loss": 1.3732153394005515,
+          "val_acc_plate": 0.8746268656716418,
+          "val_acc_electrode": 0.8985074626865671,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8761629488368675,
+          "val_f1_electrode": 0.8992010463968861,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.3644701819470588,
+          "val_loss": 1.3798664049668745,
+          "val_acc_plate": 0.8656716417910447,
+          "val_acc_electrode": 0.9044776119402985,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8680334382318038,
+          "val_f1_electrode": 0.9058626358324696,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.3660879632894029,
+          "val_loss": 1.3665342981165105,
+          "val_acc_plate": 0.8865671641791045,
+          "val_acc_electrode": 0.8895522388059701,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8876926390987961,
+          "val_f1_electrode": 0.8901378977160895,
+          "val_f1_current": 0.9940496133037824
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.36292764005508826,
+          "val_loss": 1.310872273011641,
+          "val_acc_plate": 0.8955223880597015,
+          "val_acc_electrode": 0.9104477611940298,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8963577070477124,
+          "val_f1_electrode": 0.9110587018281318,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.36137888723231376,
+          "val_loss": 1.4010519276965747,
+          "val_acc_plate": 0.8686567164179104,
+          "val_acc_electrode": 0.9014925373134328,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8687075865525082,
+          "val_f1_electrode": 0.9028271302186132,
+          "val_f1_current": 0.9940092816407962
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.3612923612619968,
+          "val_loss": 1.3894450772892346,
+          "val_acc_plate": 0.8716417910447761,
+          "val_acc_electrode": 0.9164179104477612,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8731383439978058,
+          "val_f1_electrode": 0.9171146637008629,
+          "val_f1_current": 0.9970098341898747
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.3602145361773511,
+          "val_loss": 1.3786033175208352,
+          "val_acc_plate": 0.8656716417910447,
+          "val_acc_electrode": 0.9044776119402985,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8663306693019401,
+          "val_f1_electrode": 0.9053868309962205,
+          "val_f1_current": 0.9940496133037824
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.3612116832048335,
+          "val_loss": 1.3532675071196123,
+          "val_acc_plate": 0.8656716417910447,
+          "val_acc_electrode": 0.9104477611940298,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.867398504315776,
+          "val_f1_electrode": 0.9116814676415624,
+          "val_f1_current": 0.9940496133037824
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.35741020358623343,
+          "val_loss": 1.3192229921167546,
+          "val_acc_plate": 0.8895522388059701,
+          "val_acc_electrode": 0.9164179104477612,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8909034747980035,
+          "val_f1_electrode": 0.9174902615100577,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.3572706491389173,
+          "val_loss": 1.352993293242021,
+          "val_acc_plate": 0.8925373134328358,
+          "val_acc_electrode": 0.9014925373134328,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8936487548035073,
+          "val_f1_electrode": 0.9025047478231196,
+          "val_f1_current": 0.9970098341898747
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.3576312138045088,
+          "val_loss": 1.350412672216242,
+          "val_acc_plate": 0.8746268656716418,
+          "val_acc_electrode": 0.9014925373134328,
+          "val_acc_current": 0.9940298507462687,
+          "val_f1_plate": 0.8751172052678097,
+          "val_f1_electrode": 0.9023596256260068,
+          "val_f1_current": 0.9940496133037824
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.3568157975343948,
+          "val_loss": 1.3468824299899014,
+          "val_acc_plate": 0.8716417910447761,
+          "val_acc_electrode": 0.9014925373134328,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8741259616628371,
+          "val_f1_electrode": 0.9022940579083282,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.353826790096912,
+          "val_loss": 1.3182939778674732,
+          "val_acc_plate": 0.8805970149253731,
+          "val_acc_electrode": 0.9104477611940298,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8822612707864417,
+          "val_f1_electrode": 0.9114201119864777,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3568831168590708,
+          "val_loss": 1.333445050499656,
+          "val_acc_plate": 0.8805970149253731,
+          "val_acc_electrode": 0.9044776119402985,
+          "val_acc_current": 0.9970149253731343,
+          "val_f1_plate": 0.8822313492436655,
+          "val_f1_electrode": 0.9052091975556781,
+          "val_f1_current": 0.9970199157458736
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.3538837864043865,
+          "val_loss": 1.3793139782818882,
+          "val_acc_plate": 0.8656716417910447,
+          "val_acc_electrode": 0.9044776119402985,
+          "val_acc_current": 0.991044776119403,
+          "val_f1_plate": 0.8685413423241524,
+          "val_f1_electrode": 0.9057486906943015,
+          "val_f1_current": 0.991029502569624
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6697476945425335,
+          "val_loss": 1.836645245552063,
+          "val_acc_plate": 0.698051948051948,
+          "val_acc_electrode": 0.7824675324675324,
+          "val_acc_current": 0.9642857142857143,
+          "val_f1_plate": 0.6812643432045682,
+          "val_f1_electrode": 0.787235795639157,
+          "val_f1_current": 0.9638927744856177
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5285736441612243,
+          "val_loss": 1.607694149017334,
+          "val_acc_plate": 0.7142857142857143,
+          "val_acc_electrode": 0.8733766233766234,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.7161210318959795,
+          "val_f1_electrode": 0.8777007213829078,
+          "val_f1_current": 0.9934919367947577
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.4887472193492086,
+          "val_loss": 1.394336223602295,
+          "val_acc_plate": 0.8214285714285714,
+          "val_acc_electrode": 0.9058441558441559,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.8201569672157908,
+          "val_f1_electrode": 0.9074629933866049,
+          "val_f1_current": 0.9934919367947577
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.4637684433083785,
+          "val_loss": 1.5144235908985137,
+          "val_acc_plate": 0.7402597402597403,
+          "val_acc_electrode": 0.922077922077922,
+          "val_acc_current": 0.9967532467532467,
+          "val_f1_plate": 0.7205331302838458,
+          "val_f1_electrode": 0.9223629229514879,
+          "val_f1_current": 0.9967496534965867
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4435653065380297,
+          "val_loss": 1.3326089262962342,
+          "val_acc_plate": 0.8571428571428571,
+          "val_acc_electrode": 0.922077922077922,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.8554910396344116,
+          "val_f1_electrode": 0.9224090394628307,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.4215967187755986,
+          "val_loss": 1.300201028585434,
+          "val_acc_plate": 0.8733766233766234,
+          "val_acc_electrode": 0.9318181818181818,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.8717471190651268,
+          "val_f1_electrode": 0.9319025526793191,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.41487045852761517,
+          "val_loss": 1.7201535820960998,
+          "val_acc_plate": 0.6915584415584416,
+          "val_acc_electrode": 0.9188311688311688,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.6360579303617278,
+          "val_f1_electrode": 0.9191633369880364,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4073882460594177,
+          "val_loss": 1.4018263876438142,
+          "val_acc_plate": 0.8409090909090909,
+          "val_acc_electrode": 0.9188311688311688,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.8361203871228675,
+          "val_f1_electrode": 0.9187774645461924,
+          "val_f1_current": 0.9935203222703222
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.39577211831745346,
+          "val_loss": 1.5618381798267365,
+          "val_acc_plate": 0.737012987012987,
+          "val_acc_electrode": 0.935064935064935,
+          "val_acc_current": 0.9967532467532467,
+          "val_f1_plate": 0.7039909456782143,
+          "val_f1_electrode": 0.9357190427255359,
+          "val_f1_current": 0.9967496534965867
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.39643414993035164,
+          "val_loss": 1.2733526349067688,
+          "val_acc_plate": 0.8798701298701299,
+          "val_acc_electrode": 0.9383116883116883,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8785801932529371,
+          "val_f1_electrode": 0.9390390005746497,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.3879309892654419,
+          "val_loss": 1.3494641304016113,
+          "val_acc_plate": 0.8506493506493507,
+          "val_acc_electrode": 0.9415584415584416,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.845679322987193,
+          "val_f1_electrode": 0.9425152698903807,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.38277726549851265,
+          "val_loss": 1.255966567993164,
+          "val_acc_plate": 0.8798701298701299,
+          "val_acc_electrode": 0.948051948051948,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.879748668066019,
+          "val_f1_electrode": 0.9482815772711718,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.3810332210440385,
+          "val_loss": 1.2798925042152405,
+          "val_acc_plate": 0.8863636363636364,
+          "val_acc_electrode": 0.9545454545454546,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8848960310239604,
+          "val_f1_electrode": 0.9546672346614106,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.3749483419092078,
+          "val_loss": 1.2532946646213532,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.948051948051948,
+          "val_acc_current": 0.9967532467532467,
+          "val_f1_plate": 0.8951407313155377,
+          "val_f1_electrode": 0.9482690891785119,
+          "val_f1_current": 0.9967496534965867
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.3728561912712298,
+          "val_loss": 1.247155523300171,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.9512987012987013,
+          "val_acc_current": 0.9967532467532467,
+          "val_f1_plate": 0.8949700583615928,
+          "val_f1_electrode": 0.9514904887220026,
+          "val_f1_current": 0.9967496534965867
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.3739720454341487,
+          "val_loss": 1.284834975004196,
+          "val_acc_plate": 0.8831168831168831,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8811071742588437,
+          "val_f1_electrode": 0.9578728360111648,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.36838849845685456,
+          "val_loss": 1.2481625020503997,
+          "val_acc_plate": 0.8993506493506493,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8984751186744757,
+          "val_f1_electrode": 0.9578763674686795,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.36759640260746607,
+          "val_loss": 1.251287978887558,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.9415584415584416,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8950845725448482,
+          "val_f1_electrode": 0.941815128381288,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.36752837551267525,
+          "val_loss": 1.2882768869400025,
+          "val_acc_plate": 0.8701298701298701,
+          "val_acc_electrode": 0.9512987012987013,
+          "val_acc_current": 0.9967532467532467,
+          "val_f1_plate": 0.8679672260614884,
+          "val_f1_electrode": 0.9515598477072594,
+          "val_f1_current": 0.9967496534965867
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3693932185047551,
+          "val_loss": 1.2144586324691773,
+          "val_acc_plate": 0.9025974025974026,
+          "val_acc_electrode": 0.961038961038961,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9020271595129737,
+          "val_f1_electrode": 0.9612151462398988,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.36811435003029674,
+          "val_loss": 1.235301572084427,
+          "val_acc_plate": 0.8993506493506493,
+          "val_acc_electrode": 0.961038961038961,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8985095041796112,
+          "val_f1_electrode": 0.9611090865972555,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.36514873504638673,
+          "val_loss": 1.2597940266132355,
+          "val_acc_plate": 0.8993506493506493,
+          "val_acc_electrode": 0.948051948051948,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8981958151428936,
+          "val_f1_electrode": 0.9482628322059676,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.36577086511411167,
+          "val_loss": 1.2686184287071227,
+          "val_acc_plate": 0.8863636363636364,
+          "val_acc_electrode": 0.948051948051948,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8836589205325346,
+          "val_f1_electrode": 0.9482628322059676,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.36369359210917823,
+          "val_loss": 1.2574551343917846,
+          "val_acc_plate": 0.8896103896103896,
+          "val_acc_electrode": 0.9512987012987013,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8881830207911301,
+          "val_f1_electrode": 0.9512893534859282,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.3636504229746367,
+          "val_loss": 1.2151144921779633,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.961038961038961,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8955052699538419,
+          "val_f1_electrode": 0.9611022758440125,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.3648787137709166,
+          "val_loss": 1.2304978370666504,
+          "val_acc_plate": 0.8928571428571429,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8921680480950998,
+          "val_f1_electrode": 0.9580072164652405,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.36174225054289166,
+          "val_loss": 1.2321867048740387,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.961038961038961,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8951407313155377,
+          "val_f1_electrode": 0.9611026228673287,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.36045014920987584,
+          "val_loss": 1.2019742608070374,
+          "val_acc_plate": 0.9090909090909091,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.9089311510407401,
+          "val_f1_electrode": 0.9579127012342223,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.3608998715877533,
+          "val_loss": 1.2498076200485229,
+          "val_acc_plate": 0.8993506493506493,
+          "val_acc_electrode": 0.9448051948051948,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8982348391353482,
+          "val_f1_electrode": 0.9449797420096686,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.36290925960791737,
+          "val_loss": 1.2318755745887757,
+          "val_acc_plate": 0.9090909090909091,
+          "val_acc_electrode": 0.948051948051948,
+          "val_acc_current": 0.9967532467532467,
+          "val_f1_plate": 0.9083624462046236,
+          "val_f1_electrode": 0.9481542985441379,
+          "val_f1_current": 0.9967496534965867
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.36033724013127777,
+          "val_loss": 1.2152099788188935,
+          "val_acc_plate": 0.922077922077922,
+          "val_acc_electrode": 0.9512987012987013,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.9215364215364217,
+          "val_f1_electrode": 0.9515306539265839,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.3582847573255238,
+          "val_loss": 1.2765237927436828,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.9545454545454546,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.894484121185619,
+          "val_f1_electrode": 0.9547182026898051,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.3565175087828385,
+          "val_loss": 1.2340872943401338,
+          "val_acc_plate": 0.9025974025974026,
+          "val_acc_electrode": 0.9545454545454546,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9012203270617196,
+          "val_f1_electrode": 0.9547182026898051,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.3546996483677312,
+          "val_loss": 1.2456405520439149,
+          "val_acc_plate": 0.9025974025974026,
+          "val_acc_electrode": 0.9512987012987013,
+          "val_acc_current": 0.9935064935064936,
+          "val_f1_plate": 0.9017834335154812,
+          "val_f1_electrode": 0.9514361063607369,
+          "val_f1_current": 0.9935064935064936
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3547245182489094,
+          "val_loss": 1.2367231488227843,
+          "val_acc_plate": 0.9025974025974026,
+          "val_acc_electrode": 0.9545454545454546,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9018219366632411,
+          "val_f1_electrode": 0.9545967267229671,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.3539870553895047,
+          "val_loss": 1.218307626247406,
+          "val_acc_plate": 0.9090909090909091,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.908608037998027,
+          "val_f1_electrode": 0.9578292927677026,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.35512683956246627,
+          "val_loss": 1.259098869562149,
+          "val_acc_plate": 0.8993506493506493,
+          "val_acc_electrode": 0.961038961038961,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8977571805787574,
+          "val_f1_electrode": 0.9611518299800857,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.3552274013820447,
+          "val_loss": 1.2350270628929139,
+          "val_acc_plate": 0.9058441558441559,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9048358004365986,
+          "val_f1_electrode": 0.9579285790666516,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 39,
+          "train_loss": 0.3523646050377896,
+          "val_loss": 1.2427604019641876,
+          "val_acc_plate": 0.9025974025974026,
+          "val_acc_electrode": 0.9545454545454546,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9018034447858244,
+          "val_f1_electrode": 0.9547702240841061,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 40,
+          "train_loss": 0.35237135636179073,
+          "val_loss": 1.210257351398468,
+          "val_acc_plate": 0.9155844155844156,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9148138398435174,
+          "val_f1_electrode": 0.9578993020256377,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 41,
+          "train_loss": 0.3540275100030397,
+          "val_loss": 1.2045537769794463,
+          "val_acc_plate": 0.9058441558441559,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.9053021278899778,
+          "val_f1_electrode": 0.9578728360111648,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 42,
+          "train_loss": 0.34910093043979845,
+          "val_loss": 1.233221745491028,
+          "val_acc_plate": 0.8961038961038961,
+          "val_acc_electrode": 0.9577922077922078,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8951147979188048,
+          "val_f1_electrode": 0.9578558778533561,
+          "val_f1_current": 0.9902702470643084
+        },
+        {
+          "epoch": 43,
+          "train_loss": 0.34957191191221537,
+          "val_loss": 1.2612214922904967,
+          "val_acc_plate": 0.8896103896103896,
+          "val_acc_electrode": 0.961038961038961,
+          "val_acc_current": 0.9902597402597403,
+          "val_f1_plate": 0.8879388223650518,
+          "val_f1_electrode": 0.961167565432469,
+          "val_f1_current": 0.9902702470643084
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6560094765526183,
+          "val_loss": 1.741377631823222,
+          "val_acc_plate": 0.723463687150838,
+          "val_acc_electrode": 0.8128491620111732,
+          "val_acc_current": 0.9441340782122905,
+          "val_f1_plate": 0.7204690897794347,
+          "val_f1_electrode": 0.8092667249957602,
+          "val_f1_current": 0.9439608098458436
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5204737877592127,
+          "val_loss": 1.5145721634229024,
+          "val_acc_plate": 0.7932960893854749,
+          "val_acc_electrode": 0.8938547486033519,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.7967561841628362,
+          "val_f1_electrode": 0.8927325847388125,
+          "val_f1_current": 0.9748593542426278
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.48590519263389265,
+          "val_loss": 1.7124708394209545,
+          "val_acc_plate": 0.6899441340782123,
+          "val_acc_electrode": 0.8854748603351955,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.6753257397756952,
+          "val_f1_electrode": 0.8840622443974401,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.45617729837590076,
+          "val_loss": 1.5414621233940125,
+          "val_acc_plate": 0.7318435754189944,
+          "val_acc_electrode": 0.9078212290502793,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.7283888141337147,
+          "val_f1_electrode": 0.9084470490560663,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.43811122660941265,
+          "val_loss": 1.5318756898244221,
+          "val_acc_plate": 0.7877094972067039,
+          "val_acc_electrode": 0.8687150837988827,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.7873186940369908,
+          "val_f1_electrode": 0.868131999157265,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.4229705533448686,
+          "val_loss": 1.4912420511245728,
+          "val_acc_plate": 0.7625698324022346,
+          "val_acc_electrode": 0.9162011173184358,
+          "val_acc_current": 0.9581005586592178,
+          "val_f1_plate": 0.7586489111340912,
+          "val_f1_electrode": 0.9157190812608772,
+          "val_f1_current": 0.9580071231312403
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4127072812394893,
+          "val_loss": 1.389692097902298,
+          "val_acc_plate": 0.8910614525139665,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8881620626801748,
+          "val_f1_electrode": 0.9186143980486164,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4048858966599119,
+          "val_loss": 1.4360891083876293,
+          "val_acc_plate": 0.8798882681564246,
+          "val_acc_electrode": 0.9078212290502793,
+          "val_acc_current": 0.9664804469273743,
+          "val_f1_plate": 0.8779100178581967,
+          "val_f1_electrode": 0.9068757460560894,
+          "val_f1_current": 0.9664301314335041
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.40355117365400844,
+          "val_loss": 1.384153847893079,
+          "val_acc_plate": 0.8379888268156425,
+          "val_acc_electrode": 0.9245810055865922,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.8373673643841874,
+          "val_f1_electrode": 0.9259898498128101,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.3940688631636031,
+          "val_loss": 1.390705371896426,
+          "val_acc_plate": 0.8491620111731844,
+          "val_acc_electrode": 0.9106145251396648,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.85101246801268,
+          "val_f1_electrode": 0.9117346032974105,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.3897354501359006,
+          "val_loss": 1.3628276884555817,
+          "val_acc_plate": 0.8854748603351955,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8822878426704426,
+          "val_f1_electrode": 0.9183180182153903,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.3830156085338998,
+          "val_loss": 1.3711918393770854,
+          "val_acc_plate": 0.8910614525139665,
+          "val_acc_electrode": 0.9134078212290503,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.8883051120327524,
+          "val_f1_electrode": 0.9144319934674081,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.37706821839860144,
+          "val_loss": 1.4409956236680348,
+          "val_acc_plate": 0.8156424581005587,
+          "val_acc_electrode": 0.9162011173184358,
+          "val_acc_current": 0.9664804469273743,
+          "val_f1_plate": 0.8150166596040219,
+          "val_f1_electrode": 0.9162681033733768,
+          "val_f1_current": 0.9664301314335041
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.37209020301382595,
+          "val_loss": 1.3829005112250645,
+          "val_acc_plate": 0.888268156424581,
+          "val_acc_electrode": 0.9217877094972067,
+          "val_acc_current": 0.9664804469273743,
+          "val_f1_plate": 0.8866569510963097,
+          "val_f1_electrode": 0.9216859620749913,
+          "val_f1_current": 0.9664301314335041
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.3755325652817462,
+          "val_loss": 1.3470062116781871,
+          "val_acc_plate": 0.8715083798882681,
+          "val_acc_electrode": 0.9301675977653632,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.8707684627879178,
+          "val_f1_electrode": 0.9308148756928821,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.3682508129388728,
+          "val_loss": 1.4047395884990692,
+          "val_acc_plate": 0.8379888268156425,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.837882837227805,
+          "val_f1_electrode": 0.9193997154202824,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.36832283468956645,
+          "val_loss": 1.3745389878749847,
+          "val_acc_plate": 0.8547486033519553,
+          "val_acc_electrode": 0.9245810055865922,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.853759286135088,
+          "val_f1_electrode": 0.9253682006342103,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.36940071715953504,
+          "val_loss": 1.3672626316547394,
+          "val_acc_plate": 0.8603351955307262,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.859982564652227,
+          "val_f1_electrode": 0.9196703345721083,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.3638024441105254,
+          "val_loss": 1.3464234719673793,
+          "val_acc_plate": 0.8910614525139665,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.8890658829924406,
+          "val_f1_electrode": 0.9325209592710181,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3692045468599238,
+          "val_loss": 1.4276709357897441,
+          "val_acc_plate": 0.8268156424581006,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.8254310704163029,
+          "val_f1_electrode": 0.9201563042231281,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3634381592273712,
+          "val_loss": 1.3758618136246998,
+          "val_acc_plate": 0.8659217877094972,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8663498790641923,
+          "val_f1_electrode": 0.9332358859927478,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.3649598160322676,
+          "val_loss": 1.3724323908487956,
+          "val_acc_plate": 0.8435754189944135,
+          "val_acc_electrode": 0.9301675977653632,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8430375150486291,
+          "val_f1_electrode": 0.9303310583440946,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.3609171411458482,
+          "val_loss": 1.3976066062847774,
+          "val_acc_plate": 0.8491620111731844,
+          "val_acc_electrode": 0.9245810055865922,
+          "val_acc_current": 0.9636871508379888,
+          "val_f1_plate": 0.8477328581549383,
+          "val_f1_electrode": 0.9246359664061267,
+          "val_f1_current": 0.9636243931475504
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.36561673689395824,
+          "val_loss": 1.4191319247086842,
+          "val_acc_plate": 0.8296089385474861,
+          "val_acc_electrode": 0.9301675977653632,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8283230923375264,
+          "val_f1_electrode": 0.9301729853638558,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.3644702006527718,
+          "val_loss": 1.380793849627177,
+          "val_acc_plate": 0.8463687150837989,
+          "val_acc_electrode": 0.9413407821229051,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.8463999678019267,
+          "val_f1_electrode": 0.9413708865910377,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.3606744627369211,
+          "val_loss": 1.3640770067771275,
+          "val_acc_plate": 0.8659217877094972,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.8653488226703335,
+          "val_f1_electrode": 0.920055874047543,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.364904411929719,
+          "val_loss": 1.3609484434127808,
+          "val_acc_plate": 0.8770949720670391,
+          "val_acc_electrode": 0.9217877094972067,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8770099623834499,
+          "val_f1_electrode": 0.9225873688911237,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.3600752911669143,
+          "val_loss": 1.3718949059645336,
+          "val_acc_plate": 0.8631284916201117,
+          "val_acc_electrode": 0.9441340782122905,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8627751368224058,
+          "val_f1_electrode": 0.9439345804070466,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.3588833082863625,
+          "val_loss": 1.3706455131371815,
+          "val_acc_plate": 0.8463687150837989,
+          "val_acc_electrode": 0.9385474860335196,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8463577855479768,
+          "val_f1_electrode": 0.9386631998228792,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.3619345372661631,
+          "val_loss": 1.3871813118457794,
+          "val_acc_plate": 0.8603351955307262,
+          "val_acc_electrode": 0.9357541899441341,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8588666251271653,
+          "val_f1_electrode": 0.9356185643090974,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.35518330335617065,
+          "val_loss": 1.336694598197937,
+          "val_acc_plate": 0.888268156424581,
+          "val_acc_electrode": 0.9385474860335196,
+          "val_acc_current": 0.9664804469273743,
+          "val_f1_plate": 0.8867405070163672,
+          "val_f1_electrode": 0.9385878541193696,
+          "val_f1_current": 0.9664301314335041
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.3578574774747199,
+          "val_loss": 1.350070556004842,
+          "val_acc_plate": 0.8603351955307262,
+          "val_acc_electrode": 0.9357541899441341,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.8599703351506208,
+          "val_f1_electrode": 0.9361892156292125,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.3581738056654626,
+          "val_loss": 1.3733263313770294,
+          "val_acc_plate": 0.8659217877094972,
+          "val_acc_electrode": 0.9245810055865922,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8650979706551596,
+          "val_f1_electrode": 0.9249801361004618,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.35749743561795416,
+          "val_loss": 1.3801246186097462,
+          "val_acc_plate": 0.8603351955307262,
+          "val_acc_electrode": 0.9245810055865922,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.860461208888142,
+          "val_f1_electrode": 0.9245111112212676,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3549486817197597,
+          "val_loss": 1.3648298680782318,
+          "val_acc_plate": 0.8659217877094972,
+          "val_acc_electrode": 0.9301675977653632,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.8638722933591587,
+          "val_f1_electrode": 0.9302380303020338,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.3561210381857892,
+          "val_loss": 1.363199879725774,
+          "val_acc_plate": 0.8743016759776536,
+          "val_acc_electrode": 0.9134078212290503,
+          "val_acc_current": 0.9776536312849162,
+          "val_f1_plate": 0.8732726166177771,
+          "val_f1_electrode": 0.9147985039007012,
+          "val_f1_current": 0.9776368741266858
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.3558560660544862,
+          "val_loss": 1.3549344837665558,
+          "val_acc_plate": 0.88268156424581,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.8811042132512752,
+          "val_f1_electrode": 0.9331514792707777,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.35294070364312924,
+          "val_loss": 1.4016891618569691,
+          "val_acc_plate": 0.8268156424581006,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8270425933229509,
+          "val_f1_electrode": 0.9333257849610134,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 39,
+          "train_loss": 0.3542729207175843,
+          "val_loss": 1.3687591701745987,
+          "val_acc_plate": 0.8687150837988827,
+          "val_acc_electrode": 0.9217877094972067,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8678497749507624,
+          "val_f1_electrode": 0.9223872251029263,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 40,
+          "train_loss": 0.35049313560445255,
+          "val_loss": 1.3356677889823914,
+          "val_acc_plate": 0.8910614525139665,
+          "val_acc_electrode": 0.9189944134078212,
+          "val_acc_current": 0.9776536312849162,
+          "val_f1_plate": 0.8903622249577183,
+          "val_f1_electrode": 0.9201563042231281,
+          "val_f1_current": 0.9776368741266858
+        },
+        {
+          "epoch": 41,
+          "train_loss": 0.35148844535046436,
+          "val_loss": 1.3381294806798298,
+          "val_acc_plate": 0.8631284916201117,
+          "val_acc_electrode": 0.9385474860335196,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.863121703205725,
+          "val_f1_electrode": 0.9390384388427632,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 42,
+          "train_loss": 0.35123057473213115,
+          "val_loss": 1.3716014673312504,
+          "val_acc_plate": 0.8575418994413407,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8568167558522782,
+          "val_f1_electrode": 0.9336051680301641,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 43,
+          "train_loss": 0.349045049319876,
+          "val_loss": 1.3621215969324112,
+          "val_acc_plate": 0.8519553072625698,
+          "val_acc_electrode": 0.9385474860335196,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8514388769643217,
+          "val_f1_electrode": 0.9389411533286864,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 44,
+          "train_loss": 0.35024138016903655,
+          "val_loss": 1.3460381875435512,
+          "val_acc_plate": 0.8910614525139665,
+          "val_acc_electrode": 0.9273743016759777,
+          "val_acc_current": 0.9720670391061452,
+          "val_f1_plate": 0.8894951046207,
+          "val_f1_electrode": 0.928424150588494,
+          "val_f1_current": 0.9720364797903386
+        },
+        {
+          "epoch": 45,
+          "train_loss": 0.3511873290259787,
+          "val_loss": 1.3570855657259624,
+          "val_acc_plate": 0.8575418994413407,
+          "val_acc_electrode": 0.9301675977653632,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8586781710173199,
+          "val_f1_electrode": 0.9306113925688062,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 46,
+          "train_loss": 0.35090316039450625,
+          "val_loss": 1.3894166052341461,
+          "val_acc_plate": 0.8491620111731844,
+          "val_acc_electrode": 0.9217877094972067,
+          "val_acc_current": 0.9776536312849162,
+          "val_f1_plate": 0.8488912224695818,
+          "val_f1_electrode": 0.9235560229926849,
+          "val_f1_current": 0.9776368741266858
+        },
+        {
+          "epoch": 47,
+          "train_loss": 0.3494400252053078,
+          "val_loss": 1.3758832812309265,
+          "val_acc_plate": 0.8491620111731844,
+          "val_acc_electrode": 0.9273743016759777,
+          "val_acc_current": 0.9804469273743017,
+          "val_f1_plate": 0.8479576216051007,
+          "val_f1_electrode": 0.9281350791961965,
+          "val_f1_current": 0.9804351689291531
+        },
+        {
+          "epoch": 48,
+          "train_loss": 0.35013836749056554,
+          "val_loss": 1.362005700667699,
+          "val_acc_plate": 0.8547486033519553,
+          "val_acc_electrode": 0.9357541899441341,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.853675107808297,
+          "val_f1_electrode": 0.9357295442029567,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 49,
+          "train_loss": 0.3484579949302876,
+          "val_loss": 1.3733640313148499,
+          "val_acc_plate": 0.8770949720670391,
+          "val_acc_electrode": 0.9245810055865922,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8761671995221082,
+          "val_f1_electrode": 0.9247750391673353,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 50,
+          "train_loss": 0.34710201272305025,
+          "val_loss": 1.3730411777893703,
+          "val_acc_plate": 0.8631284916201117,
+          "val_acc_electrode": 0.9273743016759777,
+          "val_acc_current": 0.9776536312849162,
+          "val_f1_plate": 0.8632380913830983,
+          "val_f1_electrode": 0.9279408313682117,
+          "val_f1_current": 0.9776368741266858
+        },
+        {
+          "epoch": 51,
+          "train_loss": 0.34919123510096933,
+          "val_loss": 1.3630975186824799,
+          "val_acc_plate": 0.8854748603351955,
+          "val_acc_electrode": 0.9273743016759777,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8830667117062402,
+          "val_f1_electrode": 0.9276973358762239,
+          "val_f1_current": 0.9748373550730093
+        },
+        {
+          "epoch": 52,
+          "train_loss": 0.34599186384931524,
+          "val_loss": 1.3909064481655757,
+          "val_acc_plate": 0.8770949720670391,
+          "val_acc_electrode": 0.9217877094972067,
+          "val_acc_current": 0.9636871508379888,
+          "val_f1_plate": 0.8756841220135356,
+          "val_f1_electrode": 0.9214029064525138,
+          "val_f1_current": 0.9636243931475504
+        },
+        {
+          "epoch": 53,
+          "train_loss": 0.3456997830182948,
+          "val_loss": 1.3912588059902191,
+          "val_acc_plate": 0.8575418994413407,
+          "val_acc_electrode": 0.9301675977653632,
+          "val_acc_current": 0.9664804469273743,
+          "val_f1_plate": 0.8569486802174261,
+          "val_f1_electrode": 0.9303353372263699,
+          "val_f1_current": 0.9664301314335041
+        },
+        {
+          "epoch": 54,
+          "train_loss": 0.348163144702607,
+          "val_loss": 1.3527229328950245,
+          "val_acc_plate": 0.8910614525139665,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9692737430167597,
+          "val_f1_plate": 0.8879137814603043,
+          "val_f1_electrode": 0.9336204115814644,
+          "val_f1_current": 0.9692341160663989
+        },
+        {
+          "epoch": 55,
+          "train_loss": 0.3486612382087302,
+          "val_loss": 1.4000892738501232,
+          "val_acc_plate": 0.835195530726257,
+          "val_acc_electrode": 0.9329608938547486,
+          "val_acc_current": 0.9748603351955307,
+          "val_f1_plate": 0.8356859439453229,
+          "val_f1_electrode": 0.9338333726964975,
+          "val_f1_current": 0.9748373550730093
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6538278949888129,
+          "val_loss": 1.694702184200287,
+          "val_acc_plate": 0.8076923076923077,
+          "val_acc_electrode": 0.842948717948718,
+          "val_acc_current": 0.9455128205128205,
+          "val_f1_plate": 0.8042994566858138,
+          "val_f1_electrode": 0.8425426201957325,
+          "val_f1_current": 0.9458303864334721
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5360073723291096,
+          "val_loss": 1.5703263759613038,
+          "val_acc_plate": 0.7211538461538461,
+          "val_acc_electrode": 0.8814102564102564,
+          "val_acc_current": 0.9903846153846154,
+          "val_f1_plate": 0.7012094558775845,
+          "val_f1_electrode": 0.881916369102749,
+          "val_f1_current": 0.9903988663882498
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.4833053049288298,
+          "val_loss": 1.520396625995636,
+          "val_acc_plate": 0.8141025641025641,
+          "val_acc_electrode": 0.842948717948718,
+          "val_acc_current": 0.9903846153846154,
+          "val_f1_plate": 0.8147394387912427,
+          "val_f1_electrode": 0.8381714988461837,
+          "val_f1_current": 0.9903988663882498
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.46009253357586105,
+          "val_loss": 1.4476443886756898,
+          "val_acc_plate": 0.8717948717948718,
+          "val_acc_electrode": 0.8653846153846154,
+          "val_acc_current": 0.9903846153846154,
+          "val_f1_plate": 0.8698832906621595,
+          "val_f1_electrode": 0.8613012363047742,
+          "val_f1_current": 0.9903988663882498
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4384474371608935,
+          "val_loss": 1.4104533910751342,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.8878205128205128,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.877362803333663,
+          "val_f1_electrode": 0.8836444991303244,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.4271194489378678,
+          "val_loss": 1.3231369972229003,
+          "val_acc_plate": 0.8653846153846154,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8645326453186715,
+          "val_f1_electrode": 0.9330406955681682,
+          "val_f1_current": 0.9967931464796669
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.41620385678190935,
+          "val_loss": 1.366831159591675,
+          "val_acc_plate": 0.8365384615384616,
+          "val_acc_electrode": 0.9198717948717948,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8317136203456926,
+          "val_f1_electrode": 0.9204221967961492,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.4119062342141804,
+          "val_loss": 1.2805902481079101,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8768760706292787,
+          "val_f1_electrode": 0.9341267625931491,
+          "val_f1_current": 0.9967931464796669
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.39885234519055013,
+          "val_loss": 1.3745375156402588,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.8878205128205128,
+          "val_acc_current": 0.9935897435897436,
+          "val_f1_plate": 0.8772925140831577,
+          "val_f1_electrode": 0.884370599730664,
+          "val_f1_current": 0.9935962185962185
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.39227574749996785,
+          "val_loss": 1.305388045310974,
+          "val_acc_plate": 0.8589743589743589,
+          "val_acc_electrode": 0.9358974358974359,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8587686388524588,
+          "val_f1_electrode": 0.9363071579832833,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.38829200079566556,
+          "val_loss": 1.286669373512268,
+          "val_acc_plate": 0.8878205128205128,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8867716171883805,
+          "val_f1_electrode": 0.9330270174795686,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.38116255684902794,
+          "val_loss": 1.2630627512931825,
+          "val_acc_plate": 0.8942307692307693,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8928418878894728,
+          "val_f1_electrode": 0.9331230800997421,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.3784989068382665,
+          "val_loss": 1.2487133860588073,
+          "val_acc_plate": 0.8878205128205128,
+          "val_acc_electrode": 0.9391025641025641,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.887002431305146,
+          "val_f1_electrode": 0.9394205398342889,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.37604169124051146,
+          "val_loss": 1.2755710244178773,
+          "val_acc_plate": 0.8910256410256411,
+          "val_acc_electrode": 0.9358974358974359,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8900955452567288,
+          "val_f1_electrode": 0.9355290199125165,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.3732056200504303,
+          "val_loss": 1.2508183240890502,
+          "val_acc_plate": 0.8814102564102564,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8805663593868794,
+          "val_f1_electrode": 0.932869664141191,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.37243033553424637,
+          "val_loss": 1.280372142791748,
+          "val_acc_plate": 0.8717948717948718,
+          "val_acc_electrode": 0.9358974358974359,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8720734393703967,
+          "val_f1_electrode": 0.9358120227540613,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.37166263963046825,
+          "val_loss": 1.2691879749298096,
+          "val_acc_plate": 0.8717948717948718,
+          "val_acc_electrode": 0.9423076923076923,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8710500739529176,
+          "val_f1_electrode": 0.9426664957914901,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.3725924507567757,
+          "val_loss": 1.2943681001663208,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.9294871794871795,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.877426693222207,
+          "val_f1_electrode": 0.9292084124596439,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.3673305417362012,
+          "val_loss": 1.2649465560913087,
+          "val_acc_plate": 0.8910256410256411,
+          "val_acc_electrode": 0.9423076923076923,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8903935916303626,
+          "val_f1_electrode": 0.9424054598264059,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.36736728580374467,
+          "val_loss": 1.3021658897399901,
+          "val_acc_plate": 0.8846153846153846,
+          "val_acc_electrode": 0.9230769230769231,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.883730456863953,
+          "val_f1_electrode": 0.9218728218809334,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.36346475795695654,
+          "val_loss": 1.2370957136154175,
+          "val_acc_plate": 0.8942307692307693,
+          "val_acc_electrode": 0.9294871794871795,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8935733689372223,
+          "val_f1_electrode": 0.930566581682674,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.36940506069283735,
+          "val_loss": 1.2408456087112427,
+          "val_acc_plate": 0.8910256410256411,
+          "val_acc_electrode": 0.9455128205128205,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8899702601351301,
+          "val_f1_electrode": 0.9454766761764808,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.3652824420677988,
+          "val_loss": 1.294188642501831,
+          "val_acc_plate": 0.8653846153846154,
+          "val_acc_electrode": 0.9198717948717948,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8648318373718832,
+          "val_f1_electrode": 0.918466989295396,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.363710806244298,
+          "val_loss": 1.2461887001991272,
+          "val_acc_plate": 0.8814102564102564,
+          "val_acc_electrode": 0.9487179487179487,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8811092962382745,
+          "val_f1_electrode": 0.9488490281173207,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.36611401281858746,
+          "val_loss": 1.2809629440307617,
+          "val_acc_plate": 0.8846153846153846,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.883730456863953,
+          "val_f1_electrode": 0.9325848278277428,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.36324354347429777,
+          "val_loss": 1.2651110887527466,
+          "val_acc_plate": 0.8942307692307693,
+          "val_acc_electrode": 0.9423076923076923,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8934685475155683,
+          "val_f1_electrode": 0.9422998749218261,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.36489580618707756,
+          "val_loss": 1.2741366147994995,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.9487179487179487,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8776308544029721,
+          "val_f1_electrode": 0.9488490281173207,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.3621699653173748,
+          "val_loss": 1.2558445453643798,
+          "val_acc_plate": 0.8942307692307693,
+          "val_acc_electrode": 0.9358974358974359,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8937430458194072,
+          "val_f1_electrode": 0.9358324726413613,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.3597675025463104,
+          "val_loss": 1.27028067111969,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.9391025641025641,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.877110106313855,
+          "val_f1_electrode": 0.93954945520357,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.3586235457345059,
+          "val_loss": 1.2549462556838988,
+          "val_acc_plate": 0.8814102564102564,
+          "val_acc_electrode": 0.9391025641025641,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8809848504498322,
+          "val_f1_electrode": 0.9394347228592564,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.3588510949360697,
+          "val_loss": 1.2802332878112792,
+          "val_acc_plate": 0.8782051282051282,
+          "val_acc_electrode": 0.9358974358974359,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8774746111588217,
+          "val_f1_electrode": 0.9358324726413613,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.36252730488777163,
+          "val_loss": 1.3031783819198608,
+          "val_acc_plate": 0.8846153846153846,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8838183421516754,
+          "val_f1_electrode": 0.9325131944914425,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.35745847319301804,
+          "val_loss": 1.2761555552482604,
+          "val_acc_plate": 0.8974358974358975,
+          "val_acc_electrode": 0.9326923076923077,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8965764474838667,
+          "val_f1_electrode": 0.9325076826116475,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.3579198868651139,
+          "val_loss": 1.2883850693702699,
+          "val_acc_plate": 0.8878205128205128,
+          "val_acc_electrode": 0.9423076923076923,
+          "val_acc_current": 1.0,
+          "val_f1_plate": 0.8871677390591864,
+          "val_f1_electrode": 0.9422971451780717,
+          "val_f1_current": 1.0
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3570601971525895,
+          "val_loss": 1.2669952392578125,
+          "val_acc_plate": 0.8846153846153846,
+          "val_acc_electrode": 0.9391025641025641,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8835304072802546,
+          "val_f1_electrode": 0.9390861816764872,
+          "val_f1_current": 0.9967965259587601
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.35485081986377115,
+          "val_loss": 1.2557270407676697,
+          "val_acc_plate": 0.8942307692307693,
+          "val_acc_electrode": 0.9262820512820513,
+          "val_acc_current": 0.9967948717948718,
+          "val_f1_plate": 0.8936827761098319,
+          "val_f1_electrode": 0.9262199880153558,
+          "val_f1_current": 0.9967965259587601
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.6562249666832863,
+          "val_loss": 1.745090658014471,
+          "val_acc_plate": 0.7020648967551623,
+          "val_acc_electrode": 0.8407079646017699,
+          "val_acc_current": 0.9616519174041298,
+          "val_f1_plate": 0.7008757079990519,
+          "val_f1_electrode": 0.8430761544334975,
+          "val_f1_current": 0.9618955181273195
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5303057400470085,
+          "val_loss": 1.6016792058944702,
+          "val_acc_plate": 0.7522123893805309,
+          "val_acc_electrode": 0.8938053097345132,
+          "val_acc_current": 0.9705014749262537,
+          "val_f1_plate": 0.7440158236618414,
+          "val_f1_electrode": 0.893427087833177,
+          "val_f1_current": 0.970644650902778
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.492129330305343,
+          "val_loss": 1.4626751813021572,
+          "val_acc_plate": 0.8171091445427728,
+          "val_acc_electrode": 0.9292035398230089,
+          "val_acc_current": 0.9882005899705014,
+          "val_f1_plate": 0.817861316365704,
+          "val_f1_electrode": 0.9287860764399603,
+          "val_f1_current": 0.9882310871715241
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.46469259008448177,
+          "val_loss": 1.43845443833958,
+          "val_acc_plate": 0.7817109144542773,
+          "val_acc_electrode": 0.9321533923303835,
+          "val_acc_current": 0.9852507374631269,
+          "val_f1_plate": 0.7722257183195818,
+          "val_f1_electrode": 0.9311067490007722,
+          "val_f1_current": 0.9852976579772824
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.44158643769456984,
+          "val_loss": 1.366276497190649,
+          "val_acc_plate": 0.8584070796460177,
+          "val_acc_electrode": 0.9498525073746312,
+          "val_acc_current": 0.9823008849557522,
+          "val_f1_plate": 0.8582176100921098,
+          "val_f1_electrode": 0.9492933440996821,
+          "val_f1_current": 0.9823674012377812
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.4261954211174174,
+          "val_loss": 1.347151517868042,
+          "val_acc_plate": 0.8348082595870207,
+          "val_acc_electrode": 0.9587020648967551,
+          "val_acc_current": 0.9823008849557522,
+          "val_f1_plate": 0.8353266112390303,
+          "val_f1_electrode": 0.9587022979349179,
+          "val_f1_current": 0.9823674012377812
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4182685892632667,
+          "val_loss": 1.3607497269457036,
+          "val_acc_plate": 0.7876106194690266,
+          "val_acc_electrode": 0.9557522123893806,
+          "val_acc_current": 0.9911504424778761,
+          "val_f1_plate": 0.7884666054263336,
+          "val_f1_electrode": 0.9563021131057153,
+          "val_f1_current": 0.9911564260061929
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.40374329686164856,
+          "val_loss": 1.3623153133825823,
+          "val_acc_plate": 0.7876106194690266,
+          "val_acc_electrode": 0.9646017699115044,
+          "val_acc_current": 0.9911504424778761,
+          "val_f1_plate": 0.7887578583706093,
+          "val_f1_electrode": 0.9648398674324139,
+          "val_f1_current": 0.9911564260061929
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.39516445772444947,
+          "val_loss": 1.4364619851112366,
+          "val_acc_plate": 0.7640117994100295,
+          "val_acc_electrode": 0.9321533923303835,
+          "val_acc_current": 0.9911504424778761,
+          "val_f1_plate": 0.7536703458720069,
+          "val_f1_electrode": 0.9334822997401032,
+          "val_f1_current": 0.9911678614379787
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.3992142490249999,
+          "val_loss": 1.314465652812611,
+          "val_acc_plate": 0.8171091445427728,
+          "val_acc_electrode": 0.9616519174041298,
+          "val_acc_current": 0.9852507374631269,
+          "val_f1_plate": 0.8165036769261443,
+          "val_f1_electrode": 0.9617486654158397,
+          "val_f1_current": 0.9852976579772824
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.38936090786406335,
+          "val_loss": 1.2937711910767988,
+          "val_acc_plate": 0.8613569321533924,
+          "val_acc_electrode": 0.9616519174041298,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8617097458694156,
+          "val_f1_electrode": 0.9613038332886614,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.3848283703022815,
+          "val_loss": 1.2903744469989429,
+          "val_acc_plate": 0.8613569321533924,
+          "val_acc_electrode": 0.9557522123893806,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8614017997378871,
+          "val_f1_electrode": 0.9562773963282687,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.3775902165377394,
+          "val_loss": 1.292578935623169,
+          "val_acc_plate": 0.855457227138643,
+          "val_acc_electrode": 0.9616519174041298,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8561749791928052,
+          "val_f1_electrode": 0.9614710101435765,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.3769730415115965,
+          "val_loss": 1.2781136469407515,
+          "val_acc_plate": 0.8731563421828908,
+          "val_acc_electrode": 0.9616519174041298,
+          "val_acc_current": 0.9882005899705014,
+          "val_f1_plate": 0.8726978943303404,
+          "val_f1_electrode": 0.9613808079795693,
+          "val_f1_current": 0.9882310871715241
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.37525051832199097,
+          "val_loss": 1.3084289702502163,
+          "val_acc_plate": 0.8525073746312685,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8516528017561411,
+          "val_f1_electrode": 0.9673380656253425,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.37346162314110615,
+          "val_loss": 1.2462060830809853,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8646864003233898,
+          "val_f1_electrode": 0.9705466044369815,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.3715276730821488,
+          "val_loss": 1.2613524198532104,
+          "val_acc_plate": 0.8672566371681416,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8677982561102405,
+          "val_f1_electrode": 0.967572772465711,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.36960639376589594,
+          "val_loss": 1.2968238971450112,
+          "val_acc_plate": 0.8584070796460177,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9911504424778761,
+          "val_f1_plate": 0.8579627056183718,
+          "val_f1_electrode": 0.9703278590722667,
+          "val_f1_current": 0.9911678614379787
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.3666577824252717,
+          "val_loss": 1.2645706046711316,
+          "val_acc_plate": 0.855457227138643,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8553425206267246,
+          "val_f1_electrode": 0.9673020630945313,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3666515908342727,
+          "val_loss": 1.2654107104648242,
+          "val_acc_plate": 0.855457227138643,
+          "val_acc_electrode": 0.9734513274336283,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8548567172469169,
+          "val_f1_electrode": 0.9733325633897218,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3666927887404219,
+          "val_loss": 1.2488238486376675,
+          "val_acc_plate": 0.855457227138643,
+          "val_acc_electrode": 0.976401179941003,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.855054781351723,
+          "val_f1_electrode": 0.9762319969034011,
+          "val_f1_current": 0.9941081546550457
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.36558551515670534,
+          "val_loss": 1.2622390389442444,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.976401179941003,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8707431309091876,
+          "val_f1_electrode": 0.9762675309405634,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.3670444295127341,
+          "val_loss": 1.2513087391853333,
+          "val_acc_plate": 0.8584070796460177,
+          "val_acc_electrode": 0.9734513274336283,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8584985397375956,
+          "val_f1_electrode": 0.9735224648237863,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.3659055689547924,
+          "val_loss": 1.2475476535883816,
+          "val_acc_plate": 0.8672566371681416,
+          "val_acc_electrode": 0.9646017699115044,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8675241327539358,
+          "val_f1_electrode": 0.9647643463917688,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.363076739488764,
+          "val_loss": 1.2536451437256553,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.9734513274336283,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8696896026190807,
+          "val_f1_electrode": 0.9732212701534236,
+          "val_f1_current": 0.9941081546550457
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.36272613418863175,
+          "val_loss": 1.2701678546992214,
+          "val_acc_plate": 0.8613569321533924,
+          "val_acc_electrode": 0.976401179941003,
+          "val_acc_current": 0.9882005899705014,
+          "val_f1_plate": 0.8616356033083062,
+          "val_f1_electrode": 0.9762319969034011,
+          "val_f1_current": 0.9882310871715241
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.36268034672483485,
+          "val_loss": 1.2486317320303484,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.976401179941003,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.863849023320211,
+          "val_f1_electrode": 0.9762675309405634,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.36284084174227205,
+          "val_loss": 1.2666451822627673,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8697881235113109,
+          "val_f1_electrode": 0.9702554726801966,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.35838279159779246,
+          "val_loss": 1.2741480903192,
+          "val_acc_plate": 0.8495575221238938,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8501683120038086,
+          "val_f1_electrode": 0.9704305688204153,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.35896447047274166,
+          "val_loss": 1.2446035742759705,
+          "val_acc_plate": 0.8348082595870207,
+          "val_acc_electrode": 0.9852507374631269,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.835285934566908,
+          "val_f1_electrode": 0.9852006778233398,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.35899031162261963,
+          "val_loss": 1.2627146623351357,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.9823008849557522,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8713015317313674,
+          "val_f1_electrode": 0.9822391095896946,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.357126754966188,
+          "val_loss": 1.244264916940169,
+          "val_acc_plate": 0.8731563421828908,
+          "val_acc_electrode": 0.976401179941003,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8741190005070146,
+          "val_f1_electrode": 0.9762963370119969,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.3601816004895149,
+          "val_loss": 1.2434964884411206,
+          "val_acc_plate": 0.8584070796460177,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8592797103989191,
+          "val_f1_electrode": 0.9676631226394604,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.3564260849293242,
+          "val_loss": 1.2311540571126072,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8650396131902802,
+          "val_f1_electrode": 0.9704111391738038,
+          "val_f1_current": 0.9941002949852508
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.35767821809078787,
+          "val_loss": 1.284746153788133,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.9734513274336283,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8701650825777896,
+          "val_f1_electrode": 0.9732179992258054,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.3576498735458293,
+          "val_loss": 1.2448122718117454,
+          "val_acc_plate": 0.8790560471976401,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8789513430132186,
+          "val_f1_electrode": 0.9703571300713772,
+          "val_f1_current": 0.9941081546550457
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.35618581036303903,
+          "val_loss": 1.3088212338360874,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.9793510324483776,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8640332878315103,
+          "val_f1_electrode": 0.9792483198751316,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.3589273944814154,
+          "val_loss": 1.2498383305289529,
+          "val_acc_plate": 0.8731563421828908,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8730999404034344,
+          "val_f1_electrode": 0.9704055865080672,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 39,
+          "train_loss": 0.35374984398801274,
+          "val_loss": 1.2517072287472812,
+          "val_acc_plate": 0.8790560471976401,
+          "val_acc_electrode": 0.9734513274336283,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8791442906487155,
+          "val_f1_electrode": 0.9733375629611187,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 40,
+          "train_loss": 0.3536383585726961,
+          "val_loss": 1.3030192093415693,
+          "val_acc_plate": 0.8584070796460177,
+          "val_acc_electrode": 0.9646017699115044,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8572647007047436,
+          "val_f1_electrode": 0.9643689372713847,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 41,
+          "train_loss": 0.3530601247193966,
+          "val_loss": 1.2522279891100796,
+          "val_acc_plate": 0.8731563421828908,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.87272545880501,
+          "val_f1_electrode": 0.9673944173447107,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 42,
+          "train_loss": 0.35441798161953053,
+          "val_loss": 1.2934035171162,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8644645429620424,
+          "val_f1_electrode": 0.9674762867683642,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 43,
+          "train_loss": 0.34840290723962986,
+          "val_loss": 1.2726934227076443,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.9734513274336283,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8630710356374074,
+          "val_f1_electrode": 0.9732778113178795,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 44,
+          "train_loss": 0.35227923317158477,
+          "val_loss": 1.2826010476459155,
+          "val_acc_plate": 0.8761061946902655,
+          "val_acc_electrode": 0.9587020648967551,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8755573814937782,
+          "val_f1_electrode": 0.958561367585267,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 45,
+          "train_loss": 0.34798924941965875,
+          "val_loss": 1.2637566219676624,
+          "val_acc_plate": 0.8761061946902655,
+          "val_acc_electrode": 0.9646017699115044,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8757149167668246,
+          "val_f1_electrode": 0.9643325520057683,
+          "val_f1_current": 0.9941081546550457
+        },
+        {
+          "epoch": 46,
+          "train_loss": 0.35218120952869986,
+          "val_loss": 1.272670399058949,
+          "val_acc_plate": 0.8731563421828908,
+          "val_acc_electrode": 0.9646017699115044,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8724334330716514,
+          "val_f1_electrode": 0.9644568068908462,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 47,
+          "train_loss": 0.35002390120891813,
+          "val_loss": 1.2799195647239685,
+          "val_acc_plate": 0.8643067846607669,
+          "val_acc_electrode": 0.967551622418879,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.863080848956053,
+          "val_f1_electrode": 0.9673211242016927,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 48,
+          "train_loss": 0.3478024944346002,
+          "val_loss": 1.2577594085173174,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9970501474926253,
+          "val_f1_plate": 0.8701445260564005,
+          "val_f1_electrode": 0.9704169421634515,
+          "val_f1_current": 0.9970521420020644
+        },
+        {
+          "epoch": 49,
+          "train_loss": 0.3503840353260649,
+          "val_loss": 1.2578135078603572,
+          "val_acc_plate": 0.8702064896755162,
+          "val_acc_electrode": 0.9705014749262537,
+          "val_acc_current": 0.9941002949852508,
+          "val_f1_plate": 0.8699987911571725,
+          "val_f1_electrode": 0.9705601701192097,
+          "val_f1_current": 0.9941002949852508
+        }
+      ],
+      [
+        {
+          "epoch": 1,
+          "train_loss": 0.664477813243866,
+          "val_loss": 1.560503818772056,
+          "val_acc_plate": 0.7629179331306991,
+          "val_acc_electrode": 0.8601823708206687,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.7775114714493575,
+          "val_f1_electrode": 0.8607552516607034,
+          "val_f1_current": 0.9939298587255274
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.5211139299367603,
+          "val_loss": 1.3991792364553972,
+          "val_acc_plate": 0.8541033434650456,
+          "val_acc_electrode": 0.9027355623100304,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.8569450667441683,
+          "val_f1_electrode": 0.9028519987974022,
+          "val_f1_current": 0.9969627407801938
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.4865929474956111,
+          "val_loss": 1.351189667528326,
+          "val_acc_plate": 0.8936170212765957,
+          "val_acc_electrode": 0.8905775075987842,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.8930276177011083,
+          "val_f1_electrode": 0.8920604904321391,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.46058194637298583,
+          "val_loss": 1.2980379841544412,
+          "val_acc_plate": 0.8723404255319149,
+          "val_acc_electrode": 0.9331306990881459,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.8760121385515793,
+          "val_f1_electrode": 0.9334636276100692,
+          "val_f1_current": 0.9969627407801938
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.4427272843687158,
+          "val_loss": 1.385359904982827,
+          "val_acc_plate": 0.8875379939209727,
+          "val_acc_electrode": 0.8723404255319149,
+          "val_acc_current": 0.9848024316109423,
+          "val_f1_plate": 0.8886196730901033,
+          "val_f1_electrode": 0.8768589638908681,
+          "val_f1_current": 0.9847410526986465
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.42308633547080193,
+          "val_loss": 1.2219599377025256,
+          "val_acc_plate": 0.9057750759878419,
+          "val_acc_electrode": 0.9300911854103343,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9061620834499237,
+          "val_f1_electrode": 0.9304020032802758,
+          "val_f1_current": 0.9969627407801938
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.4153542531164069,
+          "val_loss": 1.2263990857384421,
+          "val_acc_plate": 0.9179331306990881,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9175823550156428,
+          "val_f1_electrode": 0.9373860948780048,
+          "val_f1_current": 0.9969627407801938
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.41208642940772205,
+          "val_loss": 1.2355896559628574,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9212259371833841,
+          "val_f1_electrode": 0.9364993944106642,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.39627472413213627,
+          "val_loss": 1.2497974905100735,
+          "val_acc_plate": 0.8966565349544073,
+          "val_acc_electrode": 0.9452887537993921,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.8961798150059915,
+          "val_f1_electrode": 0.9450746019732462,
+          "val_f1_current": 0.993920972644377
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.39342639383516814,
+          "val_loss": 1.2684130397709934,
+          "val_acc_plate": 0.8844984802431611,
+          "val_acc_electrode": 0.9209726443768997,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.8897276012395833,
+          "val_f1_electrode": 0.9219930485021463,
+          "val_f1_current": 0.993920972644377
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.3873073929234555,
+          "val_loss": 1.2093951214443555,
+          "val_acc_plate": 0.9331306990881459,
+          "val_acc_electrode": 0.9331306990881459,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.932973561178392,
+          "val_f1_electrode": 0.9344684460296773,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.38462372673185247,
+          "val_loss": 1.1984663063829595,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9604863221884499,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.929746147296744,
+          "val_f1_electrode": 0.9603671978140064,
+          "val_f1_current": 0.993920972644377
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.3822264796809146,
+          "val_loss": 1.2206403884020718,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.939209726443769,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9223908824002007,
+          "val_f1_electrode": 0.940302469424224,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.37465549174108004,
+          "val_loss": 1.2080133178017356,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9252713131578888,
+          "val_f1_electrode": 0.9372559355347472,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.37022236679729664,
+          "val_loss": 1.2027944705703042,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9452887537993921,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9208397290568603,
+          "val_f1_electrode": 0.9456042777706002,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.371598587224358,
+          "val_loss": 1.1951403509486804,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9262282266220335,
+          "val_f1_electrode": 0.9370518834123335,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.36952361621354757,
+          "val_loss": 1.2021113579923457,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.930993095886713,
+          "val_f1_electrode": 0.9431356859467233,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.36877759663682236,
+          "val_loss": 1.1890101432800293,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9294611951706355,
+          "val_f1_electrode": 0.9430327679042263,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.36819108504998055,
+          "val_loss": 1.2000761844895103,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9304554455583727,
+          "val_f1_electrode": 0.9428918074954146,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.3648352895912371,
+          "val_loss": 1.1894843524152583,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.9268505962122984,
+          "val_f1_electrode": 0.9368837822455587,
+          "val_f1_current": 0.993920972644377
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.3657737866828316,
+          "val_loss": 1.19218079068444,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.939209726443769,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9307790915385152,
+          "val_f1_electrode": 0.9405208102476692,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.364742417398252,
+          "val_loss": 1.1915352561257102,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.9254654425124246,
+          "val_f1_electrode": 0.9432235950473034,
+          "val_f1_current": 0.993920972644377
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.36294369791683395,
+          "val_loss": 1.192198168147694,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9270402343562826,
+          "val_f1_electrode": 0.9369793731619698,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.3608618133946469,
+          "val_loss": 1.21252671696923,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9268587204996941,
+          "val_f1_electrode": 0.9378842314570311,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.36276194045418186,
+          "val_loss": 1.1800991350954229,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9298082601379253,
+          "val_f1_electrode": 0.9516263799015305,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.3631084630363866,
+          "val_loss": 1.2057045318863608,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.939209726443769,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.927521731999344,
+          "val_f1_electrode": 0.9406128991105119,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.3643496689043547,
+          "val_loss": 1.1966682564128528,
+          "val_acc_plate": 0.9148936170212766,
+          "val_acc_electrode": 0.9452887537993921,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9150474856884789,
+          "val_f1_electrode": 0.9457050507580457,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.36066812308211077,
+          "val_loss": 1.1936958865685896,
+          "val_acc_plate": 0.9088145896656535,
+          "val_acc_electrode": 0.9452887537993921,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.9102274324836743,
+          "val_f1_electrode": 0.9457024329729652,
+          "val_f1_current": 0.9939115561118065
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.3600427985191345,
+          "val_loss": 1.1766359480944546,
+          "val_acc_plate": 0.9361702127659575,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9365006036084613,
+          "val_f1_electrode": 0.9432820529924993,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.359790259285977,
+          "val_loss": 1.1676686026833274,
+          "val_acc_plate": 0.9361702127659575,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.936408253528859,
+          "val_f1_electrode": 0.9515419163243869,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 31,
+          "train_loss": 0.359237235470822,
+          "val_loss": 1.191201995719563,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9483282674772037,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9265440806697385,
+          "val_f1_electrode": 0.9494251112872133,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 32,
+          "train_loss": 0.3584274266895495,
+          "val_loss": 1.1782175302505493,
+          "val_acc_plate": 0.9179331306990881,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9202782622494375,
+          "val_f1_electrode": 0.9517226581121506,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 33,
+          "train_loss": 0.35693946072929783,
+          "val_loss": 1.188978303562511,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9544072948328267,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9254108844847266,
+          "val_f1_electrode": 0.9546387951867125,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 34,
+          "train_loss": 0.3562813495334826,
+          "val_loss": 1.191409945487976,
+          "val_acc_plate": 0.9179331306990881,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9196733308051509,
+          "val_f1_electrode": 0.9519665899461952,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 35,
+          "train_loss": 0.3531747284688448,
+          "val_loss": 1.1784970706159419,
+          "val_acc_plate": 0.9331306990881459,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9345520119287365,
+          "val_f1_electrode": 0.9371265522519489,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 36,
+          "train_loss": 0.3558154924919731,
+          "val_loss": 1.205082281069322,
+          "val_acc_plate": 0.9331306990881459,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9342005395480032,
+          "val_f1_electrode": 0.9372431695245927,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 37,
+          "train_loss": 0.3486374682501743,
+          "val_loss": 1.1791258183392612,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9483282674772037,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9308276237996379,
+          "val_f1_electrode": 0.9485981129429584,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 38,
+          "train_loss": 0.35311728935492664,
+          "val_loss": 1.1799836212938482,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9273156248932727,
+          "val_f1_electrode": 0.9430047493174473,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 39,
+          "train_loss": 0.35039135437262686,
+          "val_loss": 1.191560756076466,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.939209726443769,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9207512377818328,
+          "val_f1_electrode": 0.9405364196551811,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 40,
+          "train_loss": 0.3533915682842857,
+          "val_loss": 1.1764116287231445,
+          "val_acc_plate": 0.9331306990881459,
+          "val_acc_electrode": 0.9544072948328267,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9343025197485448,
+          "val_f1_electrode": 0.9546387951867125,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 41,
+          "train_loss": 0.34867070505493564,
+          "val_loss": 1.1904455748471348,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9361702127659575,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9222342560567065,
+          "val_f1_electrode": 0.9368748851342847,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 42,
+          "train_loss": 0.3510073134773656,
+          "val_loss": 1.1977563825520603,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.9220593475694453,
+          "val_f1_electrode": 0.9432235950473034,
+          "val_f1_current": 0.9939115561118065
+        },
+        {
+          "epoch": 43,
+          "train_loss": 0.34780924696671334,
+          "val_loss": 1.1841796528209338,
+          "val_acc_plate": 0.9270516717325228,
+          "val_acc_electrode": 0.9544072948328267,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9276736531003985,
+          "val_f1_electrode": 0.9547718056029952,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 44,
+          "train_loss": 0.3520609058831867,
+          "val_loss": 1.1886874925006519,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9483282674772037,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9253534624904008,
+          "val_f1_electrode": 0.9490590342561788,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 45,
+          "train_loss": 0.35034602441285784,
+          "val_loss": 1.1641906824978916,
+          "val_acc_plate": 0.939209726443769,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9393090330418588,
+          "val_f1_electrode": 0.9517084637830027,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 46,
+          "train_loss": 0.3528421157284787,
+          "val_loss": 1.1666941317644985,
+          "val_acc_plate": 0.9422492401215805,
+          "val_acc_electrode": 0.9483282674772037,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9431086486922278,
+          "val_f1_electrode": 0.9488908665369844,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 47,
+          "train_loss": 0.3484853255121331,
+          "val_loss": 1.1833285201679578,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9544072948328267,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9309149485037631,
+          "val_f1_electrode": 0.9547718056029952,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 48,
+          "train_loss": 0.34678004352669967,
+          "val_loss": 1.1757696758617053,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9604863221884499,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9311445660482242,
+          "val_f1_electrode": 0.9604140679644352,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 49,
+          "train_loss": 0.3497207964721479,
+          "val_loss": 1.1670038104057312,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.9309527316161083,
+          "val_f1_electrode": 0.9517084637830027,
+          "val_f1_current": 0.9939115561118065
+        },
+        {
+          "epoch": 50,
+          "train_loss": 0.34499050284686844,
+          "val_loss": 1.1884722384539517,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9483282674772037,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9208026408007846,
+          "val_f1_electrode": 0.9488908665369844,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 51,
+          "train_loss": 0.3499808317736576,
+          "val_loss": 1.1838297735561023,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9604863221884499,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9236895019873743,
+          "val_f1_electrode": 0.9604874829823824,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 52,
+          "train_loss": 0.3476159409472817,
+          "val_loss": 1.185835366899317,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9604863221884499,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9215655750013024,
+          "val_f1_electrode": 0.9608187905137434,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 53,
+          "train_loss": 0.34720533113730584,
+          "val_loss": 1.1960459622469815,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9331306990881459,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9298082601379253,
+          "val_f1_electrode": 0.9346925562545356,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 54,
+          "train_loss": 0.3481030354374333,
+          "val_loss": 1.175368612462824,
+          "val_acc_plate": 0.9361702127659575,
+          "val_acc_electrode": 0.9574468085106383,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.935875348427461,
+          "val_f1_electrode": 0.9578625155942262,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 55,
+          "train_loss": 0.3433213494325939,
+          "val_loss": 1.1899530725045637,
+          "val_acc_plate": 0.9179331306990881,
+          "val_acc_electrode": 0.9513677811550152,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.920150530928848,
+          "val_f1_electrode": 0.9517590466631844,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 56,
+          "train_loss": 0.34393261231874167,
+          "val_loss": 1.1732570420611987,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9483282674772037,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9246361917114592,
+          "val_f1_electrode": 0.9493876165081235,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 57,
+          "train_loss": 0.3424571470210427,
+          "val_loss": 1.2086334824562073,
+          "val_acc_plate": 0.9209726443768997,
+          "val_acc_electrode": 0.9422492401215805,
+          "val_acc_current": 0.993920972644377,
+          "val_f1_plate": 0.9227687451733135,
+          "val_f1_electrode": 0.9427628870174907,
+          "val_f1_current": 0.9939115561118065
+        },
+        {
+          "epoch": 58,
+          "train_loss": 0.3435767766676451,
+          "val_loss": 1.1735578396103599,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9574468085106383,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9243612648774804,
+          "val_f1_electrode": 0.9576151228141959,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 59,
+          "train_loss": 0.3442526142848165,
+          "val_loss": 1.1790934150869197,
+          "val_acc_plate": 0.9300911854103343,
+          "val_acc_electrode": 0.9544072948328267,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9311276479288217,
+          "val_f1_electrode": 0.9546360446632761,
+          "val_f1_current": 0.9969581655603525
+        },
+        {
+          "epoch": 60,
+          "train_loss": 0.34370904972678734,
+          "val_loss": 1.186321583661166,
+          "val_acc_plate": 0.9240121580547113,
+          "val_acc_electrode": 0.9544072948328267,
+          "val_acc_current": 0.9969604863221885,
+          "val_f1_plate": 0.9246361917114592,
+          "val_f1_electrode": 0.9547718056029952,
+          "val_f1_current": 0.9969581655603525
+        }
+      ]
+    ],
+    "vggish_extraction": {
+      "from_cache": true,
+      "extraction_time_seconds": 216.32,
+      "extraction_time_minutes": 3.61
+    }
   }
 ]

@@ -22,23 +22,20 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Directorio raíz del proyecto
-ROOT_DIR = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.plot_styles import (
+    COLORS,
+    MARKERS,
+    LINESTYLES,
+    adjust_ylim,
+    DPI,
+    add_config_annotation,
+    TASK_LABELS,
+    TASKS,
+)
 
-TASKS = ["plate", "electrode", "current"]
-COLORS = {
-    "plate": "#2ecc71",
-    "electrode": "#3498db",
-    "current": "#e74c3c",
-}
-METRIC_MARKERS = {
-    "accuracy": "o",
-    "f1": "s",
-}
-METRIC_STYLES = {
-    "accuracy": "-",
-    "f1": "--",
-}
+# Directorio raíz del proyecto
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 # ── i18n ────────────────────────────────────────────────────────────────
 I18N = {
@@ -95,7 +92,7 @@ def load_blind_metrics(duration_dir: str) -> dict:
             "hamming": ...,
         }
     """
-    infer_path = ROOT_DIR / "projects" / duration_dir / "inferencia.json"
+    infer_path = ROOT_DIR / duration_dir / "inferencia.json"
     if not infer_path.exists():
         return {}
 
@@ -173,7 +170,7 @@ def load_cv_metrics(duration_dir: str) -> dict:
             "current": {"accuracy": ..., "f1": ...},
         }
     """
-    results_path = ROOT_DIR / "projects" / duration_dir / "resultados.json"
+    results_path = ROOT_DIR / duration_dir / "resultados.json"
     if not results_path.exists():
         return {}
 
@@ -283,8 +280,8 @@ def plot_metrics_vs_folds(
                 ax.plot(
                     k_values,
                     y_values,
-                    marker=METRIC_MARKERS[m_name],
-                    linestyle=METRIC_STYLES[m_name],
+                    marker=MARKERS[m_name],
+                    linestyle=LINESTYLES[m_name],
                     color=COLORS[task],
                     linewidth=2,
                     markersize=6,
@@ -306,10 +303,10 @@ def plot_metrics_vs_folds(
 
         if save:
             if output_dir is None:
-                output_dir = ROOT_DIR / "projects" / duration / "metricas"
+                output_dir = ROOT_DIR / duration / "metricas"
             output_dir.mkdir(exist_ok=True)
             out = output_dir / "metricas_vs_folds.png"
-            plt.savefig(out, dpi=150, bbox_inches="tight")
+            plt.savefig(out, dpi=DPI, bbox_inches="tight")
             print(f"  Guardada: {out}")
         plt.close(fig)
 
@@ -352,10 +349,10 @@ def plot_metrics_vs_folds(
 
         if save:
             if output_dir is None:
-                output_dir = ROOT_DIR / "projects" / duration / "metricas"
+                output_dir = ROOT_DIR / duration / "metricas"
             output_dir.mkdir(exist_ok=True)
             out = output_dir / f"metricas_vs_folds_{metric}.png"
-            plt.savefig(out, dpi=150, bbox_inches="tight")
+            plt.savefig(out, dpi=DPI, bbox_inches="tight")
             print(f"  Guardada: {out}")
         plt.close(fig)
 

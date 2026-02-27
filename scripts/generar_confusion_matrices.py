@@ -10,15 +10,20 @@ Uso:
 
 import argparse
 import json
+import sys
 from datetime import datetime
 from pathlib import Path
 
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from matplotlib.colors import LinearSegmentedColormap
 
-# Directorio raíz del proyecto
-ROOT_DIR = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from utils.plot_styles import COLORS, DPI, TASK_LABELS, TASKS
+
+SCRIPT_DIR = Path(__file__).parent
+ROOT_DIR = SCRIPT_DIR.parent
 
 # Duraciones disponibles
 DURACIONES = ["01seg", "02seg", "05seg", "10seg", "20seg", "30seg", "50seg"]
@@ -30,17 +35,22 @@ TASK_NAMES = {
     "current_type": "Tipo de Corriente",
 }
 
-# Colores para cada tarea
 TASK_COLORS = {
     "plate_thickness": "Blues",
     "electrode": "Greens",
     "current_type": "Oranges",
 }
 
+TASK_CMAP = {
+    "plate_thickness": COLORS["plate"],
+    "electrode": COLORS["electrode"],
+    "current_type": COLORS["current"],
+}
+
 
 def cargar_resultados(duracion: str) -> list:
     """Carga los resultados de inferencia de una duración específica."""
-    infer_json = ROOT_DIR / "projects" / duracion / "inferencia.json"
+    infer_json = ROOT_DIR / duracion / "inferencia.json"
 
     if not infer_json.exists():
         print(f"  No se encontró {infer_json}")
@@ -67,29 +77,43 @@ def generar_grafica_confusion(
     cmap: str = "Blues",
     accuracy: float = None,
     f1_macro: float = None,
+    normalize: bool = False,
+    color_hex: str = None,
 ):
     """Genera y guarda una gráfica de matriz de confusión."""
-
+    sns.set_style("whitegrid")
     fig, ax = plt.subplots(figsize=(8, 6))
 
-    # Crear heatmap
+    cm_normalized = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis]
+    display_cm = cm_normalized if normalize else cm
+
+    annot_format = ".2%" if normalize else "d"
+    cbar_label = "Fracción" if normalize else "Cantidad"
+
+    if color_hex:
+        colors = [color_hex, "white"]
+        custom_cmap = LinearSegmentedColormap.from_list("custom", colors)
+        cmap_to_use = custom_cmap
+    else:
+        cmap_to_use = cmap
+
     sns.heatmap(
-        cm,
+        display_cm,
         annot=True,
-        fmt="d",
-        cmap=cmap,
+        fmt=annot_format,
+        cmap=cmap_to_use,
         xticklabels=clases,
         yticklabels=clases,
         ax=ax,
-        cbar_kws={"label": "Cantidad"},
+        cbar_kws={"label": cbar_label},
+        linewidths=0.5,
+        linecolor="white",
     )
 
-    # Configurar etiquetas
     ax.set_xlabel("Predicción", fontsize=12)
     ax.set_ylabel("Real", fontsize=12)
     ax.set_title(titulo, fontsize=14, fontweight="bold")
 
-    # Agregar métricas si están disponibles
     if accuracy is not None or f1_macro is not None:
         metrics_text = []
         if accuracy is not None:
@@ -108,7 +132,7 @@ def generar_grafica_confusion(
         )
 
     plt.tight_layout()
-    plt.savefig(output_path, dpi=150, bbox_inches="tight")
+    plt.savefig(output_path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -116,10 +140,12 @@ def generar_grafica_combinada(
     resultado: dict,
     duracion: str,
     output_path: Path,
+    normalize: bool = False,
 ):
     """Genera una gráfica combinada con las 3 matrices de confusión."""
 
     fig, axes = plt.subplots(1, 3, figsize=(18, 5))
+    sns.set_style("whitegrid")
 
     tasks = ["plate_thickness", "electrode", "current_type"]
 
@@ -127,27 +153,36 @@ def generar_grafica_combinada(
         cm = np.array(resultado["confusion_matrices"][task])
         clases = resultado["classes"][task]
 
-        # Simplificar nombres de clases
         clases_cortas = [c.replace("Placa_", "").replace("mm", " mm") for c in clases]
 
-        acc = resultado["accuracy"].get(task, None)
-        f1 = resultado.get("macro_f1", {}).get(task, None)
+        cm_normalized = cm.astype("float") / cm.sum(axis=1)[:, np.newaxis]
+        display_cm = cm_normalized if normalize else cm
+
+        annot_format = ".2%" if normalize else "d"
+
+        color_hex = TASK_CMAP[task]
+        colors = [color_hex, "white"]
+        custom_cmap = LinearSegmentedColormap.from_list("custom", colors)
 
         sns.heatmap(
-            cm,
+            display_cm,
             annot=True,
-            fmt="d",
-            cmap=TASK_COLORS[task],
+            fmt=annot_format,
+            cmap=custom_cmap,
             xticklabels=clases_cortas,
             yticklabels=clases_cortas,
             ax=ax,
             cbar=False,
+            linewidths=0.5,
+            linecolor="white",
         )
 
         ax.set_xlabel("Predicción", fontsize=10)
         ax.set_ylabel("Real", fontsize=10)
 
-        # Título con métricas
+        acc = resultado["accuracy"].get(task, None)
+        f1 = resultado.get("macro_f1", {}).get(task, None)
+
         if acc is not None and f1 is not None:
             titulo = f"{TASK_NAMES[task]}\nAcc: {acc:.3f} | F1: {f1:.3f}"
         elif acc is not None:
@@ -156,12 +191,10 @@ def generar_grafica_combinada(
             titulo = TASK_NAMES[task]
         ax.set_title(titulo, fontsize=11, fontweight="bold")
 
-    # Título general
     config = resultado.get("config", {})
     segment_dur = resultado.get("segment_duration", duracion)
     n_samples = resultado.get("n_samples", "?")
     k_folds = config.get("k_folds", resultado.get("n_models", "?"))
-    train_seconds = config.get("train_seconds", "?")
     test_seconds = config.get("test_seconds", segment_dur)
     overlap_seconds = config.get("overlap_seconds", None)
 
@@ -169,13 +202,10 @@ def generar_grafica_combinada(
     if overlap_seconds is not None and test_seconds not in (None, "?"):
         try:
             overlap_ratio = float(overlap_seconds) / float(test_seconds)
-            overlap_text = (
-                f" | Solapamiento: {overlap_seconds}s ({overlap_ratio * 100:.0f}%)"
-            )
+            overlap_text = f" | Solapamiento: {overlap_seconds}s ({overlap_ratio * 100:.0f}%)"
         except (ValueError, ZeroDivisionError):
             overlap_text = f" | Solapamiento: {overlap_seconds}s"
 
-    # Métricas globales si existen
     global_metrics = resultado.get("global_metrics", {})
     exact_match = global_metrics.get("exact_match_accuracy", None)
     hamming = global_metrics.get("hamming_accuracy", None)
@@ -187,10 +217,11 @@ def generar_grafica_combinada(
     if exact_match is not None and hamming is not None:
         title_parts.append(f"Exact Match: {exact_match:.3f} | Hamming: {hamming:.3f}")
 
-    fig.suptitle("\n".join(title_parts), fontsize=13, fontweight="bold", y=1.02)
+    suffix = " (Fracción)" if normalize else " (Cantidad)"
+    fig.suptitle("\n".join(title_parts) + suffix, fontsize=13, fontweight="bold", y=1.02)
 
     plt.tight_layout()
-    plt.savefig(output_path, dpi=150, bbox_inches="tight")
+    plt.savefig(output_path, dpi=DPI, bbox_inches="tight")
     plt.close(fig)
 
 
@@ -214,11 +245,9 @@ def procesar_duracion(duracion: str, solo_ultimo: bool = False):
         print(f"  No hay resultados de blind para {duracion}")
         return
 
-    # Crear carpeta de salida
-    output_dir = ROOT_DIR / "projects" / duracion / "matrices_confusion"
+    output_dir = ROOT_DIR / duracion / "matrices_confusion"
     output_dir.mkdir(exist_ok=True)
 
-    # Si solo_ultimo, procesar solo el último resultado
     if solo_ultimo:
         resultados = [resultados[-1]]
 
@@ -231,12 +260,14 @@ def procesar_duracion(duracion: str, solo_ultimo: bool = False):
 
         print(f"  Generando graficas para {filename_base}...")
 
-        # Generar gráfica combinada
         output_combined = output_dir / f"combined_{filename_base}.png"
-        generar_grafica_combinada(resultado, duracion, output_combined)
+        generar_grafica_combinada(resultado, duracion, output_combined, normalize=False)
         print(f"    - {output_combined.name}")
 
-        # Generar gráficas individuales
+        output_combined_frac = output_dir / f"combined_{filename_base}_frac.png"
+        generar_grafica_combinada(resultado, duracion, output_combined_frac, normalize=True)
+        print(f"    - {output_combined_frac.name}")
+
         for task in ["plate_thickness", "electrode", "current_type"]:
             cm = np.array(resultado["confusion_matrices"][task])
             clases = resultado["classes"][task]
@@ -250,17 +281,7 @@ def procesar_duracion(duracion: str, solo_ultimo: bool = False):
             config = resultado.get("config", {})
             segment_dur = resultado.get("segment_duration", duracion)
             k_folds = config.get("k_folds", resultado.get("n_models", "?"))
-            train_seconds = config.get("train_seconds", "?")
             test_seconds = config.get("test_seconds", segment_dur)
-            overlap_seconds = config.get("overlap_seconds", None)
-
-            overlap_text = ""
-            if overlap_seconds is not None and test_seconds not in (None, "?"):
-                try:
-                    overlap_ratio = float(overlap_seconds) / float(test_seconds)
-                    overlap_text = f", Solapamiento: {overlap_seconds}s ({overlap_ratio * 100:.0f}%)"
-                except (ValueError, ZeroDivisionError):
-                    overlap_text = f", Solapamiento: {overlap_seconds}s"
 
             titulo = f"{TASK_NAMES[task]} (Audio: {test_seconds}s, K={k_folds})"
 
@@ -270,12 +291,25 @@ def procesar_duracion(duracion: str, solo_ultimo: bool = False):
                 clases_cortas,
                 titulo,
                 output_path,
-                cmap=TASK_COLORS[task],
+                color_hex=TASK_CMAP[task],
                 accuracy=acc,
                 f1_macro=f1,
+                normalize=False,
             )
 
-        print(f"    - 3 graficas individuales")
+            output_path_frac = output_dir / f"{task}_{filename_base}_frac.png"
+            generar_grafica_confusion(
+                cm,
+                clases_cortas,
+                titulo,
+                output_path_frac,
+                color_hex=TASK_CMAP[task],
+                accuracy=acc,
+                f1_macro=f1,
+                normalize=True,
+            )
+
+        print(f"    - 6 graficas individuales (3 cantidad + 3 fracción)")
 
     print(f"  Guardadas en: {output_dir}")
 
