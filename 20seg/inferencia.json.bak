@@ -1,0 +1,353 @@
+[
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 5
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7336683417085427,
+        "f1_macro": 0.7376300215404727
+      },
+      "current": {
+        "accuracy": 0.964824120603015,
+        "f1_macro": 0.9620280768706556
+      },
+      "electrode": {
+        "accuracy": 0.8793969849246231,
+        "f1_macro": 0.8744974112290453
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-05T13:25:28.361854"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.0,
+      "k_folds": 5
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7181818181818181,
+        "f1_macro": 0.7252116755793226
+      },
+      "current": {
+        "accuracy": 0.9818181818181818,
+        "f1_macro": 0.9801372336583605
+      },
+      "electrode": {
+        "accuracy": 0.8727272727272727,
+        "f1_macro": 0.8629408760987709
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:05:28.300963"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.0,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7454545454545455,
+        "f1_macro": 0.7485705892844029
+      },
+      "current": {
+        "accuracy": 0.9727272727272728,
+        "f1_macro": 0.9703743603555077
+      },
+      "electrode": {
+        "accuracy": 0.8727272727272727,
+        "f1_macro": 0.8621635831752055
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:06:00.519357"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.25,
+      "k_folds": 5
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7375886524822695,
+        "f1_macro": 0.7426516572858036
+      },
+      "current": {
+        "accuracy": 0.9574468085106383,
+        "f1_macro": 0.9546526586620927
+      },
+      "electrode": {
+        "accuracy": 0.8652482269503546,
+        "f1_macro": 0.8573391433971823
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:06:36.040630"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.25,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.723404255319149,
+        "f1_macro": 0.7290407049443194
+      },
+      "current": {
+        "accuracy": 0.9645390070921985,
+        "f1_macro": 0.9620661824051655
+      },
+      "electrode": {
+        "accuracy": 0.8581560283687943,
+        "f1_macro": 0.8471918279436067
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:07:12.853082"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 5
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7336683417085427,
+        "f1_macro": 0.7376300215404727
+      },
+      "current": {
+        "accuracy": 0.9698492462311558,
+        "f1_macro": 0.9673556430446195
+      },
+      "electrode": {
+        "accuracy": 0.8793969849246231,
+        "f1_macro": 0.8744974112290453
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:07:58.605187"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7386934673366834,
+        "f1_macro": 0.7430490923463333
+      },
+      "current": {
+        "accuracy": 0.964824120603015,
+        "f1_macro": 0.9620280768706556
+      },
+      "electrode": {
+        "accuracy": 0.8793969849246231,
+        "f1_macro": 0.8745176955199063
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:08:46.841222"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.75,
+      "k_folds": 5
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.744,
+        "f1_macro": 0.7487595473919416
+      },
+      "current": {
+        "accuracy": 0.9786666666666667,
+        "f1_macro": 0.9769980985094768
+      },
+      "electrode": {
+        "accuracy": 0.864,
+        "f1_macro": 0.852328984003156
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:10:05.258903"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.75,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.744,
+        "f1_macro": 0.7488150251777501
+      },
+      "current": {
+        "accuracy": 0.9626666666666667,
+        "f1_macro": 0.960220040007274
+      },
+      "electrode": {
+        "accuracy": 0.8586666666666667,
+        "f1_macro": 0.8602801965291347
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-07T01:11:27.365432"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7336683417085427,
+        "f1_macro": 0.7382837625036042
+      },
+      "current": {
+        "accuracy": 0.964824120603015,
+        "f1_macro": 0.9620280768706556
+      },
+      "electrode": {
+        "accuracy": 0.8693467336683417,
+        "f1_macro": 0.8639993608080232
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-19T06:52:58.360816"
+  },
+  {
+    "model_type": "xvector",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7336683417085427,
+        "f1_macro": 0.7382837625036042
+      },
+      "current": {
+        "accuracy": 0.964824120603015,
+        "f1_macro": 0.9620280768706556
+      },
+      "electrode": {
+        "accuracy": 0.8693467336683417,
+        "f1_macro": 0.8639993608080232
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-19T18:38:45.283871"
+  },
+  {
+    "model_type": "ecapa",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7085427135678392,
+        "f1_macro": 0.7126300346759136
+      },
+      "current": {
+        "accuracy": 0.9748743718592965,
+        "f1_macro": 0.9727135609488551
+      },
+      "electrode": {
+        "accuracy": 0.8492462311557789,
+        "f1_macro": 0.8455506558161364
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-21T20:55:10.654304"
+  },
+  {
+    "model_type": "feedforward",
+    "config": {
+      "duration": 20,
+      "overlap": 0.5,
+      "k_folds": 10
+    },
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7688442211055276,
+        "f1_macro": 0.7742159784305378
+      },
+      "current": {
+        "accuracy": 0.9698492462311558,
+        "f1_macro": 0.9673556430446195
+      },
+      "electrode": {
+        "accuracy": 0.8341708542713567,
+        "f1_macro": 0.8226521164021163
+      },
+      "global": {
+        "accuracy": 0.0,
+        "f1_macro": 0.0
+      }
+    },
+    "timestamp": "2026-02-21T21:48:00.242637"
+  }
+]

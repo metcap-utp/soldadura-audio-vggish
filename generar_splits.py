@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Genera CSVs de splits (train/test/blind) usando split estratificado por sesión.
 

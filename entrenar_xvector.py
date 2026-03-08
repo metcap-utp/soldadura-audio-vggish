@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Entrenamiento de modelos para clasificación SMAW.
 
@@ -53,12 +54,14 @@ from torch.utils.data import DataLoader, Dataset
 # Directorio raíz del proyecto
 ROOT_DIR = Path(__file__).parent
 sys.path.insert(0, str(ROOT_DIR))
-from modelo_xvector import SMAWXVectorModel
+from models.modelo_xvector import SMAWXVectorModel
 from utils.audio_utils import (
     PROJECT_ROOT,
     load_audio_segment,
 )
 from utils.timing import timer
+from utils.logging_utils import setup_log_file
+from utils.checkpoint import TrainingCheckpoint, setup_pause_handler, pause_requested
 
 warnings.filterwarnings("ignore")
 
@@ -84,9 +87,9 @@ def parse_args():
     parser.add_argument(
         "--k-folds",
         type=int,
-        default=5,
-        choices=[3, 4, 5, 6, 7, 8, 9, 10, 15, 20],
-        help="Número de folds para cross-validation (default: 5)",
+        default=10,
+        choices=[1, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20],
+        help="Número de folds para cross-validation (default: 10)",
     )
     parser.add_argument(
         "--seed",
@@ -501,9 +504,9 @@ def train_one_fold(
             outputs = model(embeddings)
 
             # Multi-task loss con incertidumbre
-            loss_p = criterion_plate(outputs["logits_espesor"], labels_p)
-            loss_e = criterion_electrode(outputs["logits_electrodo"], labels_e)
-            loss_c = criterion_current(outputs["logits_corriente"], labels_c)
+            loss_p = criterion_plate(outputs["plate"], labels_p)
+            loss_e = criterion_electrode(outputs["electrode"], labels_e)
+            loss_c = criterion_current(outputs["current"], labels_c)
 
             precision = torch.exp(-log_vars)
             loss = (
@@ -533,14 +536,14 @@ def train_one_fold(
 
                 outputs = model(embeddings)
 
-                loss_p = criterion_plate(outputs["logits_espesor"], labels_p)
-                loss_e = criterion_electrode(outputs["logits_electrodo"], labels_e)
-                loss_c = criterion_current(outputs["logits_corriente"], labels_c)
+                loss_p = criterion_plate(outputs["plate"], labels_p)
+                loss_e = criterion_electrode(outputs["electrode"], labels_e)
+                loss_c = criterion_current(outputs["current"], labels_c)
                 val_loss += (loss_p + loss_e + loss_c).item()
 
-                _, pred_p = outputs["logits_espesor"].max(1)
-                _, pred_e = outputs["logits_electrodo"].max(1)
-                _, pred_c = outputs["logits_corriente"].max(1)
+                _, pred_p = outputs["plate"].max(1)
+                _, pred_e = outputs["electrode"].max(1)
+                _, pred_c = outputs["current"].max(1)
 
                 all_preds["plate"].extend(pred_p.cpu().numpy())
                 all_preds["electrode"].extend(pred_e.cpu().numpy())
@@ -560,11 +563,11 @@ def train_one_fold(
             np.array(all_preds["current"]) == np.array(all_labels["current"])
         )
 
-        f1_p = f1_score(all_labels["plate"], all_preds["plate"], average="weighted")
+        f1_p = f1_score(all_labels["plate"], all_preds["plate"], average="macro")
         f1_e = f1_score(
-            all_labels["electrode"], all_preds["electrode"], average="weighted"
+            all_labels["electrode"], all_preds["electrode"], average="macro"
         )
-        f1_c = f1_score(all_labels["current"], all_preds["current"], average="weighted")
+        f1_c = f1_score(all_labels["current"], all_preds["current"], average="macro")
         
         # Guardar historial de esta época
         training_history.append({
@@ -625,9 +628,9 @@ def train_one_fold(
             embeddings = embeddings.to(device)
             outputs = model(embeddings)
             
-            _, pred_p = outputs["logits_espesor"].max(1)
-            _, pred_e = outputs["logits_electrodo"].max(1)
-            _, pred_c = outputs["logits_corriente"].max(1)
+            _, pred_p = outputs["plate"].max(1)
+            _, pred_e = outputs["electrode"].max(1)
+            _, pred_c = outputs["current"].max(1)
             
             val_preds["plate"].extend(pred_p.cpu().numpy())
             val_preds["electrode"].extend(pred_e.cpu().numpy())
@@ -668,9 +671,9 @@ def ensemble_predict(models, embeddings, device):
         model.eval()
         with torch.no_grad():
             outputs = model(embeddings.to(device))
-            all_logits_plate.append(outputs["logits_espesor"])
-            all_logits_electrode.append(outputs["logits_electrodo"])
-            all_logits_current.append(outputs["logits_corriente"])
+            all_logits_plate.append(outputs["plate"])
+            all_logits_electrode.append(outputs["electrode"])
+            all_logits_current.append(outputs["current"])
 
     # Soft voting: promediar logits (antes de softmax)
     avg_logits_plate = torch.stack(all_logits_plate).mean(dim=0)
@@ -729,6 +732,12 @@ if __name__ == "__main__":
     N_FOLDS = args.k_folds
     RANDOM_SEED = args.seed
     USE_CACHE = not args.no_cache
+
+    # Set up logging
+    log_file, log_path = setup_log_file(
+        ROOT_DIR / "logs", "entrenar_xvector", suffix=f"_{int(SEGMENT_DURATION):02d}seg"
+    )
+    sys.stdout = log_file
 
     # Directorios basados en duración
     DURATION_DIR = ROOT_DIR / f"{args.duration:02d}seg"
@@ -859,20 +868,48 @@ if __name__ == "__main__":
     print(f"{'=' * 70}")
     print("[INFO] Usando StratifiedGroupKFold")
 
-    # Iniciar timer de entrenamiento puro (sin VGGish)
-    training_start_time = time.time()
+    # Store the boundary between train and test data for k=1 case
+    n_train_rows = len(train_data)
 
-    sgkf = StratifiedGroupKFold(
-        n_splits=N_FOLDS, shuffle=True, random_state=RANDOM_SEED
-    )
-    fold_metrics = []
-    fold_best_epochs = []
-    fold_training_times = []
-    all_fold_histories = []  # Historial de entrenamiento por fold
+    # Prepare folds: k=1 uses original train/test split, k>=2 uses StratifiedGroupKFold
+    if N_FOLDS == 1:
+        # Single train/test split without cross-validation
+        train_idx = np.arange(n_train_rows)
+        val_idx = np.arange(n_train_rows, len(all_data))
+        fold_splits = [(train_idx, val_idx)]
+    else:
+        sgkf = StratifiedGroupKFold(
+            n_splits=N_FOLDS, shuffle=True, random_state=RANDOM_SEED
+        )
+        fold_splits = list(sgkf.split(all_embeddings, y_stratify, groups=sessions))
 
-    for fold_idx, (train_idx, val_idx) in enumerate(
-        sgkf.split(all_embeddings, y_stratify, groups=sessions)
-    ):
+    # Checkpoint: soporte de pausa/reanudación por fold
+    setup_pause_handler()
+    ckpt = TrainingCheckpoint(MODELS_DIR)
+    ckpt_state = ckpt.load()
+
+    if ckpt_state:
+        start_fold = len(ckpt_state["completed_folds"])
+        fold_metrics = list(ckpt_state["fold_results"])
+        fold_best_epochs = list(ckpt_state["fold_best_epochs"])
+        fold_training_times = list(ckpt_state["fold_training_times"])
+        all_fold_histories = list(ckpt_state["fold_histories"])
+        _pause_count = ckpt_state.get("pause_count", 0)
+        _resumed_from_fold = start_fold
+        print(f"[RESUME] Resumiendo desde fold {start_fold + 1}/{N_FOLDS}")
+    else:
+        ckpt_state = ckpt.initialize()
+        start_fold = 0
+        fold_metrics = []
+        fold_best_epochs = []
+        fold_training_times = []
+        all_fold_histories = []
+        _pause_count = 0
+        _resumed_from_fold = None
+
+    for fold_idx, (train_idx, val_idx) in enumerate(fold_splits):
+        if fold_idx < start_fold:
+            continue
         # Verificar que sesiones no se mezclan
         train_sessions = set(sessions[train_idx])
         val_sessions = set(sessions[val_idx])
@@ -941,10 +978,14 @@ if __name__ == "__main__":
         
         # Guardar historial de este fold
         all_fold_histories.append(fold_history)
+        ckpt.save_fold(ckpt_state, fold_idx, metrics, fold_time, best_epoch, fold_history)
+        if pause_requested():
+            ckpt.mark_paused(ckpt_state)
+            print(f"[PAUSE] Pausado después del fold {fold_idx + 1}/{N_FOLDS}. Re-ejecuta el mismo comando para continuar.")
+            sys.exit(0)
 
-    # Calcular tiempo de entrenamiento puro
-    training_end_time = time.time()
-    training_time = training_end_time - training_start_time
+    # Tiempo de entrenamiento = suma de tiempos de folds (excluye tiempo pausado)
+    training_time = sum(fold_training_times)
     training_time_minutes = training_time / 60
     print(
         f"\nTiempo de entrenamiento puro: {training_time:.2f}s ({training_time_minutes:.2f}min)"
@@ -1013,26 +1054,26 @@ if __name__ == "__main__":
     )
     acc_c = np.mean(np.array(all_preds["current"]) == np.array(all_labels["current"]))
 
-    f1_p = f1_score(all_labels["plate"], all_preds["plate"], average="weighted")
-    f1_e = f1_score(all_labels["electrode"], all_preds["electrode"], average="weighted")
-    f1_c = f1_score(all_labels["current"], all_preds["current"], average="weighted")
+    f1_p = f1_score(all_labels["plate"], all_preds["plate"], average="macro")
+    f1_e = f1_score(all_labels["electrode"], all_preds["electrode"], average="macro")
+    f1_c = f1_score(all_labels["current"], all_preds["current"], average="macro")
 
     prec_p = precision_score(
-        all_labels["plate"], all_preds["plate"], average="weighted"
+        all_labels["plate"], all_preds["plate"], average="macro"
     )
     prec_e = precision_score(
-        all_labels["electrode"], all_preds["electrode"], average="weighted"
+        all_labels["electrode"], all_preds["electrode"], average="macro"
     )
     prec_c = precision_score(
-        all_labels["current"], all_preds["current"], average="weighted"
+        all_labels["current"], all_preds["current"], average="macro"
     )
 
-    rec_p = recall_score(all_labels["plate"], all_preds["plate"], average="weighted")
+    rec_p = recall_score(all_labels["plate"], all_preds["plate"], average="macro")
     rec_e = recall_score(
-        all_labels["electrode"], all_preds["electrode"], average="weighted"
+        all_labels["electrode"], all_preds["electrode"], average="macro"
     )
     rec_c = recall_score(
-        all_labels["current"], all_preds["current"], average="weighted"
+        all_labels["current"], all_preds["current"], average="macro"
     )
 
     # Promedios K-Fold individuales
@@ -1241,6 +1282,7 @@ if __name__ == "__main__":
         "id": f"{int(SEGMENT_DURATION)}seg_{N_FOLDS}fold_overlap_{OVERLAP_RATIO}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
         "timestamp": datetime.now().isoformat(),
         "model_type": "xvector",
+        "backbone": "vggish",  # Identificar el backbone
         "execution_time": {
             "seconds": round(elapsed_time, 2),
             "minutes": round(elapsed_minutes, 2),
@@ -1250,7 +1292,7 @@ if __name__ == "__main__":
             "seconds": round(training_time, 2),
             "minutes": round(training_time_minutes, 2),
         },
-        "vggish_extraction": {
+        "feature_extraction": {
             "from_cache": embeddings_from_cache,
             "extraction_time_seconds": round(vggish_extraction_time, 2)
             if vggish_extraction_time
@@ -1260,12 +1302,11 @@ if __name__ == "__main__":
             else None,
         },
         "config": {
-            "segment_duration": SEGMENT_DURATION,
-            "overlap_ratio": OVERLAP_RATIO,
-            "overlap_seconds": OVERLAP_SECONDS,
-            "n_folds": N_FOLDS,
+            "duration": SEGMENT_DURATION,
+            "overlap": OVERLAP_RATIO,
+            "k_folds": N_FOLDS,
             "models_dir": str(MODELS_DIR.name),
-            "random_seed": RANDOM_SEED,
+            "seed": RANDOM_SEED,
             "voting_method": "soft",
             "batch_size": BATCH_SIZE,
             "epochs": NUM_EPOCHS,
@@ -1322,6 +1363,11 @@ if __name__ == "__main__":
             "current": round(acc_c - avg_acc_c, 4),
         },
         "training_history": all_fold_histories,  # Historial completo de entrenamiento por fold
+        "pause_resume": {
+            "was_paused": ckpt_state.get("was_paused", False),
+            "pause_count": _pause_count,
+            "resumed_from_fold": _resumed_from_fold,
+        },
     }
 
     # Cargar historial existente o crear nuevo
@@ -1339,5 +1385,11 @@ if __name__ == "__main__":
     with open(results_path, "w") as f:
         json.dump(history, f, indent=2)
 
+    ckpt.delete()
+
     print(f"\nResultados guardados en: {results_path} (entrada #{len(history)})")
     print(f"Modelos guardados en: {MODELS_DIR}/")
+    print(f"Logs guardados en: {log_path}")
+    
+    # Close log file
+    log_file.close()

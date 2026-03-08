@@ -55,6 +55,7 @@ models/
 
 # VGGish pre-trained model (275MB+)
 vggish/
+backups/
 
 # Datos de audio (muy pesados - no versionar)
 *.wav
@@ -73,11 +74,8 @@ checkpoints/
 Thumbs.db
 *:Zone.Identifier
 
-# Archivos temporales
-*.tmp
-*.bak
-*.swp
-*~
-
 *.out
 *.sh
+
+# Backups de migración
+resultados_backup*.json

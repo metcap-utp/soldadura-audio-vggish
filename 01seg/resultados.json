@@ -1,74 +1,76 @@
 [
   {
+    "id": "1.0seg_5fold_overlap_0.5_xvector_20260228_180242",
     "timestamp": "2026-01-22T00:03:34.877505",
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "n_folds": 5,
-      "random_seed": 42,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 5,
+      "seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
-      "epochs": 100,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "segment_duration": 1.0
+      "epochs": 100
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
-    "results": {
+    "ensemble_results": {
       "plate": {
         "accuracy": 0.3358,
         "f1": 0.1689,
@@ -92,33 +94,19 @@
       "plate": 0.3358,
       "electrode": 0.1543,
       "current": 0.4032
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_5fold_overlap_0.25_20260206_154012",
+    "id": "1.0seg_5fold_overlap_0.25_xvector_20260228_180242",
     "timestamp": "2026-02-06T15:40:12.597637",
-    "execution_time": {
-      "seconds": 432.21,
-      "minutes": 7.2,
-      "hours": 0.1201
-    },
-    "training_time": {
-      "seconds": 426.86,
-      "minutes": 7.11
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.25,
-      "overlap_seconds": 0.25,
-      "n_folds": 5,
+      "duration": 1.0,
+      "overlap": 0.25,
+      "k_folds": 5,
+      "seed": 42,
       "models_dir": "k05_overlap_0.25",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -183,64 +171,64 @@
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 87.94,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 83.36,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 85.9,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 85.89,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 83.63,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
     "fold_best_epochs": [
@@ -257,26 +245,6 @@
       85.89,
       83.63
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3357,
-        "f1": 0.1687,
-        "precision": 0.1127,
-        "recall": 0.3357
-      },
-      "electrode": {
-        "accuracy": 0.1544,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1544
-      },
-      "current": {
-        "accuracy": 0.403,
-        "f1": 0.2315,
-        "precision": 0.1624,
-        "recall": 0.403
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -286,33 +254,19 @@
       "plate": 0.3357,
       "electrode": 0.1544,
       "current": 0.403
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_10fold_overlap_0.25_20260206_155517",
+    "id": "1.0seg_10fold_overlap_0.25_xvector_20260228_180242",
     "timestamp": "2026-02-06T15:55:17.503161",
-    "execution_time": {
-      "seconds": 898.16,
-      "minutes": 14.97,
-      "hours": 0.2495
-    },
-    "training_time": {
-      "seconds": 889.36,
-      "minutes": 14.82
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.25,
-      "overlap_seconds": 0.25,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.25,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.25",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -377,124 +331,124 @@
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 90.57,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 89.51,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 87.54,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 90.14,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 90.17,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 87.41,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 87.79,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 88.98,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 89.62,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 87.42,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
     "fold_best_epochs": [
@@ -521,26 +475,6 @@
       89.62,
       87.42
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3357,
-        "f1": 0.1687,
-        "precision": 0.1127,
-        "recall": 0.3357
-      },
-      "electrode": {
-        "accuracy": 0.1544,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1544
-      },
-      "current": {
-        "accuracy": 0.403,
-        "f1": 0.2315,
-        "precision": 0.1624,
-        "recall": 0.403
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -550,33 +484,19 @@
       "plate": 0.3357,
       "electrode": 0.1544,
       "current": 0.403
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_10fold_overlap_0.5_20260206_162435",
+    "id": "1.0seg_10fold_overlap_0.5_xvector_20260228_180242",
     "timestamp": "2026-02-06T16:24:35.071880",
-    "execution_time": {
-      "seconds": 1748.89,
-      "minutes": 29.15,
-      "hours": 0.4858
-    },
-    "training_time": {
-      "seconds": 1382.47,
-      "minutes": 23.04
-    },
-    "vggish_extraction": {
-      "from_cache": false,
-      "extraction_time_seconds": 352.56,
-      "extraction_time_minutes": 5.88
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -765,26 +685,6 @@
       137.15,
       134.45
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1543,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1543
-      },
-      "current": {
-        "accuracy": 0.4032,
-        "f1": 0.2317,
-        "precision": 0.1626,
-        "recall": 0.4032
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -794,51 +694,19 @@
       "plate": 0.3358,
       "electrode": 0.1543,
       "current": 0.4032
-    },
-    "model_type": "xvector",
-    "blind_evaluation": {
-      "plate": {
-        "accuracy": 0.2904971932638332,
-        "f1": 0.15006990834239553
-      },
-      "electrode": {
-        "accuracy": 0.12489975942261428,
-        "f1": 0.05551595081090715
-      },
-      "current": {
-        "accuracy": 0.34643143544506816,
-        "f1": 0.25729600952948184
-      },
-      "global": {
-        "exact_match": 0.0,
-        "hamming_accuracy": 0.25394279604383857
-      }
     }
   },
   {
-    "id": "1seg_5fold_overlap_0.75_20260206_165813",
+    "id": "1.0seg_5fold_overlap_0.75_xvector_20260228_180242",
     "timestamp": "2026-02-06T16:58:13.053607",
-    "execution_time": {
-      "seconds": 2006.92,
-      "minutes": 33.45,
-      "hours": 0.5575
-    },
-    "training_time": {
-      "seconds": 1280.91,
-      "minutes": 21.35
-    },
-    "vggish_extraction": {
-      "from_cache": false,
-      "extraction_time_seconds": 710.61,
-      "extraction_time_minutes": 11.84
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.75,
-      "overlap_seconds": 0.75,
-      "n_folds": 5,
+      "duration": 1.0,
+      "overlap": 0.75,
+      "k_folds": 5,
+      "seed": 42,
       "models_dir": "k05_overlap_0.75",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -903,64 +771,64 @@
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 259.79,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 255.0,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 257.21,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 255.05,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 253.63,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
     "fold_best_epochs": [
@@ -977,26 +845,6 @@
       255.05,
       253.63
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1544,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1544
-      },
-      "current": {
-        "accuracy": 0.4034,
-        "f1": 0.2319,
-        "precision": 0.1627,
-        "recall": 0.4034
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -1006,33 +854,19 @@
       "plate": 0.3358,
       "electrode": 0.1544,
       "current": 0.4034
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_10fold_overlap_0.75_20260206_174450",
+    "id": "1.0seg_10fold_overlap_0.75_xvector_20260228_180242",
     "timestamp": "2026-02-06T17:44:50.590722",
-    "execution_time": {
-      "seconds": 2788.68,
-      "minutes": 46.48,
-      "hours": 0.7746
-    },
-    "training_time": {
-      "seconds": 2760.64,
-      "minutes": 46.01
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.75,
-      "overlap_seconds": 0.75,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.75,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.75",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -1097,124 +931,124 @@
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 273.14,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 277.67,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 279.1,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 278.66,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 277.72,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 278.53,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 273.93,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 278.88,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 270.68,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 271.91,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
     "fold_best_epochs": [
@@ -1241,26 +1075,6 @@
       270.68,
       271.91
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1544,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1544
-      },
-      "current": {
-        "accuracy": 0.4034,
-        "f1": 0.2319,
-        "precision": 0.1627,
-        "recall": 0.4034
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -1270,33 +1084,19 @@
       "plate": 0.3358,
       "electrode": 0.1544,
       "current": 0.4034
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_5fold_overlap_0.0_20260206_230952",
+    "id": "1.0seg_5fold_overlap_0.0_xvector_20260228_180242",
     "timestamp": "2026-02-06T23:09:52.403480",
-    "execution_time": {
-      "seconds": 325.42,
-      "minutes": 5.42,
-      "hours": 0.0904
-    },
-    "training_time": {
-      "seconds": 321.93,
-      "minutes": 5.37
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.0,
-      "overlap_seconds": 0.0,
-      "n_folds": 5,
+      "duration": 1.0,
+      "overlap": 0.0,
+      "k_folds": 5,
+      "seed": 42,
       "models_dir": "k05_overlap_0.0",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -1361,64 +1161,64 @@
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 60.69,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 74.72,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 82.22,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 55.83,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 48.32,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
     "fold_best_epochs": [
@@ -1435,26 +1235,6 @@
       55.83,
       48.32
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3356,
-        "f1": 0.1687,
-        "precision": 0.1126,
-        "recall": 0.3356
-      },
-      "electrode": {
-        "accuracy": 0.1545,
-        "f1": 0.0413,
-        "precision": 0.0239,
-        "recall": 0.1545
-      },
-      "current": {
-        "accuracy": 0.4028,
-        "f1": 0.2313,
-        "precision": 0.1623,
-        "recall": 0.4028
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -1464,33 +1244,19 @@
       "plate": 0.3356,
       "electrode": 0.1545,
       "current": 0.4028
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_10fold_overlap_0.0_20260206_231835",
+    "id": "1.0seg_10fold_overlap_0.0_xvector_20260228_180242",
     "timestamp": "2026-02-06T23:18:35.971088",
-    "execution_time": {
-      "seconds": 513.58,
-      "minutes": 8.56,
-      "hours": 0.1427
-    },
-    "training_time": {
-      "seconds": 507.71,
-      "minutes": 8.46
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "model_type": "xvector",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.0,
-      "overlap_seconds": 0.0,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.0,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.0",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -1555,124 +1321,124 @@
     },
     "fold_results": [
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 51.19,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 49.67,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 50.76,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 51.88,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 51.31,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 50.16,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 51.54,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 51.27,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 49.48,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       },
       {
-        "acc_plate": 0.0,
-        "acc_electrode": 0.0,
-        "acc_current": 0.0,
         "f1_plate": 0.0,
         "f1_electrode": 0.0,
         "f1_current": 0.0,
         "time_seconds": 50.25,
         "confusion_matrix_plate": [],
         "confusion_matrix_electrode": [],
-        "confusion_matrix_current": []
+        "confusion_matrix_current": [],
+        "accuracy_plate": 0.0,
+        "accuracy_electrode": 0.0,
+        "accuracy_current": 0.0
       }
     ],
     "fold_best_epochs": [
@@ -1699,26 +1465,6 @@
       49.48,
       50.25
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3356,
-        "f1": 0.1687,
-        "precision": 0.1126,
-        "recall": 0.3356
-      },
-      "electrode": {
-        "accuracy": 0.1545,
-        "f1": 0.0413,
-        "precision": 0.0239,
-        "recall": 0.1545
-      },
-      "current": {
-        "accuracy": 0.4028,
-        "f1": 0.2313,
-        "precision": 0.1623,
-        "recall": 0.4028
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -1728,33 +1474,19 @@
       "plate": 0.3356,
       "electrode": 0.1545,
       "current": 0.4028
-    },
-    "model_type": "xvector"
+    }
   },
   {
-    "id": "1seg_10fold_overlap_0.5_20260219_052932",
+    "id": "1.0seg_10fold_overlap_0.5_unknown_20260228_180242",
     "timestamp": "2026-02-19T05:29:32.082962",
-    "execution_time": {
-      "seconds": 8632.06,
-      "minutes": 143.87,
-      "hours": 2.3978
-    },
-    "training_time": {
-      "seconds": 7388.62,
-      "minutes": 123.14
-    },
-    "vggish_extraction": {
-      "from_cache": false,
-      "extraction_time_seconds": 819.23,
-      "extraction_time_minutes": 13.65
-    },
+    "model_type": "unknown",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -2473,26 +2205,6 @@
       716.11,
       741.96
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1543,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1543
-      },
-      "current": {
-        "accuracy": 0.4032,
-        "f1": 0.2317,
-        "precision": 0.1626,
-        "recall": 0.4032
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -4177,29 +3889,16 @@
     ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_20260219_053211",
+    "id": "1.0seg_10fold_overlap_0.5_unknown_20260228_180242",
     "timestamp": "2026-02-19T05:32:11.753450",
-    "execution_time": {
-      "seconds": 8581.93,
-      "minutes": 143.03,
-      "hours": 2.3839
-    },
-    "training_time": {
-      "seconds": 7169.64,
-      "minutes": 119.49
-    },
-    "vggish_extraction": {
-      "from_cache": false,
-      "extraction_time_seconds": 1183.72,
-      "extraction_time_minutes": 19.73
-    },
+    "model_type": "unknown",
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -4918,26 +4617,6 @@
       731.38,
       580.22
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1543,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1543
-      },
-      "current": {
-        "accuracy": 0.4032,
-        "f1": 0.2317,
-        "precision": 0.1626,
-        "recall": 0.4032
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -6622,25 +6301,16 @@
     ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_ecapa_20260220_020328",
+    "id": "1.0seg_10fold_overlap_0.5_ecapa_20260228_180242",
     "timestamp": "2026-02-20T02:03:28.484814",
     "model_type": "ecapa",
-    "execution_time": {
-      "seconds": 6408.09,
-      "minutes": 106.8,
-      "hours": 1.78
-    },
-    "training_time": {
-      "seconds": 5899.85,
-      "minutes": 98.33
-    },
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -7359,26 +7029,6 @@
       582.76,
       593.46
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1543,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1543
-      },
-      "current": {
-        "accuracy": 0.4032,
-        "f1": 0.2317,
-        "precision": 0.1626,
-        "recall": 0.4032
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -9060,33 +8710,19 @@
           "val_f1_current": 0.32039879357071976
         }
       ]
-    ],
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": 423.43,
-      "extraction_time_minutes": 7.06
-    }
+    ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_feedforward_20260220_072618",
+    "id": "1.0seg_10fold_overlap_0.5_feedforward_20260228_180242",
     "timestamp": "2026-02-20T07:26:18.572271",
     "model_type": "feedforward",
-    "execution_time": {
-      "seconds": 6843.84,
-      "minutes": 114.06,
-      "hours": 1.9011
-    },
-    "training_time": {
-      "seconds": 6455.26,
-      "minutes": 107.59
-    },
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -9805,26 +9441,6 @@
       671.53,
       428.64
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.8234,
-        "f1": 0.8242,
-        "precision": 0.8256,
-        "recall": 0.8234
-      },
-      "electrode": {
-        "accuracy": 0.8635,
-        "f1": 0.864,
-        "precision": 0.8689,
-        "recall": 0.8635
-      },
-      "current": {
-        "accuracy": 0.9652,
-        "f1": 0.9653,
-        "precision": 0.9659,
-        "recall": 0.9652
-      }
-    },
     "individual_avg": {
       "plate": 0.73,
       "electrode": 0.7841,
@@ -15840,38 +15456,19 @@
           "val_f1_current": 0.9364241277201631
         }
       ]
-    ],
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": 423.43,
-      "extraction_time_minutes": 7.06
-    }
+    ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_20260222_194646",
+    "id": "1.0seg_10fold_overlap_0.5_xvector_20260228_180242",
     "timestamp": "2026-02-22T19:46:46.159626",
     "model_type": "xvector",
-    "execution_time": {
-      "seconds": 2304.29,
-      "minutes": 38.4,
-      "hours": 0.6401
-    },
-    "training_time": {
-      "seconds": 2204.11,
-      "minutes": 36.74
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -16590,26 +16187,6 @@
       222.8,
       219.86
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.3358,
-        "f1": 0.1689,
-        "precision": 0.1128,
-        "recall": 0.3358
-      },
-      "electrode": {
-        "accuracy": 0.1543,
-        "f1": 0.0413,
-        "precision": 0.0238,
-        "recall": 0.1543
-      },
-      "current": {
-        "accuracy": 0.4032,
-        "f1": 0.2317,
-        "precision": 0.1626,
-        "recall": 0.4032
-      }
-    },
     "individual_avg": {
       "plate": 0.0,
       "electrode": 0.0,
@@ -18294,30 +17871,16 @@
     ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_20260223_042651",
+    "id": "1.0seg_10fold_overlap_0.5_xvector_20260228_180242",
     "timestamp": "2026-02-23T04:26:51.570066",
     "model_type": "xvector",
-    "execution_time": {
-      "seconds": 4552.16,
-      "minutes": 75.87,
-      "hours": 1.2645
-    },
-    "training_time": {
-      "seconds": 4451.82,
-      "minutes": 74.2
-    },
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": null,
-      "extraction_time_minutes": null
-    },
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -19036,26 +18599,6 @@
       443.49,
       382.53
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.8395,
-        "f1": 0.84,
-        "precision": 0.8409,
-        "recall": 0.8395
-      },
-      "electrode": {
-        "accuracy": 0.8707,
-        "f1": 0.8712,
-        "precision": 0.8765,
-        "recall": 0.8707
-      },
-      "current": {
-        "accuracy": 0.9764,
-        "f1": 0.9765,
-        "precision": 0.9768,
-        "recall": 0.9764
-      }
-    },
     "individual_avg": {
       "plate": 0.7288,
       "electrode": 0.7718,
@@ -22280,25 +21823,16 @@
     ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_ecapa_20260223_075854",
+    "id": "1.0seg_10fold_overlap_0.5_ecapa_20260228_180242",
     "timestamp": "2026-02-23T07:58:54.313809",
     "model_type": "ecapa",
-    "execution_time": {
-      "seconds": 12189.87,
-      "minutes": 203.16,
-      "hours": 3.3861
-    },
-    "training_time": {
-      "seconds": 11674.85,
-      "minutes": 194.58
-    },
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -23017,26 +22551,6 @@
       1192.18,
       1112.61
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.8532,
-        "f1": 0.8536,
-        "precision": 0.8541,
-        "recall": 0.8532
-      },
-      "electrode": {
-        "accuracy": 0.8839,
-        "f1": 0.8842,
-        "precision": 0.8879,
-        "recall": 0.8839
-      },
-      "current": {
-        "accuracy": 0.9736,
-        "f1": 0.9737,
-        "precision": 0.9739,
-        "recall": 0.9736
-      }
-    },
     "individual_avg": {
       "plate": 0.7337,
       "electrode": 0.7779,
@@ -26071,33 +25585,19 @@
           "val_f1_current": 0.9364321933125755
         }
       ]
-    ],
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": 423.43,
-      "extraction_time_minutes": 7.06
-    }
+    ]
   },
   {
-    "id": "1seg_10fold_overlap_0.5_feedforward_20260223_101452",
+    "id": "1.0seg_10fold_overlap_0.5_feedforward_20260228_180242",
     "timestamp": "2026-02-23T10:14:52.926060",
     "model_type": "feedforward",
-    "execution_time": {
-      "seconds": 7710.87,
-      "minutes": 128.51,
-      "hours": 2.1419
-    },
-    "training_time": {
-      "seconds": 7325.04,
-      "minutes": 122.08
-    },
+    "backbone": "vggish",
     "config": {
-      "segment_duration": 1.0,
-      "overlap_ratio": 0.5,
-      "overlap_seconds": 0.5,
-      "n_folds": 10,
+      "duration": 1.0,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "seed": 42,
       "models_dir": "k10_overlap_0.5",
-      "random_seed": 42,
       "voting_method": "soft",
       "batch_size": 32,
       "epochs": 100,
@@ -26816,26 +26316,6 @@
       795.15,
       312.55
     ],
-    "ensemble_results": {
-      "plate": {
-        "accuracy": 0.8282,
-        "f1": 0.8288,
-        "precision": 0.8297,
-        "recall": 0.8282
-      },
-      "electrode": {
-        "accuracy": 0.8681,
-        "f1": 0.8686,
-        "precision": 0.8733,
-        "recall": 0.8681
-      },
-      "current": {
-        "accuracy": 0.966,
-        "f1": 0.9661,
-        "precision": 0.9667,
-        "recall": 0.966
-      }
-    },
     "individual_avg": {
       "plate": 0.7292,
       "electrode": 0.7825,
@@ -33456,11 +32936,6 @@
           "val_f1_current": 0.93793582512295
         }
       ]
-    ],
-    "vggish_extraction": {
-      "from_cache": true,
-      "extraction_time_seconds": 423.43,
-      "extraction_time_minutes": 7.06
-    }
+    ]
   }
 ]

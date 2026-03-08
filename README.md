@@ -29,7 +29,6 @@ soldadura/
 │   ├── models/
 │   │   └── {arquitectura}/k{K}_overlap_{ratio}/
 │   ├── metricas/
-│   └── matrices_confusion/
 ├── audio/                    # Audios originales completos
 │   ├── Placa_3mm/
 │   ├── Placa_6mm/

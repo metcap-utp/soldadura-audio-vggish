@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Script de predicción usando Soft Voting.
 
@@ -38,11 +39,12 @@ from sklearn.preprocessing import LabelEncoder
 # Añadir carpeta raíz al path para importar modelo.py
 ROOT_DIR = Path(__file__).parent
 sys.path.insert(0, str(ROOT_DIR))
-from modelo_xvector import SMAWXVectorModel
-from modelo_ecapa import ECAPAMultiTask
-from modelo_feedforward import FeedForwardMultiTask
+from models.modelo_xvector import SMAWXVectorModel
+from models.modelo_ecapa import ECAPAMultiTask
+from models.modelo_feedforward import FeedForwardMultiTask
 from utils.audio_utils import PROJECT_ROOT, load_audio_segment
 from utils.timing import timer
+from utils.logging_utils import setup_log_file
 
 VGGISH_MODEL_URL = "https://tfhub.dev/google/vggish/1"
 
@@ -99,7 +101,7 @@ def parse_args():
         "--model",
         type=str,
         default="xvector",
-        choices=["xvector", "ecapa_tdnn", "feedforward"],
+        choices=["xvector", "ecapa", "feedforward"],
         help="Arquitectura del modelo a cargar (default: xvector)",
     )
     return parser.parse_args()
@@ -196,7 +198,7 @@ def create_model(plate_encoder, electrode_encoder, current_type_encoder, device,
             num_classes_electrodo=len(electrode_encoder.classes_),
             num_classes_corriente=len(current_type_encoder.classes_),
         ).to(device)
-    elif model_type == "ecapa_tdnn":
+    elif model_type == "ecapa":
         return ECAPAMultiTask(
             num_classes_espesor=len(plate_encoder.classes_),
             num_classes_electrodo=len(electrode_encoder.classes_),
@@ -234,7 +236,24 @@ def load_ensemble_models(
         model = create_model(
             plate_encoder, electrode_encoder, current_type_encoder, device, model_type
         )
-        model.load_state_dict(torch.load(model_path, map_location=device))
+        state_dict = torch.load(model_path, map_location=device)
+        # Map legacy Spanish key names to English if needed
+        mapped_keys = {}
+        legacy_map = {
+            'classifier_espesor': 'classifier_plate',
+            'classifier_electrodo': 'classifier_electrode',
+            'classifier_corriente': 'classifier_current',
+            'fc_espesor': 'fc_plate',
+            'fc_electrodo': 'fc_electrode',
+            'fc_corriente': 'fc_current',
+        }
+        for k, v in state_dict.items():
+            new_key = k
+            for old_name, new_name in legacy_map.items():
+                if old_name in k:
+                    new_key = k.replace(old_name, new_name)
+            mapped_keys[new_key] = v
+        model.load_state_dict(mapped_keys)
         model.eval()
         models.append(model)
 
@@ -256,21 +275,21 @@ def predict_ensemble(
     2. Promedia los logits
     3. Aplica argmax para obtener la clase predicha
     """
-    logits_espesor_list = []
-    logits_electrodo_list = []
-    logits_corriente_list = []
+    logits_plate_list = []
+    logits_electrode_list = []
+    logits_current_list = []
 
     with torch.no_grad():
         for model in ensemble_models:
             outputs = model(embeddings_tensor)
-            logits_espesor_list.append(outputs["logits_espesor"])
-            logits_electrodo_list.append(outputs["logits_electrodo"])
-            logits_corriente_list.append(outputs["logits_corriente"])
+            logits_plate_list.append(outputs["plate"])
+            logits_electrode_list.append(outputs["electrode"])
+            logits_current_list.append(outputs["current"])
 
     # Promediar logits (soft voting)
-    avg_logits_espesor = torch.stack(logits_espesor_list).mean(dim=0)
-    avg_logits_electrodo = torch.stack(logits_electrodo_list).mean(dim=0)
-    avg_logits_corriente = torch.stack(logits_corriente_list).mean(dim=0)
+    avg_logits_espesor = torch.stack(logits_plate_list).mean(dim=0)
+    avg_logits_electrodo = torch.stack(logits_electrode_list).mean(dim=0)
+    avg_logits_corriente = torch.stack(logits_current_list).mean(dim=0)
 
     # Obtener clases predichas
     pred_plate_idx = avg_logits_espesor.argmax(dim=1).item()
@@ -604,49 +623,34 @@ def evaluate_blind_set(
     print(f"Clases: {ctx['current_type_encoder'].classes_}")
 
     results = {
-        "mode": "blind_evaluation",
-        "id": f"{ctx['test_seconds']}seg_k{ctx['n_models']:02d}_overlap_{ctx['overlap_ratio']}",
         "model_type": ctx["config_dict"]["model_type"],
-        "segment_duration": ctx["segment_duration"],
-        "overlap_ratio": ctx["overlap_ratio"],
-        "overlap_seconds": ctx["overlap_seconds"],
-        "n_samples": len(blind_df),
-        "n_models": ctx["n_models"],
-        "voting_method": "soft",
-        "global_metrics": {
-            "exact_match_accuracy": float(exact_match_accuracy),
-            "hamming_accuracy": float(hamming_accuracy),
-        },
-        "accuracy": {
-            "plate_thickness": float(acc_plate),
-            "electrode": float(acc_electrode),
-            "current_type": float(acc_current),
-        },
-        "macro_f1": {
-            "plate_thickness": float(f1_plate),
-            "electrode": float(f1_electrode),
-            "current_type": float(f1_current),
-        },
-        "classification_reports": {
-            "plate_thickness": classification_report(
-                y_true_plate, y_pred_plate, output_dict=True
-            ),
-            "electrode": classification_report(
-                y_true_electrode, y_pred_electrode, output_dict=True
-            ),
-            "current_type": classification_report(
-                y_true_current, y_pred_current, output_dict=True
-            ),
+        "metrics": {
+            "plate": {
+                "accuracy": float(acc_plate),
+                "f1_macro": float(f1_plate),
+            },
+            "electrode": {
+                "accuracy": float(acc_electrode),
+                "f1_macro": float(f1_electrode),
+            },
+            "current": {
+                "accuracy": float(acc_current),
+                "f1_macro": float(f1_current),
+            },
+            "global": {
+                "exact_match": float(exact_match_accuracy),
+                "hamming_accuracy": float(hamming_accuracy),
+            },
         },
         "confusion_matrices": {
-            "plate_thickness": cm_plate.tolist(),
+            "plate": cm_plate.tolist(),
             "electrode": cm_electrode.tolist(),
-            "current_type": cm_current.tolist(),
+            "current": cm_current.tolist(),
         },
-        "classes": {
-            "plate_thickness": ctx["plate_encoder"].classes_.tolist(),
+        "label_classes": {
+            "plate": ctx["plate_encoder"].classes_.tolist(),
             "electrode": ctx["electrode_encoder"].classes_.tolist(),
-            "current_type": ctx["current_type_encoder"].classes_.tolist(),
+            "current": ctx["current_type_encoder"].classes_.tolist(),
         },
     }
 
@@ -655,14 +659,6 @@ def evaluate_blind_set(
 
     save_inference_result(
         results, ctx["infer_json"], ctx["config_dict"], elapsed_time=elapsed_time
-    )
-    generate_metrics_document(
-        results,
-        ctx["duration_dir"],
-        ctx["segment_duration"],
-        ctx["plate_encoder"],
-        ctx["electrode_encoder"],
-        ctx["current_type_encoder"],
     )
 
     return results
@@ -782,19 +778,24 @@ def show_random_predictions(ctx, n_samples=10):
     print(f"Tiempo de ejecución: {elapsed_time:.2f}s ({elapsed_time / 60:.2f}min)")
 
     inference_result = {
-        "mode": "random_predictions",
-        "id": f"{ctx['test_seconds']}seg_k{ctx['n_models']:02d}_overlap_{ctx['overlap_ratio']}",
-        "segment_duration": ctx["segment_duration"],
-        "overlap_ratio": ctx["overlap_ratio"],
-        "overlap_seconds": ctx["overlap_seconds"],
-        "n_samples": num_samples,
-        "n_models": ctx["n_models"],
-        "voting_method": "soft",
-        "accuracy": {
-            "plate_thickness": correctas_plate / num_samples,
-            "electrode": correctas_electrode / num_samples,
-            "current_type": correctas_current / num_samples,
-            "all_correct": correctas_todas / num_samples,
+        "model_type": ctx["config_dict"]["model_type"],
+        "metrics": {
+            "plate": {
+                "accuracy": correctas_plate / num_samples,
+                "f1_macro": 0.0,
+            },
+            "electrode": {
+                "accuracy": correctas_electrode / num_samples,
+                "f1_macro": 0.0,
+            },
+            "current": {
+                "accuracy": correctas_current / num_samples,
+                "f1_macro": 0.0,
+            },
+            "global": {
+                "exact_match": correctas_todas / num_samples,
+                "hamming_accuracy": (correctas_plate + correctas_electrode + correctas_current) / (num_samples * 3),
+            },
         },
     }
     save_inference_result(
@@ -845,20 +846,16 @@ def predict_single_audio(ctx, audio_path):
     )
 
     inference_result = {
+        "model_type": ctx["config_dict"]["model_type"],
         "mode": "single_audio",
-        "id": f"{ctx['test_seconds']}seg_k{ctx['n_models']:02d}_overlap_{ctx['overlap_ratio']}",
         "audio_path": str(audio_path),
-        "segment_duration": ctx["segment_duration"],
-        "overlap_ratio": ctx["overlap_ratio"],
-        "n_models": ctx["n_models"],
-        "voting_method": "soft",
         "predictions": {
-            "plate_thickness": result["plate"],
+            "plate": result["plate"],
             "electrode": result["electrode"],
-            "current_type": result["current"],
+            "current": result["current"],
         },
         "probabilities": {
-            "plate_thickness": dict(
+            "plate": dict(
                 zip(
                     ctx["plate_encoder"].classes_.tolist(),
                     result["probs_plate"].round(4).tolist(),
@@ -870,7 +867,7 @@ def predict_single_audio(ctx, audio_path):
                     result["probs_electrode"].round(4).tolist(),
                 )
             ),
-            "current_type": dict(
+            "current": dict(
                 zip(
                     ctx["current_type_encoder"].classes_.tolist(),
                     result["probs_current"].round(4).tolist(),
@@ -896,6 +893,12 @@ def predict_single_audio(ctx, audio_path):
 
 def main():
     args = parse_args()
+
+    # Set up logging
+    log_file, log_path = setup_log_file(
+        ROOT_DIR / "logs", "inferir", suffix=f"_{int(args.duration):02d}seg_{args.model}"
+    )
+    sys.stdout = log_file
 
     # Configuración derivada de argumentos
     SEGMENT_DURATION = float(args.duration)
@@ -961,15 +964,11 @@ def main():
 
     # Diccionario de configuración para guardar en JSON
     config_dict = {
-        "train_seconds": TRAIN_SECONDS,
-        "test_seconds": SEGMENT_DURATION,
-        "overlap_ratio": OVERLAP_RATIO,
-        "overlap_seconds": OVERLAP_SECONDS,
+        "duration": TEST_SECONDS,
+        "overlap": OVERLAP_RATIO,
         "k_folds": N_MODELS,
+        "n_models": N_MODELS,
         "model_type": args.model,
-        "models_dir": str(MODELS_DIR),
-        "train_dir": str(TRAIN_DIR),
-        "test_dir": str(TEST_DIR),
     }
 
     # Contexto compartido entre funciones
@@ -994,12 +993,18 @@ def main():
     }
 
     # Despachar acción
-    if args.audio:
-        predict_single_audio(ctx, args.audio)
-    elif args.evaluar:
-        evaluate_blind_set(ctx)
-    else:
-        show_random_predictions(ctx, n_samples=args.n)
+    try:
+        if args.audio:
+            predict_single_audio(ctx, args.audio)
+        elif args.evaluar:
+            evaluate_blind_set(ctx)
+        else:
+            show_random_predictions(ctx, n_samples=args.n)
+    finally:
+        print(f"\nResultados guardados en JSON")
+        print(f"Logs guardados en: {log_path}")
+        # Close log file
+        log_file.close()
 
 
 if __name__ == "__main__":
