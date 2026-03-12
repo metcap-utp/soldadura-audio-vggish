@@ -39,12 +39,12 @@ from sklearn.preprocessing import LabelEncoder
 # Añadir carpeta raíz al path para importar modelo.py
 ROOT_DIR = Path(__file__).parent
 sys.path.insert(0, str(ROOT_DIR))
-from models.modelo_xvector import SMAWXVectorModel
 from models.modelo_ecapa import ECAPAMultiTask
 from models.modelo_feedforward import FeedForwardMultiTask
+from models.modelo_xvector import SMAWXVectorModel
 from utils.audio_utils import PROJECT_ROOT, load_audio_segment
-from utils.timing import timer
 from utils.logging_utils import setup_log_file
+from utils.timing import timer
 
 VGGISH_MODEL_URL = "https://tfhub.dev/google/vggish/1"
 
@@ -187,7 +187,9 @@ def extract_vggish_embeddings(vggish_model, audio_path):
 # =============================================================================
 
 
-def create_model(plate_encoder, electrode_encoder, current_type_encoder, device, model_type="xvector"):
+def create_model(
+    plate_encoder, electrode_encoder, current_type_encoder, device, model_type="xvector"
+):
     """Crea una instancia del modelo según el tipo especificado."""
     if model_type == "xvector":
         return SMAWXVectorModel(
@@ -215,7 +217,13 @@ def create_model(plate_encoder, electrode_encoder, current_type_encoder, device,
 
 
 def load_ensemble_models(
-    models_dir, n_models, plate_encoder, electrode_encoder, current_type_encoder, device, model_type="xvector"
+    models_dir,
+    n_models,
+    plate_encoder,
+    electrode_encoder,
+    current_type_encoder,
+    device,
+    model_type="xvector",
 ):
     """Carga los K modelos del ensemble."""
     if not models_dir.exists():
@@ -240,12 +248,12 @@ def load_ensemble_models(
         # Map legacy Spanish key names to English if needed
         mapped_keys = {}
         legacy_map = {
-            'classifier_espesor': 'classifier_plate',
-            'classifier_electrodo': 'classifier_electrode',
-            'classifier_corriente': 'classifier_current',
-            'fc_espesor': 'fc_plate',
-            'fc_electrodo': 'fc_electrode',
-            'fc_corriente': 'fc_current',
+            "classifier_espesor": "classifier_plate",
+            "classifier_electrodo": "classifier_electrode",
+            "classifier_corriente": "classifier_current",
+            "fc_espesor": "fc_plate",
+            "fc_electrodo": "fc_electrode",
+            "fc_corriente": "fc_current",
         }
         for k, v in state_dict.items():
             new_key = k
@@ -794,7 +802,10 @@ def show_random_predictions(ctx, n_samples=10):
             },
             "global": {
                 "exact_match": correctas_todas / num_samples,
-                "hamming_accuracy": (correctas_plate + correctas_electrode + correctas_current) / (num_samples * 3),
+                "hamming_accuracy": (
+                    correctas_plate + correctas_electrode + correctas_current
+                )
+                / (num_samples * 3),
             },
         },
     }
@@ -896,7 +907,9 @@ def main():
 
     # Set up logging
     log_file, log_path = setup_log_file(
-        ROOT_DIR / "logs", "inferir", suffix=f"_{int(args.duration):02d}seg_{args.model}"
+        ROOT_DIR / "logs",
+        "inferir",
+        suffix=f"_{int(args.duration):02d}seg_{args.model}",
     )
     sys.stdout = log_file
 
@@ -917,7 +930,9 @@ def main():
     INFER_JSON = DURATION_DIR / "inferencia.json"
 
     # Directorio de modelos con overlap y arquitectura específica
-    MODELS_DIR = TRAIN_DIR / "modelos" / args.model / f"k{N_MODELS:02d}_overlap_{OVERLAP_RATIO}"
+    MODELS_DIR = (
+        TRAIN_DIR / "modelos" / args.model / f"k{N_MODELS:02d}_overlap_{OVERLAP_RATIO}"
+    )
 
     if not MODELS_DIR.exists():
         print(f"[ERROR] No se encontró el directorio de modelos: {MODELS_DIR}")

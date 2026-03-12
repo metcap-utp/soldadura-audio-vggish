@@ -79,3 +79,6 @@ Thumbs.db
 
 # Backups de migración
 resultados_backup*.json
+# Large embeddings - excluded from version control
+embeddings_json/
+*.aux

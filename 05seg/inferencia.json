@@ -4008,5 +4008,145 @@
       "minutes": 0.9,
       "hours": 0.015
     }
+  },
+  {
+    "model_type": "xvector",
+    "metrics": {
+      "plate": {
+        "accuracy": 0.5,
+        "f1_macro": 0.0
+      },
+      "electrode": {
+        "accuracy": 0.7,
+        "f1_macro": 0.0
+      },
+      "current": {
+        "accuracy": 1.0,
+        "f1_macro": 0.0
+      },
+      "global": {
+        "exact_match": 0.5,
+        "hamming_accuracy": 0.7333333333333333
+      }
+    },
+    "timestamp": "2026-03-11T19:05:30.991710",
+    "config": {
+      "duration": 5,
+      "overlap": 0.5,
+      "k_folds": 5,
+      "n_models": 5,
+      "model_type": "xvector"
+    },
+    "execution_time": {
+      "seconds": 2.8,
+      "minutes": 0.05,
+      "hours": 0.0008
+    }
+  },
+  {
+    "model_type": "xvector",
+    "metrics": {
+      "plate": {
+        "accuracy": 0.7434279705573081,
+        "f1_macro": 0.750110937124003
+      },
+      "electrode": {
+        "accuracy": 0.8559411146161935,
+        "f1_macro": 0.8445938965360653
+      },
+      "current": {
+        "accuracy": 0.935856992639327,
+        "f1_macro": 0.931647627856558
+      },
+      "global": {
+        "exact_match": 0.6813880126182965,
+        "hamming_accuracy": 0.8450753592709429
+      }
+    },
+    "confusion_matrices": {
+      "plate": [
+        [
+          207,
+          12,
+          56
+        ],
+        [
+          8,
+          231,
+          8
+        ],
+        [
+          107,
+          53,
+          269
+        ]
+      ],
+      "electrode": [
+        [
+          110,
+          3,
+          4,
+          1
+        ],
+        [
+          12,
+          287,
+          7,
+          4
+        ],
+        [
+          3,
+          9,
+          224,
+          5
+        ],
+        [
+          40,
+          34,
+          15,
+          193
+        ]
+      ],
+      "current": [
+        [
+          327,
+          3
+        ],
+        [
+          58,
+          563
+        ]
+      ]
+    },
+    "label_classes": {
+      "plate": [
+        "Placa_12mm",
+        "Placa_3mm",
+        "Placa_6mm"
+      ],
+      "electrode": [
+        "E6010",
+        "E6011",
+        "E6013",
+        "E7018"
+      ],
+      "current": [
+        "AC",
+        "DC"
+      ]
+    },
+    "timestamp": "2026-03-11T19:06:59.189537",
+    "config": {
+      "duration": 5,
+      "overlap": 0.5,
+      "k_folds": 10,
+      "n_models": 10,
+      "model_type": "xvector"
+    },
+    "execution_time": {
+      "seconds": 68.49,
+      "minutes": 1.14,
+      "hours": 0.019
+    }
   }
 ]
