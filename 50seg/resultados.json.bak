@@ -2,7 +2,7 @@
   {
     "timestamp": "2026-01-31T20:09:00.624806",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "n_folds": 5,
@@ -111,7 +111,7 @@
   {
     "timestamp": "2026-02-05T14:40:56.135112",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_seconds": 0.0,
@@ -275,7 +275,7 @@
   {
     "timestamp": "2026-02-06T22:35:41.269915",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.0,
@@ -436,7 +436,7 @@
   {
     "timestamp": "2026-02-06T22:39:20.623521",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.25,
@@ -597,7 +597,7 @@
   {
     "timestamp": "2026-02-06T22:40:57.300777",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.25,
@@ -828,7 +828,7 @@
   {
     "timestamp": "2026-02-06T22:45:55.982025",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.5,
@@ -1039,7 +1039,7 @@
   {
     "timestamp": "2026-02-06T22:51:40.756236",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.75,
@@ -1200,7 +1200,7 @@
   {
     "timestamp": "2026-02-06T22:53:31.852133",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.75,
@@ -1431,7 +1431,7 @@
   {
     "timestamp": "2026-02-19T07:04:00.310781",
     "model_type": "unknown",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.5,
@@ -8783,7 +8783,7 @@
   {
     "timestamp": "2026-02-20T05:32:06.970726",
     "model_type": "ecapa",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.5,
@@ -14045,7 +14045,7 @@
   {
     "timestamp": "2026-02-21T20:32:49.829597",
     "model_type": "feedforward",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 50.0,
       "overlap_ratio": 0.5,

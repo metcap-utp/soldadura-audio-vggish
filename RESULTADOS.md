@@ -1,6 +1,6 @@
 # VGGish — Resultados (Blind Set)
 
-**Backbone:** VGGish (embeddings pre-entrenados)  
+**Enfoque:** VGGish (embeddings pre-entrenados)  
 **Configuración:** k-fold = 10, overlap = 0.5  
 **Datos:** `inferencia.json` (conjunto ciego)
 
@@ -147,6 +147,19 @@ Tiempo de entrenamiento por arquitectura para Study 2 (duración fija 5 s), usan
 | 20  |   1621.59    |    7200.05     |     1820.57     |     27.03      |      120.00      |       30.34       |
 
 ![Entrenamiento vs k](graficas/tiempo_training_k_05seg.png)
+
+### Tiempos de entrenamiento vs overlap (5 s, k=10)
+
+Tiempo de entrenamiento por arquitectura para Study 3 (duracion fija 5 s, k=10), usando datos de `resultados.json`.
+
+| Overlap | X-Vector (s) | ECAPA-TDNN (s) | Feedforward (s) | X-Vector (min) | ECAPA-TDNN (min) | Feedforward (min) |
+| :-----: | :----------: | :------------: | :-------------: | :------------: | :--------------: | :---------------: |
+|    0    |    489.67    |    1574.13     |     450.88      |      8.16      |      26.24       |       7.51        |
+|  0.25   |    542.79    |    2787.98     |     602.37      |      9.05      |      46.47       |       10.04       |
+|   0.5   |    848.37    |    2765.47     |     974.52      |     14.14      |      46.09       |       16.24       |
+|  0.75   |   1464.33    |    7732.60     |     1760.96     |     24.41      |      128.88      |       29.35       |
+
+![Entrenamiento vs overlap](graficas/tiempo_training_overlap_05seg.png)
 
 ### Tiempos de inferencia por archivo (5 s, k=10, overlap=0.5)
 

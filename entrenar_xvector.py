@@ -1282,7 +1282,7 @@ if __name__ == "__main__":
         "id": f"{int(SEGMENT_DURATION)}seg_{N_FOLDS}fold_overlap_{OVERLAP_RATIO}_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
         "timestamp": datetime.now().isoformat(),
         "model_type": "xvector",
-        "backbone": "vggish",  # Identificar el backbone
+        "approach": "vggish",  # Identificar el enfoque
         "execution_time": {
             "seconds": round(elapsed_time, 2),
             "minutes": round(elapsed_minutes, 2),

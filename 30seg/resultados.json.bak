@@ -2,7 +2,7 @@
   {
     "timestamp": "2025-12-25T03:48:33.849922",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "n_folds": 5,
       "random_seed": 42,
@@ -80,7 +80,7 @@
   {
     "timestamp": "2026-01-16T17:38:32.770294",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "n_folds": 5,
       "random_seed": 42,
@@ -178,7 +178,7 @@
   {
     "timestamp": "2026-01-21T22:27:05.923921",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "n_folds": 5,
       "random_seed": 42,
@@ -276,7 +276,7 @@
   {
     "timestamp": "2026-02-01T14:12:25.808722",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_seconds": 0.0,
@@ -440,7 +440,7 @@
   {
     "timestamp": "2026-02-05T15:51:07.725663",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_seconds": 0.0,
@@ -604,7 +604,7 @@
   {
     "timestamp": "2026-02-05T15:51:22.401422",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_seconds": 0.0,
@@ -768,7 +768,7 @@
   {
     "timestamp": "2026-02-06T22:10:22.156063",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.0,
@@ -929,7 +929,7 @@
   {
     "timestamp": "2026-02-06T22:11:43.346789",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.0,
@@ -1160,7 +1160,7 @@
   {
     "timestamp": "2026-02-06T22:15:06.664423",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.25,
@@ -1321,7 +1321,7 @@
   {
     "timestamp": "2026-02-06T22:16:55.777300",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.25,
@@ -1552,7 +1552,7 @@
   {
     "timestamp": "2026-02-06T22:22:07.967178",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.5,
@@ -1763,7 +1763,7 @@
   {
     "timestamp": "2026-02-06T22:29:34.584144",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.75,
@@ -1924,7 +1924,7 @@
   {
     "timestamp": "2026-02-06T22:32:45.586500",
     "model_type": "xvector",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.75,
@@ -2155,7 +2155,7 @@
   {
     "timestamp": "2026-02-19T06:59:00.064323",
     "model_type": "unknown",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.5,
@@ -8781,7 +8781,7 @@
   {
     "timestamp": "2026-02-20T05:26:27.889810",
     "model_type": "ecapa",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.5,
@@ -13548,7 +13548,7 @@
   {
     "timestamp": "2026-02-21T20:28:10.595231",
     "model_type": "feedforward",
-    "backbone": "vggish",
+    "approach": "vggish",
     "config": {
       "segment_duration": 30.0,
       "overlap_ratio": 0.5,

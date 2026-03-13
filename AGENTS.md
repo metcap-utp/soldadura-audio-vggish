@@ -129,7 +129,7 @@ Los archivos de log contienen:
 - Todos los prints de la ejecución del script
 - Métricas de entrenamiento (loss, accuracy por fold)
 - Tiempos de ejecución (total, por fold, extracción de VGGish)
-- Información de backbone utilizado (vggish, yamnet, spectral-mfcc)
+- Información de enfoque utilizado (vggish, yamnet, spectral-mfcc)
 - Cualquier error o warning durante la ejecución
 
 ### Gestión de Logs
