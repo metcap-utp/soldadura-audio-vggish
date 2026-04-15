@@ -41,7 +41,7 @@ dmypy.json
 .pytest_cache/
 .coverage
 htmlcov/
-videos-soldadura/
+videos_soldadura/
 
 # Modelos entrenados
 *.keras
@@ -82,3 +82,5 @@ resultados_backup*.json
 # Large embeddings - excluded from version control
 embeddings_json/
 *.aux
+
+AGENTS.md
