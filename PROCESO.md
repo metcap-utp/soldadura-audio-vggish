@@ -113,11 +113,11 @@ pip install torch torchaudio librosa pandas numpy scikit-learn tensorflow tensor
 
 ```bash
 # Vista previa (sin ejecutar)
-python scripts/extraer_y_organizar_audio.py --dry-run --videos-dir videos-soldadura
+python scripts/extraer_y_organizar_audio.py --dry-run --videos-dir videos_soldadura
 
 # Extracción real
 python scripts/extraer_y_organizar_audio.py \
-    --videos-dir videos-soldadura \
+    --videos-dir videos_soldadura \
     --output-dir audio \
     --samplerate 16000
 ```
@@ -183,8 +183,8 @@ python generar_splits.py --duration 30 --overlap 0.75
 | Archivo      | Porcentaje | Propósito                              |
 | ------------ | ---------- | -------------------------------------- |
 | train.csv    | 72%        | Entrenamiento (K-Fold CV)              |
-| test.csv     | 18%        | Validación durante desarrollo          |
-| blind.csv  | 10%        | Evaluación final (nunca en desarrollo) |
+| validation.csv     | 18%        | Validación durante desarrollo          |
+| test.csv  | 10%        | Evaluación final (nunca en desarrollo) |
 | completo.csv | 100%       | Referencia con columna Split           |
 
 ### 6.3 Prevención de Data Leakage
@@ -395,7 +395,7 @@ Fold 5: Train=193 sesiones, Val=48 sesiones --> model_fold_4.pth
 
 ---
 
-## 10. Evaluación en Blind
+## 10. Evaluación en Test
 
 ### 10.1 Ejecutar Inferencia
 
@@ -461,11 +461,11 @@ modelo_multitask.py       # Wrapper multi-tarea
 {N}seg/
 |-- completo.csv          # Todos los datos con split asignado
 |-- train.csv             # Datos de entrenamiento
-|-- test.csv              # Datos de validación
-|-- blind.csv             # Datos de evaluación final
+|-- validation.csv              # Datos de validación
+|-- test.csv             # Datos de evaluación final
 |-- data_stats.json       # Estadísticas del dataset
 |-- resultados.json       # Métricas del entrenamiento
-|-- inferencia.json       # Métricas de inferencia blind
+|-- inferencia.json       # Métricas de inferencia test
 +-- modelos/
     +-- {arquitectura}/   # xvector, ecapa, feedforward
         +-- k{K}_overlap_{ratio}/
@@ -484,7 +484,7 @@ modelo_multitask.py       # Wrapper multi-tarea
 +-------------------------------------------------------------------------+
 |                                                                         |
 |  Videos de Soldadura                                                    |
-|  (videos-soldadura/Placa_*/E####*/*.mp4)                                |
+|  (videos_soldadura/Placa_*/E####*/*.mp4)                                |
 |                     |                                                   |
 |                     v                                                   |
 |  +------------------------------------------+                           |
@@ -513,7 +513,7 @@ modelo_multitask.py       # Wrapper multi-tarea
 |                     |                                                   |
 |        +------------+------------+------------+                         |
 |        v            v            v            v                         |
-|   train.csv    test.csv    blind.csv   completo.csv                   |
+|   train.csv    validation.csv    test.csv   completo.csv                   |
 |     (72%)        (18%)        (10%)        (100%)                       |
 |                                                                         |
 +-------------------------------------------------------------------------+
@@ -581,11 +581,11 @@ modelo_multitask.py       # Wrapper multi-tarea
 |                    FASE 4: EVALUACION                                   |
 +-------------------------------------------------------------------------+
 |                                                                         |
-|  blind.csv -------------------------------------------------+         |
+|  test.csv -------------------------------------------------+         |
 |                                                                |         |
 |  +-------------------------------------------------------------+---+    |
 |  |                                                                 |    |
-|  |  Para cada segmento en blind:                                 |    |
+|  |  Para cada segmento en test:                                 |    |
 |  |                                                                 |    |
 |  |  +------------------------------------------+                   |    |
 |  |  | VGGish Embedding                         |                   |    |
@@ -627,7 +627,7 @@ El sistema de clasificación de audio SMAW transforma grabaciones de soldadura e
 **Pipeline:**
 
 1. **Extracción**: FFmpeg extrae audio WAV 16kHz mono de los videos
-2. **División**: Sesiones se dividen en train/test/blind sin mezclar segmentos
+2. **División**: Sesiones se dividen en train/test/test sin mezclar segmentos
 3. **Segmentación**: Audios se segmentan on-the-fly con 50% de solapamiento
 4. **Características**: VGGish genera embeddings de 128 dimensiones
 5. **Clasificación**: Modelo (X-Vector, ECAPA o FeedForward) predice las tres etiquetas simultáneamente

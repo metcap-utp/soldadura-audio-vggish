@@ -2,7 +2,7 @@
 
 ## Problema
 
-Los modelos entrenados con segmentos de **1 segundo** producían predicciones inválidas en inferencia. Los 3 modelos (XVector, ECAPA-TDNN, FeedForward) predecían siempre la clase mayoritaria con métricas ~29%/12%/35% en el conjunto blind.
+Los modelos entrenados con segmentos de **1 segundo** producían predicciones inválidas en inferencia. Los 3 modelos (XVector, ECAPA-TDNN, FeedForward) predecían siempre la clase mayoritaria con métricas ~29%/12%/35% en el conjunto test.
 
 ## Causa raíz
 

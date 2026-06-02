@@ -5,8 +5,8 @@
   "overlap_seconds": 5.0,
   "random_seed": 42,
   "config": {
-    "blind_fraction": 0.1,
-    "test_fraction": 0.18,
+    "test_fraction": 0.1,
+    "validation_fraction": 0.18,
     "val_fraction": 0.0
   },
   "totals": {
@@ -48,7 +48,7 @@
     }
   },
   "splits": {
-    "blind": {
+    "test": {
       "sessions": 38,
       "segments": 141,
       "sessions_by_label": {
@@ -86,7 +86,7 @@
         }
       }
     },
-    "test": {
+    "validation": {
       "sessions": 68,
       "segments": 216,
       "sessions_by_label": {

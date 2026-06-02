@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Genera CSVs de splits (train/test/blind) usando split estratificado por sesión.
+Genera CSVs de splits (train/validation/test) usando split estratificado por sesión.
 
 Este sistema:
 1. Agrupa archivos por SESION (carpeta de grabación) para evitar data leakage
 2. Estratifica por combinación de etiquetas (plate + electrode + current)
 3. Usa semilla fija para reproducibilidad
-4. Permite configurar fracciones de train/test/blind
+4. Permite configurar fracciones de train/validation/test
 5. SEGMENTA ON-THE-FLY según la duración especificada (--duration)
    NO hay archivos segmentados en disco - usa audios del directorio base.
 
@@ -47,14 +47,14 @@ from utils.timing import timer
 # Semilla para reproducibilidad (mismo valor = mismo split)
 RANDOM_SEED = 42
 
-# Fraccion de datos para blind (0.0 - 1.0)
-BLIND_FRACTION = 0.10
+# Fraccion de datos para test (0.0 - 1.0)
+TEST_FRACTION = 0.10
 
-# Fraccion de datos para test (0.0 - 1.0, del total original)
-TEST_FRACTION = 0.18
+# Fraccion de datos para validation (0.0 - 1.0, del total original)
+VAL_FRACTION = 0.18
 
-# Fraccion de datos para validacion durante entrenamiento (0.0 - 1.0)
-VAL_FRACTION = 0.0
+# Fraccion de datos para val-split durante entrenamiento (0.0 = no usar)
+TRAINING_VAL_FRACTION = 0.0
 
 
 def parse_args():
@@ -155,18 +155,18 @@ def expand_sessions_to_segments(
 
 def split_by_session(
     df: pd.DataFrame,
-    blind_frac: float,
     test_frac: float,
     val_frac: float,
+    training_val_frac: float,
     seed: int,
 ):
     """
     Divide los datos por sesion de forma estratificada.
 
     El orden de splitting es:
-    1. Primero se separa blind (completamente independiente)
-    2. Del resto, se separa test
-    3. Del resto, se separa val (si aplica)
+    1. Primero se separa test (completamente independiente)
+    2. Del resto, se separa validation
+    3. Del resto, se separa training_val (si aplica)
     4. Lo que queda es train
     """
     # Obtener sesiones unicas con sus etiquetas
@@ -179,7 +179,7 @@ def split_by_session(
         print(f"  {label}: {count} sesiones")
 
     # Manejar clases con muy pocos ejemplos
-    min_samples = 3 if blind_frac > 0 else 2
+    min_samples = 3 if test_frac > 0 else 2
     rare_classes = strat_counts[strat_counts < min_samples].index.tolist()
 
     if rare_classes:
@@ -213,63 +213,18 @@ def split_by_session(
         remaining_sessions = sessions
         remaining_labels = strat_labels
 
-        if blind_frac > 0:
-            adjusted_blind_frac = min(
-                blind_frac * total_sessions / normal_sessions, 0.4
+        if test_frac > 0:
+            adjusted_test_frac = min(
+                test_frac * total_sessions / normal_sessions, 0.4
             )
 
             try:
-                remaining_sessions, blind_sessions, remaining_labels, _ = (
+                remaining_sessions, test_sessions, remaining_labels, _ = (
                     train_test_split(
                         remaining_sessions,
                         remaining_labels,
-                        test_size=adjusted_blind_frac,
+                        test_size=adjusted_test_frac,
                         random_state=seed,
-                        stratify=remaining_labels,
-                    )
-                )
-            except ValueError as e:
-                print(
-                    f"Warning: No se pudo estratificar blind, usando split aleatorio: {e}"
-                )
-                remaining_sessions, blind_sessions = train_test_split(
-                    remaining_sessions,
-                    test_size=adjusted_blind_frac,
-                    random_state=seed,
-                )
-                remaining_labels = normal_sessions_df[
-                    normal_sessions_df["Session"].isin(remaining_sessions)
-                ]["Strat_Label"].values
-
-            for session in blind_sessions:
-                session_splits[session] = "blind"
-
-            print(f"\n  Blind: {len(blind_sessions)} sesiones separadas")
-
-        remaining_total = len(remaining_sessions)
-
-        adjusted_test_frac = (
-            min(test_frac * total_sessions / remaining_total, 0.5)
-            if remaining_total > 0
-            else 0
-        )
-
-        adjusted_val_frac = (
-            min(val_frac * total_sessions / remaining_total, 0.5)
-            if val_frac > 0 and remaining_total > 0
-            else 0
-        )
-
-        test_val_frac = adjusted_test_frac + adjusted_val_frac
-
-        if test_val_frac > 0 and remaining_total > 0:
-            try:
-                train_sessions, test_val_sessions, _, test_val_labels = (
-                    train_test_split(
-                        remaining_sessions,
-                        remaining_labels,
-                        test_size=test_val_frac,
-                        random_state=seed + 1,
                         stratify=remaining_labels,
                     )
                 )
@@ -277,41 +232,86 @@ def split_by_session(
                 print(
                     f"Warning: No se pudo estratificar test, usando split aleatorio: {e}"
                 )
-                train_sessions, test_val_sessions = train_test_split(
+                remaining_sessions, test_sessions = train_test_split(
                     remaining_sessions,
-                    test_size=test_val_frac,
+                    test_size=adjusted_test_frac,
+                    random_state=seed,
+                )
+                remaining_labels = normal_sessions_df[
+                    normal_sessions_df["Session"].isin(remaining_sessions)
+                ]["Strat_Label"].values
+
+            for session in test_sessions:
+                session_splits[session] = "test"
+
+            print(f"\n  Test: {len(test_sessions)} sesiones separadas")
+
+        remaining_total = len(remaining_sessions)
+
+        adjusted_val_frac = (
+            min(val_frac * total_sessions / remaining_total, 0.5)
+            if remaining_total > 0
+            else 0
+        )
+
+        adjusted_training_val_frac = (
+            min(training_val_frac * total_sessions / remaining_total, 0.5)
+            if training_val_frac > 0 and remaining_total > 0
+            else 0
+        )
+
+        val_training_val_frac = adjusted_val_frac + adjusted_training_val_frac
+
+        if val_training_val_frac > 0 and remaining_total > 0:
+            try:
+                train_sessions, val_training_val_sessions, _, val_training_val_labels = (
+                    train_test_split(
+                        remaining_sessions,
+                        remaining_labels,
+                        test_size=val_training_val_frac,
+                        random_state=seed + 1,
+                        stratify=remaining_labels,
+                    )
+                )
+            except ValueError as e:
+                print(
+                    f"Warning: No se pudo estratificar validation, usando split aleatorio: {e}"
+                )
+                train_sessions, val_training_val_sessions = train_test_split(
+                    remaining_sessions,
+                    test_size=val_training_val_frac,
                     random_state=seed + 1,
                 )
-                test_val_labels = normal_sessions_df[
-                    normal_sessions_df["Session"].isin(test_val_sessions)
+                val_training_val_labels = normal_sessions_df[
+                    normal_sessions_df["Session"].isin(val_training_val_sessions)
                 ]["Strat_Label"].values
 
             for session in train_sessions:
                 session_splits[session] = "train"
 
-            if adjusted_val_frac > 0 and len(test_val_sessions) > 1:
-                val_ratio = adjusted_val_frac / test_val_frac
+            if adjusted_training_val_frac > 0 and len(val_training_val_sessions) > 1:
+                training_val_ratio = adjusted_training_val_frac / val_training_val_frac
                 try:
-                    test_sessions, val_sessions = train_test_split(
-                        test_val_sessions,
-                        test_size=val_ratio,
+                    val_sessions, training_val_sessions = train_test_split(
+                        val_training_val_sessions,
+                        test_size=training_val_ratio,
                         random_state=seed + 2,
-                        stratify=test_val_labels,
+                        stratify=val_training_val_labels,
                     )
                 except ValueError:
-                    test_sessions, val_sessions = train_test_split(
-                        test_val_sessions,
-                        test_size=val_ratio,
+                    val_sessions, training_val_sessions = train_test_split(
+                        val_training_val_sessions,
+                        test_size=training_val_ratio,
                         random_state=seed + 2,
                     )
 
-                for session in test_sessions:
-                    session_splits[session] = "test"
                 for session in val_sessions:
-                    session_splits[session] = "val"
+                    session_splits[session] = "validation"
+                for session in training_val_sessions:
+                    session_splits[session] = "training_val"
             else:
-                for session in test_val_sessions:
-                    session_splits[session] = "test"
+                for session in val_training_val_sessions:
+                    session_splits[session] = "validation"
         else:
             for session in remaining_sessions:
                 session_splits[session] = "train"
@@ -388,9 +388,9 @@ def generate_statistics(
         "overlap_seconds": overlap_seconds,
         "random_seed": RANDOM_SEED,
         "config": {
-            "blind_fraction": BLIND_FRACTION,
             "test_fraction": TEST_FRACTION,
             "val_fraction": VAL_FRACTION,
+            "training_val_fraction": TRAINING_VAL_FRACTION,
         },
         "totals": {
             "sessions": len(sessions_df),
@@ -554,10 +554,10 @@ def main():
     print(f"  SEGMENT_DURATION = {SEGMENT_DURATION}s")
     print(f"  OVERLAP_RATIO = {OVERLAP_RATIO}")
     print(f"  OVERLAP_SECONDS = {OVERLAP_SECONDS}s")
-    print(f"  BLIND_FRACTION = {BLIND_FRACTION:.1%} (validacion vida real)")
-    print(f"  TEST_FRACTION = {TEST_FRACTION:.1%} (evaluacion desarrollo)")
-    print(f"  VAL_FRACTION = {VAL_FRACTION:.1%}")
-    print(f"  TRAIN_FRACTION = {1 - BLIND_FRACTION - TEST_FRACTION - VAL_FRACTION:.1%}")
+    print(f"  TEST_FRACTION = {TEST_FRACTION:.1%} (evaluación final)")
+    print(f"  VAL_FRACTION = {VAL_FRACTION:.1%} (evaluación desarrollo)")
+    print(f"  TRAINING_VAL_FRACTION = {TRAINING_VAL_FRACTION:.1%}")
+    print(f"  TRAIN_FRACTION = {1 - TEST_FRACTION - VAL_FRACTION - TRAINING_VAL_FRACTION:.1%}")
     print(f"  OUTPUT_DIR = {OUTPUT_DIR}/")
 
     with timer("Carga sesiones + conteo segmentos"):
@@ -572,7 +572,7 @@ def main():
         print("DIVIDIENDO POR SESION")
         print("=" * 80)
         sessions_df = split_by_session(
-            sessions_df, BLIND_FRACTION, TEST_FRACTION, VAL_FRACTION, RANDOM_SEED
+            sessions_df, TEST_FRACTION, VAL_FRACTION, TRAINING_VAL_FRACTION, RANDOM_SEED
         )
 
     with timer("Expandir sesiones a segmentos"):

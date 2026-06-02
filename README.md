@@ -24,7 +24,7 @@ soldadura/
 ├── modelo_feedforward.py     # Arquitectura FeedForward
 ├── modelo_multitask.py       # Wrapper multi-tarea
 ├── {N}seg/                   # Datos y modelos por duración (1,2,5,10,20,30,50)
-│   ├── train.csv / test.csv / blind.csv
+│   ├── train.csv / validation.csv / test.csv
 │   ├── resultados.json / inferencia.json / data_stats.json
 │   ├── models/
 │   │   └── {arquitectura}/k{K}_overlap_{ratio}/
@@ -59,8 +59,8 @@ python generar_splits.py --duration 10 --overlap 0.0
 Esto genera en `{N}seg/`:
 
 - `train.csv` - Datos de entrenamiento
-- `test.csv` - Datos de prueba
-- `blind.csv` - Datos de evaluación final (nunca vistos)
+- `validation.csv` - Datos de prueba
+- `test.csv` - Datos de evaluación final (nunca vistos)
 
 ### 3. Entrenar modelos
 
@@ -80,7 +80,7 @@ Los modelos se guardan en:
 ### 4. Evaluar modelos
 
 ```bash
-# Evaluar ensemble en conjunto blind
+# Evaluar ensemble en conjunto test
 python inferir.py --duration 5 --overlap 0.5 --evaluar
 python inferir.py --duration 5 --overlap 0.5 --evaluar --k-folds 10
 ```

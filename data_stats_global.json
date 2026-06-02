@@ -6,8 +6,8 @@
       "segment_duration": 1.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -49,7 +49,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 4988,
           "sessions_by_label": {
@@ -87,7 +87,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 8006,
           "sessions_by_label": {
@@ -174,8 +174,8 @@
       "segment_duration": 2.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -217,7 +217,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 2465,
           "sessions_by_label": {
@@ -255,7 +255,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 3950,
           "sessions_by_label": {
@@ -342,8 +342,8 @@
       "segment_duration": 5.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -385,7 +385,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 951,
           "sessions_by_label": {
@@ -423,7 +423,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 1521,
           "sessions_by_label": {
@@ -510,8 +510,8 @@
       "segment_duration": 10.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -553,7 +553,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 447,
           "sessions_by_label": {
@@ -591,7 +591,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 712,
           "sessions_by_label": {
@@ -678,8 +678,8 @@
       "segment_duration": 20.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -721,7 +721,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 199,
           "sessions_by_label": {
@@ -759,7 +759,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 303,
           "sessions_by_label": {
@@ -846,8 +846,8 @@
       "segment_duration": 30.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -889,7 +889,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 113,
           "sessions_by_label": {
@@ -927,7 +927,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 170,
           "sessions_by_label": {
@@ -1014,8 +1014,8 @@
       "segment_duration": 50.0,
       "random_seed": 42,
       "config": {
-        "blind_fraction": 0.1,
-        "test_fraction": 0.18,
+        "test_fraction": 0.1,
+        "validation_fraction": 0.18,
         "val_fraction": 0.0
       },
       "totals": {
@@ -1057,7 +1057,7 @@
         }
       },
       "splits": {
-        "blind": {
+        "test": {
           "sessions": 38,
           "segments": 59,
           "sessions_by_label": {
@@ -1095,7 +1095,7 @@
             }
           }
         },
-        "test": {
+        "validation": {
           "sessions": 68,
           "segments": 84,
           "sessions_by_label": {

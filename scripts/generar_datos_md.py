@@ -44,7 +44,7 @@ Este documento contiene las estadísticas de sesiones y segmentos por etiqueta p
 """
 
     # Tabla resumen de todas las duraciones
-    doc += "| Duración | Sesiones | Segmentos | Train | Test | Blind |\n"
+    doc += "| Duración | Sesiones | Segmentos | Train | Test | Test |\n"
     doc += "|----------|----------|-----------|-------|------|--------|\n"
 
     for duration, stats in sorted(
@@ -55,10 +55,10 @@ Este documento contiene las estadísticas de sesiones y segmentos por etiqueta p
             continue
 
         train_segs = stats.get("splits", {}).get("train", {}).get("segments", 0)
+        val_segs = stats.get("splits", {}).get("validation", {}).get("segments", 0)
         test_segs = stats.get("splits", {}).get("test", {}).get("segments", 0)
-        blind_segs = stats.get("splits", {}).get("blind", {}).get("segments", 0)
 
-        doc += f"| {duration} | {stats['totals']['sessions']} | {stats['totals']['segments']} | {train_segs} | {test_segs} | {blind_segs} |\n"
+        doc += f"| {duration} | {stats['totals']['sessions']} | {stats['totals']['segments']} | {train_segs} | {val_segs} | {test_segs} |\n"
 
     doc += """
 ---
@@ -115,7 +115,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
         # Tabla de segmentos por etiqueta
         doc += "#### Por Espesor de Placa\n\n"
-        doc += "| Etiqueta | Total | Train | Test | Blind |\n"
+        doc += "| Etiqueta | Total | Train | Test | Test |\n"
         doc += "|----------|-------|-------|------|--------|\n"
 
         for label in sorted(stats["segments_by_label"]["Plate Thickness"].keys()):
@@ -129,22 +129,22 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
             )
             test = (
                 stats["splits"]
+                .get("validation", {})
+                .get("segments_by_label", {})
+                .get("Plate Thickness", {})
+                .get(label, 0)
+            )
+            test = (
+                stats["splits"]
                 .get("test", {})
                 .get("segments_by_label", {})
                 .get("Plate Thickness", {})
                 .get(label, 0)
             )
-            blind = (
-                stats["splits"]
-                .get("blind", {})
-                .get("segments_by_label", {})
-                .get("Plate Thickness", {})
-                .get(label, 0)
-            )
-            doc += f"| {label} | {total} | {train} | {test} | {blind} |\n"
+            doc += f"| {label} | {total} | {train} | {test} | {test} |\n"
 
         doc += "\n#### Por Tipo de Electrodo\n\n"
-        doc += "| Etiqueta | Total | Train | Test | Blind |\n"
+        doc += "| Etiqueta | Total | Train | Test | Test |\n"
         doc += "|----------|-------|-------|------|--------|\n"
 
         for label in sorted(stats["segments_by_label"]["Electrode"].keys()):
@@ -158,22 +158,22 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
             )
             test = (
                 stats["splits"]
+                .get("validation", {})
+                .get("segments_by_label", {})
+                .get("Electrode", {})
+                .get(label, 0)
+            )
+            test = (
+                stats["splits"]
                 .get("test", {})
                 .get("segments_by_label", {})
                 .get("Electrode", {})
                 .get(label, 0)
             )
-            blind = (
-                stats["splits"]
-                .get("blind", {})
-                .get("segments_by_label", {})
-                .get("Electrode", {})
-                .get(label, 0)
-            )
-            doc += f"| {label} | {total} | {train} | {test} | {blind} |\n"
+            doc += f"| {label} | {total} | {train} | {test} | {test} |\n"
 
         doc += "\n#### Por Tipo de Corriente\n\n"
-        doc += "| Etiqueta | Total | Train | Test | Blind |\n"
+        doc += "| Etiqueta | Total | Train | Test | Test |\n"
         doc += "|----------|-------|-------|------|--------|\n"
 
         for label in sorted(stats["segments_by_label"]["Type of Current"].keys()):
@@ -187,19 +187,19 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
             )
             test = (
                 stats["splits"]
+                .get("validation", {})
+                .get("segments_by_label", {})
+                .get("Type of Current", {})
+                .get(label, 0)
+            )
+            test = (
+                stats["splits"]
                 .get("test", {})
                 .get("segments_by_label", {})
                 .get("Type of Current", {})
                 .get(label, 0)
             )
-            blind = (
-                stats["splits"]
-                .get("blind", {})
-                .get("segments_by_label", {})
-                .get("Type of Current", {})
-                .get(label, 0)
-            )
-            doc += f"| {label} | {total} | {train} | {test} | {blind} |\n"
+            doc += f"| {label} | {total} | {train} | {test} | {test} |\n"
 
         doc += "\n"
 
@@ -210,7 +210,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 - Las **sesiones** representan grabaciones únicas de soldadura
 - Los **segmentos** se generan on-the-fly dividiendo cada grabación según la duración especificada
 - El split estratificado garantiza proporciones similares de etiquetas en cada conjunto
-- **Blind** es el conjunto de validación final (nunca usado durante desarrollo)
+- **Test** es el conjunto de validación final (nunca usado durante desarrollo)
 - Los datos de cada duración se generan ejecutando `python Xseg/generar_splits.py`
 """
 

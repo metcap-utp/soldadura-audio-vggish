@@ -39,7 +39,7 @@ Todos los comandos se ejecutan desde la raíz del proyecto (`soldadura/`).
 - Inferencia de un archivo de audio:
   - `python inferir.py --duration 10 --overlap 0.5 --audio ruta/al/archivo.wav`
 
-- Evaluar en blind (vida real):
+- Evaluar en test (vida real):
   - `python inferir.py --duration 10 --overlap 0.5 --evaluar --k-folds 5`
 
 - Cross-duration: modelo entrenado a 05seg evaluado con segmentos de 30seg:

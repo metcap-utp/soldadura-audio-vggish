@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Extrae audio de videos en `videos-soldadura` y organiza en la estructura
+Extrae audio de videos en `videos_soldadura` y organiza en la estructura
 de `TARGET_SPLIT/audio/Placa_xxx/E####/` parecida a la del repo.
 
 Requisitos: `ffmpeg` en PATH.
@@ -79,10 +79,10 @@ def extract_audio(
 
 def main():
     p = argparse.ArgumentParser(
-        description="Extrae y organiza audio desde videos-soldadura"
+        description="Extrae y organiza audio desde videos_soldadura"
     )
     p.add_argument(
-        "--videos-dir", default="videos-soldadura", help="Ruta a videos-soldadura"
+        "--videos-dir", default="videos_soldadura", help="Ruta a videos_soldadura"
     )
     p.add_argument(
         "--target",
@@ -121,7 +121,7 @@ def main():
     else:
         out_root = Path(args.target_root) / args.target / "audio"
 
-    # Recorrer: videos-soldadura/Placa_*/<electrode_dir>/*
+    # Recorrer: videos_soldadura/Placa_*/<electrode_dir>/*
     for placa_dir in sorted(videos_root.iterdir()):
         if not placa_dir.is_dir():
             continue

@@ -8,7 +8,7 @@ Este documento contiene las estadísticas de sesiones y segmentos por etiqueta p
 
 ## Resumen General
 
-| Duración | Sesiones | Segmentos | Train | Test | Blind |
+| Duración | Sesiones | Segmentos | Train | Test | Test |
 |----------|----------|-----------|-------|------|--------|
 | 01seg | 373 | 43170 | 30176 | 8006 | 4988 |
 | 02seg | 373 | 21313 | 14898 | 3950 | 2465 |
@@ -58,7 +58,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 14272 | 9984 | 2839 | 1449 |
 | Placa_3mm | 14503 | 10534 | 2656 | 1313 |
@@ -66,7 +66,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 6516 | 4631 | 1262 | 623 |
 | E6011 | 16730 | 11811 | 3295 | 1624 |
@@ -75,7 +75,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 17123 | 12110 | 3285 | 1728 |
 | DC | 26047 | 18066 | 4721 | 3260 |
@@ -86,7 +86,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 7045 | 4929 | 1401 | 715 |
 | Placa_3mm | 7164 | 5205 | 1312 | 647 |
@@ -94,7 +94,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 3219 | 2288 | 624 | 307 |
 | E6011 | 8266 | 5837 | 1627 | 802 |
@@ -103,7 +103,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 8471 | 5992 | 1624 | 855 |
 | DC | 12842 | 8906 | 2326 | 1610 |
@@ -114,7 +114,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 2709 | 1894 | 540 | 275 |
 | Placa_3mm | 2747 | 1993 | 507 | 247 |
@@ -122,7 +122,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 1233 | 876 | 239 | 118 |
 | E6011 | 3193 | 2253 | 630 | 310 |
@@ -131,7 +131,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 3278 | 2317 | 631 | 330 |
 | DC | 4907 | 3396 | 890 | 621 |
@@ -142,7 +142,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 1263 | 881 | 253 | 129 |
 | Placa_3mm | 1284 | 931 | 239 | 114 |
@@ -150,7 +150,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 578 | 410 | 113 | 55 |
 | E6011 | 1498 | 1055 | 297 | 146 |
@@ -159,7 +159,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 1549 | 1092 | 299 | 158 |
 | DC | 2270 | 1568 | 413 | 289 |
@@ -170,7 +170,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 538 | 375 | 107 | 56 |
 | Placa_3mm | 556 | 402 | 105 | 49 |
@@ -178,7 +178,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 250 | 177 | 48 | 25 |
 | E6011 | 658 | 462 | 130 | 66 |
@@ -187,7 +187,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 683 | 482 | 131 | 70 |
 | DC | 957 | 656 | 172 | 129 |
@@ -198,7 +198,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 302 | 210 | 62 | 30 |
 | Placa_3mm | 312 | 224 | 59 | 29 |
@@ -206,7 +206,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 139 | 97 | 28 | 14 |
 | E6011 | 376 | 266 | 73 | 37 |
@@ -215,7 +215,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 398 | 282 | 76 | 40 |
 | DC | 520 | 353 | 94 | 73 |
@@ -226,7 +226,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Espesor de Placa
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | Placa_12mm | 146 | 101 | 29 | 16 |
 | Placa_3mm | 153 | 107 | 31 | 15 |
@@ -234,7 +234,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Electrodo
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | E6010 | 61 | 41 | 13 | 7 |
 | E6011 | 171 | 120 | 34 | 17 |
@@ -243,7 +243,7 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 
 #### Por Tipo de Corriente
 
-| Etiqueta | Total | Train | Test | Blind |
+| Etiqueta | Total | Train | Test | Test |
 |----------|-------|-------|------|--------|
 | AC | 174 | 121 | 35 | 18 |
 | DC | 274 | 184 | 49 | 41 |
@@ -255,5 +255,5 @@ Las sesiones son las mismas para todas las duraciones, solo cambia el número de
 - Las **sesiones** representan grabaciones únicas de soldadura
 - Los **segmentos** se generan on-the-fly dividiendo cada grabación según la duración especificada
 - El split estratificado garantiza proporciones similares de etiquetas en cada conjunto
-- **Blind** es el conjunto de validación final (nunca usado durante desarrollo)
+- **Test** es el conjunto de validación final (nunca usado durante desarrollo)
 - Los datos de cada duración se generan ejecutando `python generar_splits.py --duration X`
